@@ -972,6 +972,53 @@ button {
   opacity: 0.55;
 }
 
+/* Confianza por corroboración: medidor ●●●○ derivado (honesto, no alarmista — sin semáforo rojo). El
+   número de puntos codifica el nivel; el 4.º solo se enciende con medios independientes. */
+.conf {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  font-size: 11px;
+}
+
+.conf-dots {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.conf-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(127, 127, 127, 0.28);
+}
+
+.conf-dot.is-on {
+  background: #3d9b63;
+}
+
+.conf-label {
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+/* Compacto dentro del chip por tipo (fondo de color, texto blanco): puntos claros, sin etiqueta. */
+.conf-compact {
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+.conf-compact .conf-dot {
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.34);
+}
+
+.conf-compact .conf-dot.is-on {
+  background: #fff;
+}
+
 /* Command palette (⌘K): lanzador arriba-derecha + modal tipo spotlight. */
 .cmdk-launcher {
   position: fixed;

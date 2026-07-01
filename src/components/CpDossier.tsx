@@ -2,6 +2,7 @@
 
 import { LAYER_COLOR } from "@/config/urban-layers";
 import { isSafeHttpUrl } from "@/lib/url";
+import { MAX_DOTS, type Confidence } from "@/lib/confidence";
 
 // Dossier por código postal (patrón "country dossier" de World Monitor, aplicado al asentamiento):
 // sintetiza lo que ya tenemos sobre un CP — colonia, conteo y desglose de señales, contexto
@@ -9,14 +10,34 @@ import { isSafeHttpUrl } from "@/lib/url";
 // y agnóstico de contexto: se usa tanto en el mapa (identidad oscura) como en el tablero (clara), con
 // colores neutros que heredan del contenedor. Honesto: reportes de medios, CP semilla.
 
-export type DossierTypeCount = { type: string; layer: string; count: number };
+export type DossierTypeCount = { type: string; layer: string; count: number; confidence: Confidence };
 export type DossierRecent = { id: string; title: string; observedAt: string | null; sourceUrl: string | null };
+
+// Medidor de confianza ●●●○ (derivado, honesto). `compact` = solo puntos (para los chips por tipo);
+// completo = puntos + etiqueta (para el encabezado). El detalle (`basis`) va en title/aria-label.
+function ConfidenceMeter({ confidence, compact }: { confidence: Confidence; compact?: boolean }) {
+  return (
+    <span
+      className={`conf conf-${confidence.level}${compact ? " conf-compact" : ""}`}
+      title={confidence.basis}
+      aria-label={`Confianza: ${confidence.label}. ${confidence.basis}`}
+    >
+      <span className="conf-dots" aria-hidden="true">
+        {Array.from({ length: MAX_DOTS }, (_, i) => (
+          <span key={i} className={i < confidence.dots ? "conf-dot is-on" : "conf-dot"} />
+        ))}
+      </span>
+      {compact ? null : <span className="conf-label">{confidence.label}</span>}
+    </span>
+  );
+}
 
 export function CpDossier({
   cp,
   colonia,
   municipioName,
   total,
+  confidence,
   byType,
   recent,
   profileLines,
@@ -28,6 +49,7 @@ export function CpDossier({
   colonia: string | null;
   municipioName: string;
   total: number;
+  confidence?: Confidence;
   byType: DossierTypeCount[];
   recent: DossierRecent[];
   profileLines?: string[];
@@ -45,6 +67,7 @@ export function CpDossier({
             {colonia ? `${municipioName} · ` : ""}
             {total} {total === 1 ? "señal periodística" : "señales periodísticas"}
           </p>
+          {confidence ? <ConfidenceMeter confidence={confidence} /> : null}
         </div>
         {onClear ? (
           <button type="button" className="dossier-close" onClick={onClear} aria-label="Quitar dossier">
@@ -58,6 +81,7 @@ export function CpDossier({
           {byType.map((b) => (
             <span key={b.type} className="dossier-tag" style={{ ["--tag" as string]: LAYER_COLOR[b.layer] || "#8a8f98" }}>
               {b.type} <b>{b.count}</b>
+              <ConfidenceMeter confidence={b.confidence} compact />
             </span>
           ))}
         </div>
@@ -109,7 +133,11 @@ export function CpDossier({
         </div>
       ) : null}
 
-      <p className="dossier-note">CP aproximado (semilla) · reportes de medios, no hechos verificados.</p>
+      <p className="dossier-note">
+        CP aproximado (semilla) · reportes de medios, no hechos verificados. La confianza mide la
+        recurrencia del reporte, no verificación; el nivel máximo exige medios independientes (aún no
+        disponibles).
+      </p>
     </section>
   );
 }

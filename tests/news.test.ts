@@ -96,8 +96,27 @@ describe("buildCpDossier", () => {
     expect(d.cp).toBe("94290");
     expect(d.total).toBe(5);
     expect(d.colonia).toBe("Centro");
-    expect(d.byType[0]).toEqual({ type: "Bache", layer: "movilidad", count: 3 });
-    expect(d.byType[1]).toEqual({ type: "Inundación", layer: "riesgo", count: 2 });
+    expect(d.byType[0]).toMatchObject({ type: "Bache", layer: "movilidad", count: 3 });
+    expect(d.byType[1]).toMatchObject({ type: "Inundación", layer: "riesgo", count: 2 });
+  });
+
+  it("adjunta confianza por tipo y global (sin fuente ⇒ recurrencia, nunca corroborada)", () => {
+    const d = buildCpDossier(items, "94290")!;
+    expect(d.confidence.corroborated).toBe(false); // todas del mismo (o ningún) medio
+    expect(d.byType.find((b) => b.type === "Bache")!.confidence.level).toBe("recurrente"); // 3 notas
+    expect(d.byType.find((b) => b.type === "Inundación")!.confidence.level).toBe("emergente"); // 2 notas
+  });
+
+  it("cablea source ⇒ medios distintos ⇒ corroborada (4/4)", () => {
+    const corr: CpDossierItem[] = [
+      { id: "a", type: "Fuga", layer: "agua", title: "1", source: "Medio A", postalCode: "94777" },
+      { id: "b", type: "Fuga", layer: "agua", title: "2", source: "Medio A", postalCode: "94777" },
+      { id: "c", type: "Fuga", layer: "agua", title: "3", source: "Medio B", postalCode: "94777" }
+    ];
+    const d = buildCpDossier(corr, "94777")!;
+    expect(d.confidence.level).toBe("corroborada");
+    expect(d.confidence.corroborated).toBe(true);
+    expect(d.confidence.dots).toBe(4);
   });
 
   it("recent trae máximo 4, más recientes primero", () => {

@@ -179,6 +179,7 @@ export function NewsBoard({
                 colonia={cpDossier.colonia}
                 municipioName={settlementName}
                 total={cpDossier.total}
+                confidence={cpDossier.confidence}
                 byType={cpDossier.byType}
                 recent={cpDossier.recent}
                 mapHref={`/${settlementId}?cp=${cpDossier.cp}`}

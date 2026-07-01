@@ -440,6 +440,7 @@ export function UrbanHero({ settlementSlug }: { settlementSlug?: string }) {
               colonia={cpDossier.colonia}
               municipioName={city.city}
               total={cpDossier.total}
+              confidence={cpDossier.confidence}
               byType={cpDossier.byType}
               recent={cpDossier.recent}
               profileLines={profileLines}
