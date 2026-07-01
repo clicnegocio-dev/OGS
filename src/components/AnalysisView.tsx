@@ -82,11 +82,24 @@ export function AnalysisView({
           &ldquo;nada está aislado&rdquo; hecha número. Es <b>exploratorio</b>: el análisis robusto por
           manzana (AGEB) llega con la plataforma OIS.
         </p>
-        <div className="an-tabs" role="tablist" aria-label="Modo de análisis">
+        <div
+          className="an-tabs"
+          role="tablist"
+          aria-label="Modo de análisis"
+          onKeyDown={(e) => {
+            if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
+              e.preventDefault();
+              setMode((m) => (m === "relacion" ? "tendencia" : "relacion"));
+            }
+          }}
+        >
           <button
             type="button"
             role="tab"
+            id="an-tab-relacion"
+            aria-controls="an-tabpanel"
             aria-selected={mode === "relacion"}
+            tabIndex={mode === "relacion" ? 0 : -1}
             className={`an-tab ${mode === "relacion" ? "is-active" : ""}`}
             onClick={() => setMode("relacion")}
           >
@@ -95,7 +108,10 @@ export function AnalysisView({
           <button
             type="button"
             role="tab"
+            id="an-tab-tendencia"
+            aria-controls="an-tabpanel"
             aria-selected={mode === "tendencia"}
+            tabIndex={mode === "tendencia" ? 0 : -1}
             className={`an-tab ${mode === "tendencia" ? "is-active" : ""}`}
             onClick={() => setMode("tendencia")}
           >
@@ -104,7 +120,14 @@ export function AnalysisView({
         </div>
       </header>
 
-      {mode === "relacion" ? <RelacionPanel cpData={cpData} types={types} /> : <TendenciaPanel settlementId={settlementId} />}
+      <div
+        id="an-tabpanel"
+        role="tabpanel"
+        tabIndex={0}
+        aria-labelledby={mode === "relacion" ? "an-tab-relacion" : "an-tab-tendencia"}
+      >
+        {mode === "relacion" ? <RelacionPanel cpData={cpData} types={types} /> : <TendenciaPanel settlementId={settlementId} />}
+      </div>
 
       <section className="an-ois" aria-label="Análisis robusto (OIS)">
         <p className="an-ois-kicker">Lo que llega con OIS</p>

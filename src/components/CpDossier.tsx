@@ -1,6 +1,6 @@
 "use client";
 
-import { URBAN_LAYERS } from "@/config/urban-layers";
+import { LAYER_COLOR } from "@/config/urban-layers";
 import { isSafeHttpUrl } from "@/lib/url";
 
 // Dossier por código postal (patrón "country dossier" de World Monitor, aplicado al asentamiento):
@@ -8,8 +8,6 @@ import { isSafeHttpUrl } from "@/lib/url";
 // socioeconómico (a nivel municipio) y las últimas notas — en una unidad de lectura. Presentacional
 // y agnóstico de contexto: se usa tanto en el mapa (identidad oscura) como en el tablero (clara), con
 // colores neutros que heredan del contenedor. Honesto: reportes de medios, CP semilla.
-
-const LAYER_COLOR: Record<string, string> = Object.fromEntries(URBAN_LAYERS.map((l) => [l.key, l.color]));
 
 export type DossierTypeCount = { type: string; layer: string; count: number };
 export type DossierRecent = { id: string; title: string; observedAt: string | null; sourceUrl: string | null };

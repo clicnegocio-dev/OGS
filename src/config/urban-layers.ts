@@ -68,6 +68,9 @@ type MissingLayerKey = Exclude<UrbanLayerKey, (typeof URBAN_LAYERS)[number]["key
 const _allLayerKeysCovered: MissingLayerKey extends never ? true : false = true;
 void _allLayerKeysCovered;
 
+// Color por capa (compartido: tablero, dossier, análisis). Antes duplicado en cada componente.
+export const LAYER_COLOR: Record<string, string> = Object.fromEntries(URBAN_LAYERS.map((l) => [l.key, l.color]));
+
 export const DEFAULT_ACTIVE_LAYERS: Record<UrbanLayerKey, boolean> = {
   ambiental: true,
   urbano: true,

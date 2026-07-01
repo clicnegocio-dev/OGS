@@ -32,13 +32,12 @@ export async function GET(request: Request) {
       { headers: { "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400" } }
     );
   } catch (error) {
-    const detail = error instanceof Error ? error.message : String(error);
-    console.error(`[market] ${settlement.id}: ${detail}`);
+    // No se filtra el detalle crudo al cliente (coherente con upstreamError del resto de /api/urban/*).
+    console.error(`[market] ${settlement.id}: ${error instanceof Error ? error.message : String(error)}`);
     return NextResponse.json(
       {
         configured: true,
         error: "No se pudo consultar el mercado inmobiliario",
-        detail,
         source: "Mercado Libre · API oficial",
         timestamp: new Date().toISOString()
       },

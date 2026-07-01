@@ -91,6 +91,40 @@ export function toBoardRows(signals: NewsSignal[]): BoardRow[] {
   }));
 }
 
+// Dossier por CP: síntesis única (colonia, desglose por tipo, últimas) usada IDÉNTICAMENTE por el mapa
+// (UrbanHero, sobre UrbanMapSignal[]) y el tablero (NewsBoard, sobre BoardRow[]). Antes duplicada.
+export type CpDossierItem = {
+  id: string;
+  type: string;
+  layer: string;
+  title: string;
+  observedAt?: string | null;
+  sourceUrl?: string | null;
+  colonia?: string | null;
+  postalCode?: string | null;
+};
+
+export function buildCpDossier(items: CpDossierItem[], cp: string | null) {
+  if (!cp) return null;
+  const cpItems = items.filter((i) => i.postalCode === cp);
+  if (cpItems.length === 0) return null;
+  const colonia = cpItems.find((i) => i.colonia)?.colonia ?? null;
+  const counts = new Map<string, { layer: string; count: number }>();
+  for (const item of cpItems) {
+    const entry = counts.get(item.type) ?? { layer: item.layer, count: 0 };
+    entry.count += 1;
+    counts.set(item.type, entry);
+  }
+  const byType = [...counts.entries()]
+    .map(([type, v]) => ({ type, layer: v.layer, count: v.count }))
+    .sort((a, b) => b.count - a.count);
+  const recent = [...cpItems]
+    .sort((a, b) => (b.observedAt || "").localeCompare(a.observedAt || ""))
+    .slice(0, 4)
+    .map((item) => ({ id: item.id, title: item.title, observedAt: item.observedAt ?? null, sourceUrl: item.sourceUrl ?? null }));
+  return { cp, colonia, total: cpItems.length, byType, recent };
+}
+
 // Índice compacto (asentamiento, CP, colonia) para el buscador ⌘K — evita serializar todo el dataset.
 export function postalCommandIndex(): { settlementId: string; cp: string; colonia: string | null }[] {
   const seen = new Map<string, { settlementId: string; cp: string; colonia: string | null }>();

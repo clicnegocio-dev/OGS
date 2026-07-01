@@ -9,6 +9,7 @@ import { CpDossier } from "@/components/CpDossier";
 import { DEFAULT_ACTIVE_LAYERS, URBAN_LAYERS, type UrbanLayerKey } from "@/config/urban-layers";
 import { getSettlement } from "@/config/settlements";
 import { distanceKm } from "@/lib/geo";
+import { buildCpDossier } from "@/lib/news";
 import type { UrbanMapSignal } from "@/types/urban";
 import type { MunicipalProfile } from "@/lib/socioeconomic";
 
@@ -212,32 +213,8 @@ export function UrbanHero({ settlementSlug }: { settlementSlug?: string }) {
     [radiusFiltered, hazards, activeLayers]
   );
 
-  // Dossier del CP en foco: síntesis de sus señales periodísticas (colonia, desglose, últimas).
-  const cpDossier = useMemo(() => {
-    if (!focusCp) return null;
-    const cpSignals = signals.filter((signal) => signal.postalCode === focusCp);
-    if (cpSignals.length === 0) return null;
-    const colonia = cpSignals.find((signal) => signal.colonia)?.colonia ?? null;
-    const counts = new Map<string, { layer: string; count: number }>();
-    for (const signal of cpSignals) {
-      const entry = counts.get(signal.type) ?? { layer: signal.layer, count: 0 };
-      entry.count += 1;
-      counts.set(signal.type, entry);
-    }
-    const byType = [...counts.entries()]
-      .map(([type, v]) => ({ type, layer: v.layer, count: v.count }))
-      .sort((a, b) => b.count - a.count);
-    const recent = [...cpSignals]
-      .sort((a, b) => (b.observedAt || "").localeCompare(a.observedAt || ""))
-      .slice(0, 4)
-      .map((signal) => ({
-        id: signal.id,
-        title: signal.title,
-        observedAt: signal.observedAt ?? null,
-        sourceUrl: signal.sourceUrl ?? null
-      }));
-    return { cp: focusCp, colonia, total: cpSignals.length, byType, recent };
-  }, [signals, focusCp]);
+  // Dossier del CP en foco (helper compartido con el tablero → dossiers idénticos por construcción).
+  const cpDossier = useMemo(() => buildCpDossier(signals, focusCp), [signals, focusCp]);
 
   const profileLines = useMemo(() => {
     if (!profile) return [];
@@ -324,7 +301,7 @@ export function UrbanHero({ settlementSlug }: { settlementSlug?: string }) {
           <a
             className="cond-board-link"
             href={`/${configuredSettlement.id}/noticias${focusCp ? `?cp=${focusCp}` : ""}`}
-            style={{ display: "inline-block", marginTop: "10px", fontSize: "12px", fontWeight: 700, color: "#ee6a5b", textDecoration: "none" }}
+            style={{ display: "inline-block", marginTop: "10px", fontSize: "12px", fontWeight: 700, color: "var(--accent)", textDecoration: "none" }}
           >
             {focusCp ? `Ver CP ${focusCp} en lista →` : "Ver todas en lista →"}
           </a>
@@ -336,10 +313,10 @@ export function UrbanHero({ settlementSlug }: { settlementSlug?: string }) {
         <b>Señales de medios:</b> XEU (reporte). <b>En integración (OIS):</b> Censo por AGEB,
         banquetas, inundación histórica.{" "}
         <b>Mapa de calor:</b> densidad de señales (incluye demo y prensa sin verificar), no incidencia verificada.{" "}
-        <Link href="/fuentes" style={{ color: "#ee6a5b", fontWeight: 700, textDecoration: "none" }}>
+        <Link href="/fuentes" style={{ color: "var(--accent)", fontWeight: 700, textDecoration: "none" }}>
           Fuentes →
         </Link>{" "}
-        <a href={`/${configuredSettlement.id}/analisis`} style={{ color: "#ee6a5b", fontWeight: 700, textDecoration: "none" }}>
+        <a href={`/${configuredSettlement.id}/analisis`} style={{ color: "var(--accent)", fontWeight: 700, textDecoration: "none" }}>
           Análisis →
         </a>
       </p>

@@ -2,17 +2,15 @@
 
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import Link from "next/link";
-import { URBAN_LAYERS } from "@/config/urban-layers";
+import { LAYER_COLOR } from "@/config/urban-layers";
 import { CpDossier } from "@/components/CpDossier";
 import { isSafeHttpUrl } from "@/lib/url";
-import type { BoardRow, GeoScope, NewsMeta } from "@/lib/news";
+import { buildCpDossier, type BoardRow, type GeoScope, type NewsMeta } from "@/lib/news";
 
 // Tablero tipo "craigslist": lista densa de señales periodísticas, filtrable por categoría, nivel
 // geográfico y código postal, con búsqueda. Complementa el mapa: aquí se HOJEA todo (incluido lo de
 // nivel municipio/estado que en el mapa se apila en un centroide). Honesto: cada nota es un REPORTE
 // de medio (no hecho verificado) y enlaza a su fuente.
-
-const LAYER_COLOR: Record<string, string> = Object.fromEntries(URBAN_LAYERS.map((l) => [l.key, l.color]));
 
 const SCOPE_LABEL: Record<GeoScope, string> = {
   punto: "Colonia (punto)",
@@ -81,27 +79,8 @@ export function NewsBoard({
 
   const hasFilter = Boolean(query || tipo || scope || cp);
 
-  // Dossier del CP seleccionado: síntesis de sus señales (colonia, desglose, últimas) + salto al mapa.
-  const cpDossier = useMemo(() => {
-    if (!cp) return null;
-    const cpRows = rows.filter((r) => r.postalCode === cp);
-    if (cpRows.length === 0) return null;
-    const colonia = cpRows.find((r) => r.colonia)?.colonia ?? null;
-    const counts = new Map<string, { layer: string; count: number }>();
-    for (const r of cpRows) {
-      const entry = counts.get(r.type) ?? { layer: r.layer, count: 0 };
-      entry.count += 1;
-      counts.set(r.type, entry);
-    }
-    const byType = [...counts.entries()]
-      .map(([type, v]) => ({ type, layer: v.layer, count: v.count }))
-      .sort((a, b) => b.count - a.count);
-    const recent = [...cpRows]
-      .sort((a, b) => (b.observedAt || "").localeCompare(a.observedAt || ""))
-      .slice(0, 4)
-      .map((r) => ({ id: r.id, title: r.title, observedAt: r.observedAt, sourceUrl: r.sourceUrl }));
-    return { cp, colonia, total: cpRows.length, byType, recent };
-  }, [rows, cp]);
+  // Dossier del CP seleccionado (helper compartido con el mapa → dossiers idénticos por construcción).
+  const cpDossier = useMemo(() => buildCpDossier(rows, cp), [rows, cp]);
 
   return (
     <main className="board">
