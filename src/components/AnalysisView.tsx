@@ -2,6 +2,7 @@
 
 import { useMemo, useState, useEffect } from "react";
 import Link from "next/link";
+import { linearFit, type Fit } from "@/lib/stats";
 
 // Vista de Análisis (pilar diagnóstico/predictivo de la 4D). Alcance DERIVADO por spec-perfiles-eu-ogs_v1
 // (§7): perfil Ciudadano + objeto ciudad + regla de dato honesto → EXPLORATORIO ahora, robusto = OIS.
@@ -20,29 +21,6 @@ type ProfileResp = {
   source?: { vintage?: string; name?: string };
 };
 
-type Fit = { slope: number; intercept: number; r2: number; n: number; degenerate: boolean };
-
-function linearFit(pts: { x: number; y: number }[]): Fit | null {
-  const n = pts.length;
-  if (n < 2) return null;
-  const mx = pts.reduce((s, p) => s + p.x, 0) / n;
-  const my = pts.reduce((s, p) => s + p.y, 0) / n;
-  let sxy = 0;
-  let sxx = 0;
-  let syy = 0;
-  for (const p of pts) {
-    const dx = p.x - mx;
-    const dy = p.y - my;
-    sxy += dx * dy;
-    sxx += dx * dx;
-    syy += dy * dy;
-  }
-  if (sxx === 0) return { slope: 0, intercept: my, r2: 0, n, degenerate: true };
-  const slope = sxy / sxx;
-  const intercept = my - slope * mx;
-  const r2 = syy === 0 ? 0 : (sxy * sxy) / (sxx * syy);
-  return { slope, intercept, r2, n, degenerate: false };
-}
 
 const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v));
 
