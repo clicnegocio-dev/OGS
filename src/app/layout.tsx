@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./narrative.css";
+import { CommandPalette } from "@/components/CommandPalette";
+import { buildCommandIndex } from "@/lib/commands";
 
 export const metadata: Metadata = {
   title: "Ecosistema Urbano — Nada está aislado",
@@ -19,7 +21,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <CommandPalette commands={buildCommandIndex()} />
+      </body>
     </html>
   );
 }

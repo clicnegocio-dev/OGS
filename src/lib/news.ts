@@ -90,3 +90,16 @@ export function toBoardRows(signals: NewsSignal[]): BoardRow[] {
     geoScope: s.geoScope
   }));
 }
+
+// Índice compacto (asentamiento, CP, colonia) para el buscador ⌘K — evita serializar todo el dataset.
+export function postalCommandIndex(): { settlementId: string; cp: string; colonia: string | null }[] {
+  const seen = new Map<string, { settlementId: string; cp: string; colonia: string | null }>();
+  for (const s of ALL_NEWS) {
+    if (!s.settlementId || !s.postalCode) continue;
+    const key = `${s.settlementId}:${s.postalCode}`;
+    const existing = seen.get(key);
+    if (!existing) seen.set(key, { settlementId: s.settlementId, cp: s.postalCode, colonia: s.colonia });
+    else if (!existing.colonia && s.colonia) existing.colonia = s.colonia; // prefiere una colonia con nombre
+  }
+  return [...seen.values()];
+}
