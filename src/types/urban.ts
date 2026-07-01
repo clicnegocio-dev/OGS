@@ -6,7 +6,8 @@ export type Severity = "low" | "medium" | "high";
 
 export type UrbanMapSignal = {
   id: string;
-  settlementId: string;
+  // null en señales de nivel estado (sin municipio); los consumidores comparan con === (null-safe).
+  settlementId: string | null;
   city: string;
   layer: UrbanLayerKey;
   type: string;

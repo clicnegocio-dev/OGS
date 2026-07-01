@@ -2,7 +2,7 @@
 // comprensibles (Principio 4). Alimenta la página /fuentes. Declara honestamente qué aporta cada
 // fuente, su acceso, frescura, confianza y ESTADO (en vivo / semilla / construido-sin-cablear / OIS).
 
-export type SourceStatus = "vivo" | "semilla" | "desconectado" | "ois";
+export type SourceStatus = "vivo" | "snapshot" | "semilla" | "desconectado" | "ois";
 export type SourceConfidence = "official" | "reported" | "curated" | "inferred";
 
 export type DataSource = {
@@ -20,7 +20,8 @@ export type DataSource = {
 };
 
 export const STATUS_META: Record<SourceStatus, { label: string; description: string; color: string }> = {
-  vivo: { label: "En vivo", description: "Se consume en vivo y alimenta la interfaz.", color: "#6bae6e" },
+  vivo: { label: "En vivo", description: "Se consume en tiempo real y alimenta la interfaz.", color: "#6bae6e" },
+  snapshot: { label: "Instantánea cableada", description: "Dato real con fecha de corte, servido desde un snapshot (no en tiempo real).", color: "#4a90c4" },
   semilla: { label: "Semilla / demo", description: "Datos fabricados para ilustrar; marcados como demo.", color: "#e0a23a" },
   desconectado: { label: "Construido, sin cablear", description: "El conector existe pero aún no llega a la interfaz.", color: "#8a8f98" },
   ois: { label: "En integración (OIS)", description: "Requiere ingestión pesada / persistencia: es trabajo de OIS (Fase 2).", color: "#4c6fae" }
@@ -33,7 +34,7 @@ export const CONFIDENCE_META: Record<SourceConfidence, string> = {
   inferred: "Inferencia / hipótesis"
 };
 
-export const STATUS_ORDER: SourceStatus[] = ["vivo", "semilla", "desconectado", "ois"];
+export const STATUS_ORDER: SourceStatus[] = ["vivo", "snapshot", "semilla", "desconectado", "ois"];
 
 export const DATA_SOURCES: DataSource[] = [
   {
@@ -97,7 +98,7 @@ export const DATA_SOURCES: DataSource[] = [
     access: "Sitemap declarado (respeta robots.txt; no descarga cuerpos)",
     freshness: "Snapshot (corte 2025-08-02); se regenera con el scraper",
     confidence: "reported",
-    status: "vivo",
+    status: "snapshot",
     url: "https://xeu.mx",
     note: "Reportes de medios, no hechos verificados. CP aproximado (semilla). Plano de lectura, efímero."
   },

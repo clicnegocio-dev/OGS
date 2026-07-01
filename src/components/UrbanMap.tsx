@@ -4,6 +4,7 @@ import { useEffect, useRef, type RefObject } from "react";
 import maplibregl, { type ExpressionSpecification } from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { URBAN_LAYERS, type UrbanLayerKey } from "@/config/urban-layers";
+import { isSafeHttpUrl } from "@/lib/url";
 
 type MapPoint = {
   id: string;
@@ -69,7 +70,7 @@ const CONFIDENCE_ES: Record<string, string> = {
 };
 const PRIVACY_ES: Record<string, string> = {
   public: "Público",
-  aggregated: "Agregado (protege identidad)"
+  aggregated: "Agregado (ubicación aproximada)"
 };
 
 export default function UrbanMap({ center, signals, hazards, boundary, activeLayers, is3dEnabled, theme, focusEnabled = true }: UrbanMapProps) {
@@ -488,14 +489,7 @@ function prefersReducedMotion() {
   return typeof window !== "undefined" && Boolean(window.matchMedia?.("(prefers-reduced-motion: reduce)").matches);
 }
 
-function isSafeHttpUrl(value: string) {
-  try {
-    const url = new URL(value);
-    return url.protocol === "http:" || url.protocol === "https:";
-  } catch {
-    return false;
-  }
-}
+// isSafeHttpUrl vive en @/lib/url (compartido con CpDossier/NewsBoard).
 
 function configureGlobe(map: maplibregl.Map, enabled: boolean, theme: "dark" | "light" = "dark") {
   try {
@@ -599,7 +593,12 @@ function signalsToFeatures(points: MapPoint[], forcedLayer?: string): GeoJSON.Fe
       type: "Feature" as const,
       geometry: {
         type: "Point" as const,
-        coordinates: [point.lng, point.lat]
+        // Anti-estigma/PII: las señales 'aggregated' se difuminan a ~110 m (redondeo a 3 decimales),
+        // haciendo cierta la etiqueta 'ubicación aproximada' del popup en vez de decorativa.
+        coordinates:
+          point.privacy === "aggregated"
+            ? [Math.round(point.lng * 1000) / 1000, Math.round(point.lat * 1000) / 1000]
+            : [point.lng, point.lat]
       },
       properties: {
         id: point.id,
@@ -634,7 +633,11 @@ function renderPopup(properties: Record<string, unknown>) {
   const hint = properties.layerHint ? escapeHtml(String(properties.layerHint)) : "";
   const source = escapeHtml(String(properties.source || "Fuente no declarada"));
   const confidenceKey = String(properties.confidence || "");
-  const confidence = CONFIDENCE_ES[confidenceKey] || (confidenceKey ? escapeHtml(confidenceKey) : "");
+  // 'reported' se comparte entre reporte ciudadano y prensa; si la fuente es un medio, etiquétalo como tal.
+  const confidence =
+    confidenceKey === "reported" && /medio/i.test(String(properties.source || ""))
+      ? "Reporte de medio (no verificado)"
+      : CONFIDENCE_ES[confidenceKey] || (confidenceKey ? escapeHtml(confidenceKey) : "");
   const privacy = PRIVACY_ES[String(properties.privacy || "")] || "";
   const date = properties.updatedAt || properties.observedAt;
   const dateText = date ? escapeHtml(String(date).slice(0, 10)) : "";

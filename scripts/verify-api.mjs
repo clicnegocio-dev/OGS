@@ -82,8 +82,12 @@ async function assertNews(settlement) {
   if (mapped > 0) {
     assert(payload.signals.length > 0, `${settlement} news reports mapped>0 but signals array is empty`);
     assert(
-      payload.signals.every((signal) => signal.settlementId === settlement && signal.geoPrecision === "colonia"),
-      `${settlement} mapped news signals must be scoped and colonia-located`
+      payload.signals.every(
+        (signal) =>
+          ["punto", "municipio", "estado"].includes(signal.geoScope) &&
+          (signal.geoScope === "estado" || signal.settlementId === settlement)
+      ),
+      `${settlement} news signals must have a valid geoScope and belong to the settlement (estado excepted)`
     );
   }
   assert(typeof payload.vintage === "string", `${settlement} news vintage missing`);

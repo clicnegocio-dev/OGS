@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { URBAN_LAYERS } from "@/config/urban-layers";
 import { CpDossier } from "@/components/CpDossier";
+import { isSafeHttpUrl } from "@/lib/url";
 import type { BoardRow, GeoScope, NewsMeta } from "@/lib/news";
 
 // Tablero tipo "craigslist": lista densa de señales periodísticas, filtrable por categoría, nivel
@@ -219,7 +220,7 @@ export function NewsBoard({
                   <span className="row-tag" style={{ ["--tag" as string]: typeColor[r.type] || "#8a8f98" }}>
                     {r.type}
                   </span>
-                  {r.sourceUrl ? (
+                  {r.sourceUrl && isSafeHttpUrl(r.sourceUrl) ? (
                     <a className="row-title" href={r.sourceUrl} target="_blank" rel="noopener noreferrer">
                       {r.title}
                     </a>

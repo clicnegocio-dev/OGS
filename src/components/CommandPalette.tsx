@@ -14,6 +14,9 @@ export function CommandPalette({ commands }: { commands: CommandLink[] }) {
   const [query, setQuery] = useState("");
   const [active, setActive] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
+  const launcherRef = useRef<HTMLButtonElement>(null);
+  const prevFocusRef = useRef<HTMLElement | null>(null);
+  const wasOpenRef = useRef(false);
 
   // Atajo global: ⌘K / Ctrl+K abre/cierra; Escape cierra.
   useEffect(() => {
@@ -31,9 +34,16 @@ export function CommandPalette({ commands }: { commands: CommandLink[] }) {
 
   useEffect(() => {
     if (open) {
+      wasOpenRef.current = true;
+      prevFocusRef.current = document.activeElement as HTMLElement | null;
       setQuery("");
       setActive(0);
       requestAnimationFrame(() => inputRef.current?.focus());
+    } else if (wasOpenRef.current) {
+      // Al cerrar, devolver el foco al elemento previo (o al lanzador). Solo si ya estuvo abierto,
+      // para no robar el foco en la carga inicial de la página.
+      (prevFocusRef.current ?? launcherRef.current)?.focus();
+      prevFocusRef.current = null;
     }
   }, [open]);
 
@@ -63,6 +73,11 @@ export function CommandPalette({ commands }: { commands: CommandLink[] }) {
       event.preventDefault();
       const cmd = filtered[active];
       if (cmd) go(cmd);
+    } else if (event.key === "Tab") {
+      // Foco atrapado: el input es el único control tabbable; las opciones se navegan con flechas
+      // (aria-activedescendant). Tab no debe escapar del modal.
+      event.preventDefault();
+      inputRef.current?.focus();
     }
   }
 
@@ -72,6 +87,7 @@ export function CommandPalette({ commands }: { commands: CommandLink[] }) {
     <>
       <button
         type="button"
+        ref={launcherRef}
         className="cmdk-launcher"
         onClick={() => setOpen(true)}
         aria-label="Buscar y navegar (Ctrl o Cmd + K)"
@@ -90,8 +106,12 @@ export function CommandPalette({ commands }: { commands: CommandLink[] }) {
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Buscar asentamiento, colonia, código postal, vista…"
               aria-label="Buscar"
+              role="combobox"
+              aria-expanded
+              aria-controls="cmdk-listbox"
+              aria-activedescendant={filtered.length ? `cmdk-opt-${active}` : undefined}
             />
-            <div className="cmdk-list" role="listbox" aria-label="Resultados">
+            <div id="cmdk-listbox" className="cmdk-list" role="listbox" aria-label="Resultados">
               {filtered.length === 0 ? <p className="cmdk-empty">Sin resultados.</p> : null}
               {groups.map((group) => (
                 <div key={group} className="cmdk-group">
@@ -103,6 +123,7 @@ export function CommandPalette({ commands }: { commands: CommandLink[] }) {
                       return (
                         <button
                           key={c.id}
+                          id={`cmdk-opt-${idx}`}
                           type="button"
                           role="option"
                           aria-selected={idx === active}

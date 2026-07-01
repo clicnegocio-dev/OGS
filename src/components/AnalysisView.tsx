@@ -12,7 +12,7 @@ import Link from "next/link";
 
 export type CpDatum = { cp: string; colonia: string | null; total: number; counts: Record<string, number> };
 
-type TrendPoint = { year: number; value: number };
+type TrendPoint = { year: number; pct: number };
 type ProfileResp = {
   dimensions?: {
     predictive?: { povertyTrend?: { series?: TrendPoint[]; direction?: string; deltaPctPoints?: number } };
@@ -137,6 +137,8 @@ function RelacionPanel({ cpData, types }: { cpData: CpDatum[]; types: string[] }
     [cpData, xType, yType]
   );
   const fit = useMemo(() => linearFit(points), [points]);
+  // Evita R² espurio: exige >= 4 zonas y dos variables distintas (con 2 puntos R² siempre da 1.00).
+  const fitOk = points.length >= 4 && xType !== yType && fit !== null && !fit.degenerate;
 
   if (cpData.length < 2) {
     return <p className="an-empty">Se necesitan al menos 2 códigos postales con señales para relacionar.</p>;
@@ -168,16 +170,16 @@ function RelacionPanel({ cpData, types }: { cpData: CpDatum[]; types: string[] }
         </label>
       </div>
 
-      <Scatter points={points} fit={fit} xLabel={xType} yLabel={yType} />
+      <Scatter points={points} fit={fitOk ? fit : null} xLabel={xType} yLabel={yType} />
 
       <div className="an-stats">
         <Stat label="N (códigos postales)" value={String(points.length)} />
-        <Stat label="R²" value={fit && !fit.degenerate ? fit.r2.toFixed(2) : "—"} />
-        <Stat label="Pendiente" value={fit && !fit.degenerate ? fit.slope.toFixed(2) : "—"} />
+        <Stat label="R²" value={fitOk && fit ? fit.r2.toFixed(2) : "—"} />
+        <Stat label="Pendiente" value={fitOk && fit ? fit.slope.toFixed(2) : "—"} />
         <Stat
           label="Lectura"
           value={
-            fit && !fit.degenerate
+            fitOk && fit
               ? fit.r2 >= 0.5
                 ? "co-ocurren"
                 : fit.r2 >= 0.2
@@ -187,6 +189,14 @@ function RelacionPanel({ cpData, types }: { cpData: CpDatum[]; types: string[] }
           }
         />
       </div>
+
+      {!fitOk ? (
+        <p className="an-caveat">
+          {xType === yType
+            ? "Elige dos tipos distintos para relacionarlos."
+            : `N = ${points.length}: insuficiente para un ajuste fiable (se necesitan ≥ 4 zonas). Se muestran los puntos, sin R².`}
+        </p>
+      ) : null}
 
       <p className="an-caveat">
         Cada punto es un código postal. <b>N pequeño</b>, <b>fuente única</b> (prensa, no verificada) y{" "}
@@ -212,7 +222,7 @@ function TendenciaPanel({ settlementId }: { settlementId: string }) {
       .then((data: ProfileResp) => {
         const trend = data?.dimensions?.predictive?.povertyTrend;
         const rawSeries = trend?.series;
-        const s = Array.isArray(rawSeries) ? rawSeries.filter((p) => Number.isFinite(p?.value)) : [];
+        const s = Array.isArray(rawSeries) ? rawSeries.filter((p) => Number.isFinite(p?.pct)) : [];
         setSeries(s);
         setDirection(trend?.direction ?? "");
         setDelta(typeof trend?.deltaPctPoints === "number" ? trend.deltaPctPoints : null);
@@ -330,10 +340,10 @@ function LineChart({ series }: { series: TrendPoint[] }) {
   const years = series.map((s) => s.year);
   const minYr = Math.min(...years);
   const maxYr = Math.max(...years);
-  const maxV = Math.max(1, ...series.map((s) => s.value)) * 1.12;
+  const maxV = Math.max(1, ...series.map((s) => s.pct)) * 1.12;
   const sx = (yr: number) => pl + (maxYr === minYr ? 0.5 : (yr - minYr) / (maxYr - minYr)) * (W - pl - pr);
   const sy = (v: number) => H - pb - (v / maxV) * (H - pt - pb);
-  const path = series.map((s, i) => `${i ? "L" : "M"}${sx(s.year).toFixed(1)},${sy(s.value).toFixed(1)}`).join(" ");
+  const path = series.map((s, i) => `${i ? "L" : "M"}${sx(s.year).toFixed(1)},${sy(s.pct).toFixed(1)}`).join(" ");
 
   return (
     <svg viewBox={`0 0 ${W} ${H}`} className="an-svg" role="img" aria-label="Tendencia de pobreza por año">
@@ -342,9 +352,9 @@ function LineChart({ series }: { series: TrendPoint[] }) {
       <path d={path} className="an-line" fill="none" />
       {series.map((s) => (
         <g key={s.year}>
-          <circle cx={sx(s.year)} cy={sy(s.value)} r={4} className="an-dot" />
-          <text x={sx(s.year)} y={sy(s.value) - 9} className="an-point-label" textAnchor="middle">
-            {s.value}%
+          <circle cx={sx(s.year)} cy={sy(s.pct)} r={4} className="an-dot" />
+          <text x={sx(s.year)} y={sy(s.pct) - 9} className="an-point-label" textAnchor="middle">
+            {s.pct}%
           </text>
           <text x={sx(s.year)} y={H - 12} className="an-axis-label" textAnchor="middle">
             {s.year}

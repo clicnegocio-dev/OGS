@@ -41,7 +41,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Riviera Veracruzana",
-      "geoPrecision": "colonia",
       "postalCode": "94277",
       "geoScope": "punto",
       "stateCode": "30"
@@ -65,7 +64,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -89,7 +87,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -113,7 +110,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -137,7 +133,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -161,7 +156,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Tarimoya",
-      "geoPrecision": "colonia",
       "postalCode": "91775",
       "geoScope": "punto",
       "stateCode": "30"
@@ -185,7 +179,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Río Medio",
-      "geoPrecision": "colonia",
       "postalCode": "91808",
       "geoScope": "punto",
       "stateCode": "30"
@@ -209,7 +202,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Costa de Oro",
-      "geoPrecision": "colonia",
       "postalCode": "94299",
       "geoScope": "punto",
       "stateCode": "30"
@@ -233,7 +225,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": "Riviera Veracruzana",
-      "geoPrecision": "colonia",
       "postalCode": "94277",
       "geoScope": "punto",
       "stateCode": "30"
@@ -257,7 +248,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Zaragoza",
-      "geoPrecision": "colonia",
       "postalCode": "91910",
       "geoScope": "punto",
       "stateCode": "30"
@@ -281,7 +271,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -305,7 +294,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -329,7 +317,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -353,7 +340,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Las Bajadas",
-      "geoPrecision": "colonia",
       "postalCode": "91697",
       "geoScope": "punto",
       "stateCode": "30"
@@ -377,7 +363,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -401,7 +386,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -425,7 +409,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -449,7 +432,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -473,7 +455,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -497,7 +478,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -521,7 +501,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -545,7 +524,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -569,7 +547,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -593,7 +570,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Zaragoza",
-      "geoPrecision": "colonia",
       "postalCode": "91910",
       "geoScope": "punto",
       "stateCode": "30"
@@ -617,7 +593,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": "Riviera Veracruzana",
-      "geoPrecision": "colonia",
       "postalCode": "94277",
       "geoScope": "punto",
       "stateCode": "30"
@@ -641,7 +616,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -665,7 +639,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -689,7 +662,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -713,7 +685,6 @@
       "privacy": "public",
       "section": "sociedad",
       "colonia": "Mocambo",
-      "geoPrecision": "colonia",
       "postalCode": "94293",
       "geoScope": "punto",
       "stateCode": "30"
@@ -737,7 +708,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Riviera Veracruzana",
-      "geoPrecision": "colonia",
       "postalCode": "94277",
       "geoScope": "punto",
       "stateCode": "30"
@@ -761,7 +731,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -785,7 +754,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -809,7 +777,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -833,7 +800,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -857,7 +823,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -881,7 +846,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -905,7 +869,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -929,7 +892,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -953,7 +915,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": "Riviera Veracruzana",
-      "geoPrecision": "colonia",
       "postalCode": "94277",
       "geoScope": "punto",
       "stateCode": "30"
@@ -977,7 +938,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1001,7 +961,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Fraccionamiento Reforma",
-      "geoPrecision": "colonia",
       "postalCode": "94297",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1025,7 +984,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1049,7 +1007,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": "Costa Verde",
-      "geoPrecision": "colonia",
       "postalCode": "94294",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1073,7 +1030,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1097,7 +1053,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1121,7 +1076,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Tarimoya",
-      "geoPrecision": "colonia",
       "postalCode": "91775",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1145,7 +1099,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1169,7 +1122,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1193,7 +1145,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1217,7 +1168,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1241,7 +1191,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1265,7 +1214,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1289,7 +1237,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1313,7 +1260,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1337,7 +1283,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1361,7 +1306,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1385,7 +1329,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Floresta",
-      "geoPrecision": "colonia",
       "postalCode": "94298",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1409,7 +1352,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1433,7 +1375,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1457,7 +1398,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1481,7 +1421,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1505,7 +1444,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Zaragoza",
-      "geoPrecision": "colonia",
       "postalCode": "91910",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1529,7 +1467,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1553,7 +1490,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1577,7 +1513,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Las Bajadas",
-      "geoPrecision": "colonia",
       "postalCode": "91697",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1601,7 +1536,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "El Dorado",
-      "geoPrecision": "colonia",
       "postalCode": "94297",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1625,7 +1559,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1649,7 +1582,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Zaragoza",
-      "geoPrecision": "colonia",
       "postalCode": "91910",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1673,7 +1605,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Zaragoza",
-      "geoPrecision": "colonia",
       "postalCode": "91910",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1697,7 +1628,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Zaragoza",
-      "geoPrecision": "colonia",
       "postalCode": "91910",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1721,7 +1651,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1745,7 +1674,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1769,7 +1697,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1793,7 +1720,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Formando Hogar",
-      "geoPrecision": "colonia",
       "postalCode": "91897",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1817,7 +1743,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Formando Hogar",
-      "geoPrecision": "colonia",
       "postalCode": "91897",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1841,7 +1766,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Zaragoza",
-      "geoPrecision": "colonia",
       "postalCode": "91910",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1865,7 +1789,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1889,7 +1812,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1913,7 +1835,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1937,7 +1858,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1961,7 +1881,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -1985,7 +1904,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": "Riviera Veracruzana",
-      "geoPrecision": "colonia",
       "postalCode": "94277",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2009,7 +1927,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2033,7 +1950,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2057,7 +1973,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2081,7 +1996,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2105,7 +2019,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Zaragoza",
-      "geoPrecision": "colonia",
       "postalCode": "91910",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2129,7 +2042,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2153,7 +2065,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Río Medio",
-      "geoPrecision": "colonia",
       "postalCode": "91808",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2177,7 +2088,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2201,7 +2111,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Riviera Veracruzana",
-      "geoPrecision": "colonia",
       "postalCode": "94277",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2225,7 +2134,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Riviera Veracruzana",
-      "geoPrecision": "colonia",
       "postalCode": "94277",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2249,7 +2157,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Playa Linda",
-      "geoPrecision": "colonia",
       "postalCode": "91810",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2273,7 +2180,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Río Medio",
-      "geoPrecision": "colonia",
       "postalCode": "91808",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2297,7 +2203,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2321,7 +2226,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2345,7 +2249,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Formando Hogar",
-      "geoPrecision": "colonia",
       "postalCode": "91897",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2369,7 +2272,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": "Riviera Veracruzana",
-      "geoPrecision": "colonia",
       "postalCode": "94277",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2393,7 +2295,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Fraccionamiento Reforma",
-      "geoPrecision": "colonia",
       "postalCode": "94297",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2417,7 +2318,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "El Dorado",
-      "geoPrecision": "colonia",
       "postalCode": "94297",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2441,7 +2341,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Las Américas",
-      "geoPrecision": "colonia",
       "postalCode": "94298",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2465,7 +2364,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2489,7 +2387,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Río Medio",
-      "geoPrecision": "colonia",
       "postalCode": "91808",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2513,7 +2410,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": "Riviera Veracruzana",
-      "geoPrecision": "colonia",
       "postalCode": "94277",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2537,7 +2433,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": "Riviera Veracruzana",
-      "geoPrecision": "colonia",
       "postalCode": "94277",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2561,7 +2456,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2585,7 +2479,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2609,7 +2502,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2633,7 +2525,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2657,7 +2548,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Zaragoza",
-      "geoPrecision": "colonia",
       "postalCode": "91910",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2681,7 +2571,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2705,7 +2594,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2729,7 +2617,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2753,7 +2640,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Floresta",
-      "geoPrecision": "colonia",
       "postalCode": "94298",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2777,7 +2663,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Río Medio",
-      "geoPrecision": "colonia",
       "postalCode": "91808",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2801,7 +2686,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Riviera Veracruzana",
-      "geoPrecision": "colonia",
       "postalCode": "94277",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2825,7 +2709,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Mocambo",
-      "geoPrecision": "colonia",
       "postalCode": "94293",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2849,7 +2732,6 @@
       "privacy": "public",
       "section": "estado-de-veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2873,7 +2755,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": "Costa de Oro",
-      "geoPrecision": "colonia",
       "postalCode": "94299",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2897,7 +2778,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Las Bajadas",
-      "geoPrecision": "colonia",
       "postalCode": "91697",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2921,7 +2801,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Las Vegas",
-      "geoPrecision": "colonia",
       "postalCode": "91868",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2945,7 +2824,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2969,7 +2847,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Río Medio",
-      "geoPrecision": "colonia",
       "postalCode": "91808",
       "geoScope": "punto",
       "stateCode": "30"
@@ -2993,7 +2870,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Río Medio",
-      "geoPrecision": "colonia",
       "postalCode": "91808",
       "geoScope": "punto",
       "stateCode": "30"
@@ -3017,7 +2893,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Tarimoya",
-      "geoPrecision": "colonia",
       "postalCode": "91775",
       "geoScope": "punto",
       "stateCode": "30"
@@ -3041,7 +2916,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Tarimoya",
-      "geoPrecision": "colonia",
       "postalCode": "91775",
       "geoScope": "punto",
       "stateCode": "30"
@@ -3065,7 +2939,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -3089,7 +2962,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Zaragoza",
-      "geoPrecision": "colonia",
       "postalCode": "91910",
       "geoScope": "punto",
       "stateCode": "30"
@@ -3113,7 +2985,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -3137,7 +3008,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -3161,7 +3031,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Río Medio",
-      "geoPrecision": "colonia",
       "postalCode": "91808",
       "geoScope": "punto",
       "stateCode": "30"
@@ -3185,7 +3054,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Riviera Veracruzana",
-      "geoPrecision": "colonia",
       "postalCode": "94277",
       "geoScope": "punto",
       "stateCode": "30"
@@ -3209,7 +3077,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Riviera Veracruzana",
-      "geoPrecision": "colonia",
       "postalCode": "94277",
       "geoScope": "punto",
       "stateCode": "30"
@@ -3233,7 +3100,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Zaragoza",
-      "geoPrecision": "colonia",
       "postalCode": "91910",
       "geoScope": "punto",
       "stateCode": "30"
@@ -3257,7 +3123,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Zaragoza",
-      "geoPrecision": "colonia",
       "postalCode": "91910",
       "geoScope": "punto",
       "stateCode": "30"
@@ -3281,7 +3146,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Zaragoza",
-      "geoPrecision": "colonia",
       "postalCode": "91910",
       "geoScope": "punto",
       "stateCode": "30"
@@ -3305,7 +3169,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -3329,7 +3192,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -3353,7 +3215,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -3377,7 +3238,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Zaragoza",
-      "geoPrecision": "colonia",
       "postalCode": "91910",
       "geoScope": "punto",
       "stateCode": "30"
@@ -3401,7 +3261,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -3425,7 +3284,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Río Medio",
-      "geoPrecision": "colonia",
       "postalCode": "91808",
       "geoScope": "punto",
       "stateCode": "30"
@@ -3449,7 +3307,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -3473,7 +3330,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -3497,7 +3353,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -3521,7 +3376,6 @@
       "privacy": "public",
       "section": "policiaca",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -3545,7 +3399,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": "Riviera Veracruzana",
-      "geoPrecision": "colonia",
       "postalCode": "94277",
       "geoScope": "punto",
       "stateCode": "30"
@@ -3569,7 +3422,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": "Riviera Veracruzana",
-      "geoPrecision": "colonia",
       "postalCode": "94277",
       "geoScope": "punto",
       "stateCode": "30"
@@ -3593,7 +3445,6 @@
       "privacy": "public",
       "section": "estado-de-veracruz",
       "colonia": "Centro",
-      "geoPrecision": "colonia",
       "postalCode": "91700",
       "geoScope": "punto",
       "stateCode": "30"
@@ -3617,7 +3468,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -3641,7 +3491,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -3665,7 +3514,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -3689,7 +3537,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -3713,7 +3560,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -3737,7 +3583,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -3761,7 +3606,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -3785,7 +3629,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -3809,7 +3652,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -3833,7 +3675,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -3857,7 +3698,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -3881,7 +3721,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -3905,7 +3744,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -3929,7 +3767,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -3953,7 +3790,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -3977,7 +3813,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4001,7 +3836,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4025,7 +3859,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4049,7 +3882,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4073,7 +3905,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4097,7 +3928,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4121,7 +3951,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4145,7 +3974,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4169,7 +3997,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4193,7 +4020,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4217,7 +4043,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4241,7 +4066,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4265,7 +4089,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4289,7 +4112,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4313,7 +4135,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4337,7 +4158,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4361,7 +4181,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4385,7 +4204,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4409,7 +4227,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4433,7 +4250,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4457,7 +4273,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4481,7 +4296,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4505,7 +4319,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4529,7 +4342,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4553,7 +4365,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4577,7 +4388,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4601,7 +4411,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4625,7 +4434,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4649,7 +4457,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4673,7 +4480,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4697,7 +4503,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4721,7 +4526,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4745,7 +4549,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4769,7 +4572,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4793,7 +4595,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4817,7 +4618,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4841,7 +4641,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4865,7 +4664,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4889,7 +4687,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4913,7 +4710,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4937,7 +4733,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4961,7 +4756,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -4985,7 +4779,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5009,7 +4802,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5033,7 +4825,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5057,7 +4848,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5081,7 +4871,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5105,7 +4894,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5129,7 +4917,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5153,7 +4940,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5177,7 +4963,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5201,7 +4986,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5225,7 +5009,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5249,7 +5032,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5273,7 +5055,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5297,7 +5078,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5321,7 +5101,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5345,7 +5124,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5369,7 +5147,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5393,7 +5170,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5417,7 +5193,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5441,7 +5216,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5465,7 +5239,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5489,7 +5262,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5513,7 +5285,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5537,7 +5308,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5561,7 +5331,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5585,7 +5354,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5609,7 +5377,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5633,7 +5400,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5657,7 +5423,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5681,7 +5446,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5705,7 +5469,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5729,7 +5492,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5753,7 +5515,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5777,7 +5538,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5801,7 +5561,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5825,7 +5584,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5849,7 +5607,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5873,7 +5630,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5897,7 +5653,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5921,7 +5676,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5945,7 +5699,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5969,7 +5722,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -5993,7 +5745,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6017,7 +5768,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6041,7 +5791,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6065,7 +5814,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6089,7 +5837,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6113,7 +5860,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6137,7 +5883,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6161,7 +5906,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6185,7 +5929,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6209,7 +5952,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6233,7 +5975,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6257,7 +5998,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6281,7 +6021,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6305,7 +6044,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6329,7 +6067,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6353,7 +6090,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6377,7 +6113,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6401,7 +6136,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6425,7 +6159,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6449,7 +6182,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6473,7 +6205,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6497,7 +6228,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6521,7 +6251,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6545,7 +6274,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6569,7 +6297,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6593,7 +6320,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6617,7 +6343,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6641,7 +6366,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6665,7 +6389,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6689,7 +6412,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6713,7 +6435,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6737,7 +6458,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6761,7 +6481,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6785,7 +6504,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6809,7 +6527,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6833,7 +6550,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6857,7 +6573,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6881,7 +6596,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6905,7 +6619,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6929,7 +6642,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6953,7 +6665,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -6977,7 +6688,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7001,7 +6711,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7025,7 +6734,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7049,7 +6757,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7073,7 +6780,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7097,7 +6803,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7121,7 +6826,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7145,7 +6849,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7169,7 +6872,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7193,7 +6895,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7217,7 +6918,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7241,7 +6941,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7265,7 +6964,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7289,7 +6987,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7313,7 +7010,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7337,7 +7033,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7361,7 +7056,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7385,7 +7079,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7409,7 +7102,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7433,7 +7125,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7457,7 +7148,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7481,7 +7171,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7505,7 +7194,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7529,7 +7217,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7553,7 +7240,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7577,7 +7263,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7601,7 +7286,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7625,7 +7309,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7649,7 +7332,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7673,7 +7355,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7697,7 +7378,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7721,7 +7401,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7745,7 +7424,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7769,7 +7447,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7793,7 +7470,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7817,7 +7493,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7841,7 +7516,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7865,7 +7539,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7889,7 +7562,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7913,7 +7585,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7937,7 +7608,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7961,7 +7631,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -7985,7 +7654,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8009,7 +7677,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8033,7 +7700,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8057,7 +7723,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8081,7 +7746,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8105,7 +7769,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8129,7 +7792,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8153,7 +7815,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8177,7 +7838,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8201,7 +7861,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8225,7 +7884,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8249,7 +7907,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8273,7 +7930,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8297,7 +7953,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8321,7 +7976,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8345,7 +7999,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8369,7 +8022,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8393,7 +8045,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8417,7 +8068,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8441,7 +8091,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8465,7 +8114,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8489,7 +8137,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8513,7 +8160,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8537,7 +8183,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8561,7 +8206,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8585,7 +8229,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8609,7 +8252,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8633,7 +8275,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8657,7 +8298,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8681,7 +8321,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8705,7 +8344,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8729,7 +8367,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8753,7 +8390,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8777,7 +8413,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8801,7 +8436,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8825,7 +8459,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8849,7 +8482,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8873,7 +8505,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8897,7 +8528,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8921,7 +8551,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8945,7 +8574,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8969,7 +8597,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -8993,7 +8620,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9017,7 +8643,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9041,7 +8666,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9065,7 +8689,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9089,7 +8712,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9113,7 +8735,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9137,7 +8758,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9161,7 +8781,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9185,7 +8804,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9209,7 +8827,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9233,7 +8850,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9257,7 +8873,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9281,7 +8896,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9305,7 +8919,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9329,7 +8942,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9353,7 +8965,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9377,7 +8988,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9401,7 +9011,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9425,7 +9034,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9449,7 +9057,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9473,7 +9080,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9497,7 +9103,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9521,7 +9126,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9545,7 +9149,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9569,7 +9172,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9593,7 +9195,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9617,7 +9218,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9641,7 +9241,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9665,7 +9264,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9689,7 +9287,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9713,7 +9310,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9737,7 +9333,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9761,7 +9356,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9785,7 +9379,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9809,7 +9402,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9833,7 +9425,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9857,7 +9448,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9881,7 +9471,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9905,7 +9494,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9929,7 +9517,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9953,7 +9540,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -9977,7 +9563,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10001,7 +9586,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10025,7 +9609,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10049,7 +9632,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10073,7 +9655,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10097,7 +9678,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10121,7 +9701,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10145,7 +9724,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10169,7 +9747,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10193,7 +9770,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10217,7 +9793,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10241,7 +9816,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10265,7 +9839,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10289,7 +9862,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10313,7 +9885,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10337,7 +9908,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10361,7 +9931,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10385,7 +9954,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10409,7 +9977,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10433,7 +10000,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10457,7 +10023,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10481,7 +10046,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10505,7 +10069,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10529,7 +10092,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10553,7 +10115,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10577,7 +10138,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10601,7 +10161,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10625,7 +10184,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10649,7 +10207,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10673,7 +10230,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10697,7 +10253,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10721,7 +10276,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10745,7 +10299,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10769,7 +10322,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10793,7 +10345,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10817,7 +10368,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10841,7 +10391,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10865,7 +10414,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10889,7 +10437,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10913,7 +10460,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10937,7 +10483,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10961,7 +10506,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -10985,7 +10529,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11009,7 +10552,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11033,7 +10575,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11057,7 +10598,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11081,7 +10621,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11105,7 +10644,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11129,7 +10667,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11153,7 +10690,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11177,7 +10713,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11201,7 +10736,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11225,7 +10759,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11249,7 +10782,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11273,7 +10805,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11297,7 +10828,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11321,7 +10851,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11345,7 +10874,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11369,7 +10897,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11393,7 +10920,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11417,7 +10943,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11441,7 +10966,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11465,7 +10989,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11489,7 +11012,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11513,7 +11035,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11537,7 +11058,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11561,7 +11081,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11585,7 +11104,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11609,7 +11127,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11633,7 +11150,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11657,7 +11173,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11681,7 +11196,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11705,7 +11219,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11729,7 +11242,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11753,7 +11265,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11777,7 +11288,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11801,7 +11311,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11825,7 +11334,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11849,7 +11357,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11873,7 +11380,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11897,7 +11403,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11921,7 +11426,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11945,7 +11449,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11969,7 +11472,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -11993,7 +11495,6 @@
       "privacy": "public",
       "section": "boca-del-rio",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "94290",
       "geoScope": "municipio",
       "stateCode": "30"
@@ -12017,7 +11518,6 @@
       "privacy": "public",
       "section": "veracruz",
       "colonia": null,
-      "geoPrecision": "municipio",
       "postalCode": "91700",
       "geoScope": "municipio",
       "stateCode": "30"

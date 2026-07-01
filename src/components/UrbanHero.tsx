@@ -331,7 +331,8 @@ export function UrbanHero({ settlementSlug }: { settlementSlug?: string }) {
         </div>
       ) : null}
       <p className="data-coverage">
-        <b>Medido en vivo:</b> clima, aire, sismo, servicios, perfil socioeconómico (DataMéxico).{" "}
+        <b>Medido en vivo:</b> clima, aire, sismo, servicios.{" "}
+        <b>Oficial por corte:</b> perfil socioeconómico (DataMéxico).{" "}
         <b>Señales de medios:</b> XEU (reporte). <b>En integración (OIS):</b> Censo por AGEB,
         banquetas, inundación histórica.{" "}
         <b>Mapa de calor:</b> densidad de señales (incluye demo y prensa sin verificar), no incidencia verificada.{" "}

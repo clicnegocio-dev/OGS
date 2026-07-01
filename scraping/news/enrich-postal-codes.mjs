@@ -32,6 +32,8 @@ async function main() {
     if (!s.geoScope) s.geoScope = s.geoPrecision === "colonia" ? "punto" : "municipio";
     // Datos actuales = Veracruz (clave INEGI 30). El scraper nuevo lo emite por medio.
     if (!s.stateCode) s.stateCode = "30";
+    // Cierra la migración: geoScope es el único nombre canónico; se retira el residual geoPrecision.
+    delete s.geoPrecision;
   }
 
   payload.byPostalCode = countBy(signals.filter((s) => s.postalCode), "postalCode");

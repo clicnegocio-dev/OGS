@@ -1,6 +1,7 @@
 "use client";
 
 import { URBAN_LAYERS } from "@/config/urban-layers";
+import { isSafeHttpUrl } from "@/lib/url";
 
 // Dossier por código postal (patrón "country dossier" de World Monitor, aplicado al asentamiento):
 // sintetiza lo que ya tenemos sobre un CP — colonia, conteo y desglose de señales, contexto
@@ -81,7 +82,7 @@ export function CpDossier({
           <ul>
             {recent.map((r) => (
               <li key={r.id}>
-                {r.sourceUrl ? (
+                {r.sourceUrl && isSafeHttpUrl(r.sourceUrl) ? (
                   <a href={r.sourceUrl} target="_blank" rel="noopener noreferrer">
                     {r.title}
                   </a>

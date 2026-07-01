@@ -1,5 +1,11 @@
 # Fuentes de datos para Ecosistema Urbano
 
+> ♻️ **Reconciliado (2026-07-01).** El **inventario de fuentes** sigue siendo contexto válido, pero la
+> sección "Delimitación territorial / Preparación PostGIS" quedó **SUPERADA**: EU **no** construye backend
+> propio (PostGIS/worker/`urban_boundaries`/`urban_signals`) — ese motor ya vive en **OIS**. Arquitectura
+> de integración vigente: **`spec-integracion-eu-ois_v1.md`** (regla de oro: EU es piel cívica, no duplica
+> OIS). No construir desde la parte PostGIS de este documento.
+
 Fecha: 2026-06-27
 
 ## Comprension operativa
