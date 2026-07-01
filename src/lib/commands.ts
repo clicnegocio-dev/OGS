@@ -27,6 +27,13 @@ export function buildCommandIndex(): CommandLink[] {
       href: `/${s.id}/noticias`,
       group: "Asentamientos"
     });
+    cmds.push({
+      id: `analisis-${s.id}`,
+      label: `Análisis · ${s.name}`,
+      sub: s.stateName,
+      href: `/${s.id}/analisis`,
+      group: "Asentamientos"
+    });
   }
 
   for (const p of postalCommandIndex()) {

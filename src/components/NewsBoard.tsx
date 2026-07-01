@@ -108,6 +108,9 @@ export function NewsBoard({
         <a className="board-back" href={`/${settlementId}`}>
           ← Volver al mapa
         </a>
+        <a className="board-back" href={`/${settlementId}/analisis`} style={{ marginLeft: 16 }}>
+          Análisis →
+        </a>
         <Link className="board-back" href="/fuentes" style={{ marginLeft: 16 }}>
           Fuentes de datos →
         </Link>

@@ -337,7 +337,10 @@ export function UrbanHero({ settlementSlug }: { settlementSlug?: string }) {
         <b>Mapa de calor:</b> densidad de señales (incluye demo y prensa sin verificar), no incidencia verificada.{" "}
         <Link href="/fuentes" style={{ color: "#ee6a5b", fontWeight: 700, textDecoration: "none" }}>
           Fuentes →
-        </Link>
+        </Link>{" "}
+        <a href={`/${configuredSettlement.id}/analisis`} style={{ color: "#ee6a5b", fontWeight: 700, textDecoration: "none" }}>
+          Análisis →
+        </a>
       </p>
     </div>
   );

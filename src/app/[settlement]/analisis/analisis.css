@@ -1,0 +1,244 @@
+/* Vista de Análisis (exploratorio). Identidad clara/editorial (paleta global). */
+
+.an {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: clamp(24px, 5vw, 56px) clamp(18px, 5vw, 48px) 80px;
+}
+
+.an-nav {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.an-back {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent-deep);
+  text-decoration: none;
+}
+
+.an-back:hover {
+  text-decoration: underline;
+}
+
+.an-title {
+  margin: 0 0 8px;
+  font-family: var(--display);
+  font-size: clamp(24px, 4vw, 34px);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.an-sub {
+  margin: 0 0 20px;
+  max-width: 66ch;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.an-tabs {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper-2);
+}
+
+.an-tab {
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+  padding: 8px 16px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.an-tab.is-active {
+  background: var(--panel);
+  color: var(--ink);
+  box-shadow: var(--shadow-card);
+}
+
+.an-panel {
+  margin-top: 24px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--panel);
+  box-shadow: var(--shadow-card);
+}
+
+.an-panel-title {
+  margin: 0 0 14px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+
+.an-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.an-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.an-controls select {
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  text-transform: capitalize;
+}
+
+.an-vs {
+  padding-bottom: 9px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.an-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.an-axis {
+  stroke: var(--line);
+  stroke-width: 1;
+}
+
+.an-axis-label,
+.an-point-label {
+  fill: var(--muted);
+  font-size: 11px;
+  font-family: var(--sans);
+}
+
+.an-dot {
+  fill: var(--accent);
+  fill-opacity: 0.85;
+  stroke: var(--panel);
+  stroke-width: 1.5;
+}
+
+.an-fit {
+  stroke: var(--ink);
+  stroke-width: 1.6;
+  stroke-dasharray: 5 4;
+  opacity: 0.7;
+}
+
+.an-line {
+  stroke: var(--accent);
+  stroke-width: 2.4;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.an-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.an-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.an-stat-value {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  text-transform: capitalize;
+}
+
+.an-stat-label {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.an-caveat {
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--paper-2);
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.an-empty {
+  margin-top: 24px;
+  padding: 40px 20px;
+  border: 1px dashed var(--line);
+  border-radius: 14px;
+  text-align: center;
+  color: var(--ink-soft);
+}
+
+.an-ois {
+  margin-top: 28px;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--azul);
+  border-radius: 12px;
+  background: var(--paper-2);
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.an-ois-kicker {
+  margin: 0 0 6px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--azul);
+}
+
+.an-ois p {
+  margin: 0 0 6px;
+}
+
+.an-ois code {
+  font-size: 12px;
+  background: var(--panel);
+  padding: 1px 5px;
+  border-radius: 5px;
+}
+
+.an-ois-src {
+  font-size: 11px;
+  color: var(--muted);
+}
