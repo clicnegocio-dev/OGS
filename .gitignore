@@ -1,0 +1,8 @@
+node_modules/
+.next/
+# Ignora TODOS los .env (incluye .env, .env.development, .env.production) salvo la plantilla.
+# Antes `.env*.local` dejaba rastreables .env / .env.development con secretos reales.
+.env*
+!.env.example
+.next-dev-*.log
+*.tsbuildinfo

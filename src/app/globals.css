@@ -1,0 +1,1360 @@
+:root {
+  /* Identidad cálida / editorial (zona narrativa) */
+  --paper: #fbf9f6;
+  --paper-2: #f2efea;
+  --panel: #ffffff;
+  --ink: #1f2328;
+  --ink-soft: #565b63;
+  --muted: #9a9c98;
+  --line: rgba(31, 35, 40, 0.1);
+  --line-soft: rgba(31, 35, 40, 0.06);
+  --accent: #ee6a5b;
+  --accent-deep: #d85a48;
+  /* Paleta de las capas urbanas (compartida con el mapa) */
+  --verde: #6bae6e;
+  --azul-claro: #4a90c4;
+  --azul: #4c6fae;
+  --amarillo: #e0a23a;
+  --morado: #8a7cc8;
+  --coral: #ee6a5b;
+  --shadow: 0 24px 64px -34px rgba(0, 0, 0, 0.86);
+  --shadow-soft: 0 18px 50px -22px rgba(35, 38, 43, 0.28), 0 4px 14px -8px rgba(35, 38, 43, 0.14);
+  --shadow-card: 0 22px 44px -26px rgba(35, 38, 43, 0.4), 0 2px 8px -4px rgba(35, 38, 43, 0.1);
+  --sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --display: "Inter Tight", "Inter", system-ui, sans-serif;
+  --serif: "Spectral", Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font: inherit;
+}
+
+/* Solo para lectores de pantalla (regiones vivas persistentes, etc.). */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+.hero-shell {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  --ui-ink: #f7f4ec;
+  --ui-soft: rgba(247, 244, 236, 0.68);
+  --ui-muted: rgba(247, 244, 236, 0.46);
+  --ui-line: rgba(255, 255, 255, 0.14);
+  --ui-panel: rgba(15, 25, 30, 0.7);
+  --ui-panel-strong: rgba(11, 20, 27, 0.82);
+  --ui-elevated: rgba(247, 244, 236, 0.075);
+  --ui-elevated-hover: rgba(247, 244, 236, 0.11);
+  --ui-toggle-bg: rgba(0, 0, 0, 0.2);
+  --ui-map-veil-left: rgba(7, 16, 22, 0.76);
+  --ui-map-veil-mid: rgba(7, 16, 22, 0.22);
+  --ui-map-veil-edge: rgba(7, 16, 22, 0.5);
+  --ui-map-veil-top: rgba(7, 16, 22, 0.3);
+  --ui-map-veil-bottom: rgba(7, 16, 22, 0.72);
+  background:
+    radial-gradient(circle at 14% 12%, rgba(238, 106, 91, 0.16), transparent 26%),
+    radial-gradient(circle at 82% 78%, rgba(74, 144, 196, 0.22), transparent 32%),
+    #071016;
+}
+
+.hero-shell[data-ui-theme="light"] {
+  --ui-ink: #20242a;
+  --ui-soft: rgba(32, 36, 42, 0.68);
+  --ui-muted: rgba(32, 36, 42, 0.46);
+  --ui-line: rgba(32, 36, 42, 0.11);
+  --ui-panel: rgba(242, 239, 234, 0.78);
+  --ui-panel-strong: rgba(251, 249, 246, 0.84);
+  --ui-elevated: rgba(32, 36, 42, 0.04);
+  --ui-elevated-hover: rgba(32, 36, 42, 0.065);
+  --ui-toggle-bg: rgba(255, 255, 255, 0.55);
+  --ui-map-veil-left: rgba(251, 249, 246, 0.56);
+  --ui-map-veil-mid: rgba(251, 249, 246, 0.14);
+  --ui-map-veil-edge: rgba(251, 249, 246, 0.42);
+  --ui-map-veil-top: rgba(251, 249, 246, 0.2);
+  --ui-map-veil-bottom: rgba(251, 249, 246, 0.55);
+}
+
+.map-stage {
+  position: absolute;
+  inset: 0;
+}
+
+.map-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 52%, transparent 0%, transparent 50%, var(--ui-map-veil-edge) 100%),
+    linear-gradient(90deg, var(--ui-map-veil-left) 0%, var(--ui-map-veil-mid) 22%, transparent 48%, var(--ui-map-veil-mid) 100%),
+    linear-gradient(180deg, var(--ui-map-veil-top), transparent 35%, var(--ui-map-veil-bottom));
+}
+
+.urban-map {
+  height: 100%;
+  width: 100%;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 5;
+  width: min(390px, calc(100% - 32px));
+  padding: 28px 0 0;
+  margin-left: clamp(14px, 3vw, 34px);
+  pointer-events: none;
+}
+
+.eyebrow {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  border: 1px solid var(--ui-line);
+  border-radius: 999px;
+  padding: 8px 12px;
+  background: var(--ui-panel-strong);
+  color: var(--ui-soft);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+  pointer-events: auto;
+}
+
+.eyebrow-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 7px rgba(238, 106, 91, 0.14);
+}
+
+.hero-title {
+  max-width: 14ch;
+  margin: 14px 0 11px;
+  color: var(--ui-ink);
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(30px, 3.9vw, 52px);
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  text-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.hero-title em {
+  color: var(--accent);
+  font-style: normal;
+}
+
+.hero-sub {
+  max-width: 340px;
+  margin: 0;
+  color: var(--ui-soft);
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(15px, 1.5vw, 18px);
+  line-height: 1.5;
+  pointer-events: auto;
+}
+
+.hero-sub em {
+  color: var(--ui-ink);
+  font-style: italic;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+  pointer-events: auto;
+}
+
+.hero-lema {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin: 16px 0 0;
+  color: var(--ui-soft);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  pointer-events: auto;
+}
+
+.lema-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--verde);
+  box-shadow: 0 0 0 0 rgba(107, 174, 110, 0.6);
+  animation: lemaPing 2.4s ease-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes lemaPing {
+  0% {
+    box-shadow: 0 0 0 0 rgba(107, 174, 110, 0.5);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 9px rgba(107, 174, 110, 0);
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+}
+
+.btn-ghost {
+  background: rgba(8, 17, 24, 0.58);
+  border-color: var(--ui-line);
+  color: #f7f4ec;
+}
+
+.map-toolbar {
+  position: absolute;
+  z-index: 7;
+  left: clamp(14px, 2.4vw, 30px);
+  bottom: clamp(14px, 2.4vw, 30px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 10px;
+  max-width: min(420px, calc(100% - 28px));
+}
+
+.theme-mode,
+.map-mode,
+.map-status {
+  border: 1px solid var(--ui-line);
+  border-radius: 16px;
+  background: var(--ui-panel);
+  color: var(--ui-soft);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.map-toolbar a {
+  text-decoration: none;
+}
+
+.theme-mode,
+.map-mode {
+  display: grid;
+  gap: 2px;
+  min-width: 118px;
+  padding: 10px 13px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.map-mode.is-active {
+  border-color: rgba(238, 106, 91, 0.5);
+  box-shadow: 0 0 0 1px rgba(238, 106, 91, 0.18), 0 24px 58px -34px rgba(238, 106, 91, 0.8);
+}
+
+.mode-kicker {
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.map-mode strong {
+  color: var(--ui-ink);
+  font-size: 13px;
+}
+
+.theme-mode strong {
+  color: var(--ui-ink);
+  font-size: 13px;
+}
+
+.map-status {
+  display: grid;
+  place-items: center;
+  min-width: 92px;
+  padding: 9px 12px;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.map-status span {
+  display: block;
+  color: var(--ui-ink);
+  font-size: 18px;
+  letter-spacing: -0.03em;
+}
+
+.hero-panels {
+  position: absolute;
+  z-index: 6;
+  right: clamp(16px, 4vw, 52px);
+  bottom: clamp(16px, 5vw, 64px);
+  display: flex;
+  flex-direction: column;
+  width: min(390px, calc(100% - 32px));
+  gap: 12px;
+  /* Ancho de la barra de scroll del riel, compartido para alinear el borde derecho de Capas con
+     el de las tarjetas de lectura (que reservan este hueco vía scrollbar-gutter). */
+  --rail-sb: 8px;
+  /* Acota la altura del riel: nunca rebasa el borde superior que .hero-shell{overflow:hidden} recorta.
+     1er término restado = el mismo anclaje inferior; 2o = aire de seguridad arriba. La línea vh es
+     el respaldo para navegadores sin svh; la línea svh gana donde existe y es estable frente a la
+     barra de URL móvil. */
+  max-height: calc(100vh - clamp(16px, 5vw, 64px) - clamp(18px, 6vh, 84px));
+  max-height: calc(100svh - clamp(16px, 5vw, 64px) - clamp(18px, 6svh, 84px));
+}
+
+/* Capas = control primario: primer hijo del riel y NUNCA se encoge en alturas normales,
+   así la información que se apila debajo jamás lo empuja fuera de pantalla. */
+.hero-panels > .layer-panel {
+  flex: 0 0 auto;
+  /* Reserva el mismo hueco que el scrollbar-gutter de las lecturas para que el borde derecho
+     de Capas quede alineado con el de las tarjetas. */
+  margin-inline-end: var(--rail-sb);
+}
+
+/* Lecturas informativas: una única región de scroll que absorbe TODO el desbordamiento.
+   min-height:0 es imprescindible para que un hijo flex pueda encogerse por debajo de su
+   contenido y de verdad haga scroll. */
+.hero-readouts {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ui-muted) transparent;
+}
+
+/* Barra de scroll integrada en el sistema de diseño; --ui-muted da una pista de scroll legible
+   en ambos temas, sobre pista transparente que deja ver el mapa. */
+.hero-readouts::-webkit-scrollbar,
+.layer-stack::-webkit-scrollbar {
+  width: var(--rail-sb);
+}
+
+.hero-readouts::-webkit-scrollbar-thumb,
+.layer-stack::-webkit-scrollbar-thumb {
+  background: var(--ui-muted);
+  border-radius: 999px;
+}
+
+.hero-readouts::-webkit-scrollbar-track,
+.layer-stack::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ─── Estado colapsado (por defecto): el lanzador da el centro al mapa ──────────────── */
+
+/* Píldora compacta que sustituye al riel cuando el panel está colapsado. Invita a abrirlo
+   sin tapar el mapa. Mismo anclaje inferior-derecho que el riel. */
+.panel-launcher {
+  position: absolute;
+  z-index: 6;
+  right: clamp(16px, 4vw, 52px);
+  bottom: clamp(16px, 5vw, 64px);
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  max-width: min(330px, calc(100% - 32px));
+  padding: 11px 15px 11px 13px;
+  border: 1px solid var(--ui-line);
+  border-radius: 18px;
+  background: var(--ui-panel-strong);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+  color: var(--ui-soft);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 180ms ease, transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  animation: panelRise 460ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  transform-origin: bottom right;
+}
+
+.panel-launcher:hover {
+  border-color: color-mix(in srgb, var(--ui-ink) 22%, transparent);
+  transform: translateY(-2px);
+}
+
+/* Glifo de "capas": tres barras en la paleta de marca. */
+.launcher-glyph {
+  display: grid;
+  gap: 3px;
+  flex-shrink: 0;
+  padding: 1px 0;
+}
+
+.launcher-glyph span {
+  display: block;
+  height: 4px;
+  border-radius: 999px;
+}
+
+.launcher-glyph span:nth-child(1) {
+  width: 20px;
+  background: var(--azul-claro);
+}
+
+.launcher-glyph span:nth-child(2) {
+  width: 15px;
+  background: var(--verde);
+}
+
+.launcher-glyph span:nth-child(3) {
+  width: 10px;
+  background: var(--amarillo);
+}
+
+.launcher-copy {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+}
+
+.launcher-copy strong {
+  color: var(--ui-ink);
+  font-size: 13px;
+  font-weight: 850;
+  letter-spacing: -0.01em;
+}
+
+.launcher-copy span {
+  overflow: hidden;
+  color: var(--ui-muted);
+  font-size: 11px;
+  font-weight: 750;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* ─── Cabecera del riel expandido ──────────────────────────────────────────────────── */
+
+.panel-rail-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex: 0 0 auto;
+  padding: 0 2px;
+  /* Alinea con el borde derecho de las tarjetas (que reservan el hueco de scroll). */
+  margin-inline-end: var(--rail-sb);
+}
+
+.rail-head-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ui-muted);
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.rail-head-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--verde);
+  box-shadow: 0 0 0 0 rgba(107, 174, 110, 0.55);
+  animation: lemaPing 2.4s ease-out infinite;
+}
+
+.rail-collapse {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--ui-line);
+  border-radius: 999px;
+  background: var(--ui-elevated);
+  color: var(--ui-soft);
+  cursor: pointer;
+  padding: 6px 11px;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+.rail-collapse:hover {
+  border-color: color-mix(in srgb, var(--ui-ink) 20%, transparent);
+  background: var(--ui-elevated-hover);
+  color: var(--ui-ink);
+}
+
+/* Chevron compartido: arriba = abrir (lanzador), abajo = cerrar (colapsar). */
+.chevron {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border: 0 solid currentColor;
+}
+
+.chevron-up {
+  margin-left: auto;
+  border-top-width: 2px;
+  border-left-width: 2px;
+  transform: translateY(1px) rotate(45deg);
+  color: var(--ui-soft);
+}
+
+.chevron-down {
+  border-right-width: 2px;
+  border-bottom-width: 2px;
+  transform: translateY(-1px) rotate(45deg);
+}
+
+/* Entrada elegante del riel/lanzador, desde la esquina inferior derecha. */
+.hero-panels {
+  transform-origin: bottom right;
+  animation: panelRise 460ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+/* Solo transform: NO animamos opacity en .hero-panels porque opacity<1 la convierte en backdrop-root
+   y aplanaría el glass (backdrop-filter) de las tarjetas hijas durante la entrada. */
+@keyframes panelRise {
+  from {
+    transform: translateY(12px) scale(0.97);
+  }
+  to {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.metric-card,
+.layer-panel {
+  border: 1px solid var(--ui-line);
+  border-radius: 18px;
+  background: var(--ui-panel-strong);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.metric-card {
+  min-width: 0;
+  padding: 10px 11px;
+}
+
+.metric-label {
+  display: block;
+  color: var(--ui-muted);
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.metric-value {
+  display: block;
+  margin-top: 6px;
+  color: var(--ui-ink);
+  font-size: 20px;
+  font-weight: 850;
+  letter-spacing: -0.04em;
+}
+
+.metric-note {
+  display: block;
+  margin-top: 4px;
+  color: var(--ui-muted);
+  font-size: 12px;
+}
+
+.metric-card.is-alert {
+  border-color: color-mix(in srgb, var(--accent) 48%, var(--ui-line));
+  background: color-mix(in srgb, var(--accent) 10%, var(--ui-panel-strong));
+}
+
+.metric-card.is-alert .metric-value {
+  color: var(--accent);
+}
+
+.layer-panel {
+  padding: 14px;
+  /* Columna flex propia: la cabecera queda fija y la lista puede hacer scroll por sí sola
+     cuando el riel es más bajo que el panel (ventanas muy cortas). */
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.panel-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+  /* "Capas" + Todas/Ninguna siempre visibles arriba del panel, aunque la lista haga scroll. */
+  flex: 0 0 auto;
+}
+
+.panel-head span {
+  display: block;
+  margin-top: 3px;
+  color: var(--ui-muted);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.layer-actions {
+  display: inline-flex;
+  overflow: hidden;
+  border: 1px solid var(--ui-line);
+  border-radius: 999px;
+  background: var(--ui-elevated);
+}
+
+.layer-actions button {
+  border: 0;
+  border-right: 1px solid var(--ui-line);
+  background: transparent;
+  color: var(--ui-soft);
+  cursor: pointer;
+  padding: 7px 9px;
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.layer-actions button:last-child {
+  border-right: 0;
+}
+
+.layer-actions button:hover {
+  background: var(--ui-elevated-hover);
+  color: var(--ui-ink);
+}
+
+.layer-title {
+  margin: 0;
+  color: var(--ui-soft);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Control de radio (acotar señales por distancia al centro del municipio). */
+.radius-control {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--ui-line);
+  flex: 0 0 auto;
+}
+
+.radius-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.radius-title {
+  margin: 0;
+  color: var(--ui-soft);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.radius-count {
+  color: var(--ui-muted);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.radius-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.radius-pill {
+  border: 1px solid var(--ui-line);
+  border-radius: 999px;
+  background: var(--ui-elevated);
+  color: var(--ui-soft);
+  cursor: pointer;
+  padding: 7px 12px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.radius-pill:hover {
+  background: var(--ui-elevated-hover);
+  color: var(--ui-ink);
+}
+
+.radius-pill.is-active {
+  background: rgba(238, 106, 91, 0.18);
+  border-color: #ee6a5b;
+  color: var(--ui-ink);
+}
+
+.radius-note {
+  margin: 10px 0 0;
+  color: var(--ui-muted);
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+/* Chip de foco por código postal (viene del tablero de lista, sobre el hero del mapa). */
+.cp-focus {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 14px;
+  padding: 7px 8px 7px 14px;
+  border: 1px solid rgba(238, 106, 91, 0.55);
+  border-radius: 999px;
+  background: rgba(238, 106, 91, 0.16);
+  font-size: 13px;
+  color: #f5f1ea;
+}
+
+.cp-focus-label b {
+  color: #fff;
+}
+
+.cp-focus-clear {
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  color: #f5f1ea;
+  cursor: pointer;
+  padding: 5px 12px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.cp-focus-clear:hover {
+  background: rgba(255, 255, 255, 0.26);
+}
+
+/* Dossier por CP: neutro (hereda color del contenedor) para servir al panel del mapa y al tablero. */
+.dossier {
+  border: 1px solid rgba(127, 127, 127, 0.28);
+  border-radius: 14px;
+  background: rgba(127, 127, 127, 0.06);
+  padding: 14px 15px;
+  color: inherit;
+}
+
+.dossier-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.dossier-kicker {
+  margin: 0 0 3px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ee6a5b;
+}
+
+.dossier-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.dossier-sub {
+  margin: 3px 0 0;
+  font-size: 12px;
+  opacity: 0.72;
+}
+
+.dossier-close {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  opacity: 0.6;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.dossier-close:hover {
+  opacity: 1;
+}
+
+.dossier-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.dossier-tag {
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--tag);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.dossier-tag b {
+  font-weight: 800;
+}
+
+.dossier-context,
+.dossier-recent {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(127, 127, 127, 0.22);
+}
+
+.dossier-context-title,
+.dossier-recent-title {
+  margin: 0 0 6px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.dossier-context-line {
+  margin: 2px 0;
+  font-size: 12px;
+}
+
+.dossier-recent ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.dossier-recent li {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.dossier-recent a,
+.dossier-recent span {
+  color: inherit;
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.dossier-recent a:hover {
+  color: #ee6a5b;
+  text-decoration: underline;
+}
+
+.dossier-recent-meta {
+  font-size: 11px !important;
+  opacity: 0.55;
+  font-variant-numeric: tabular-nums;
+}
+
+.dossier-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.dossier-action {
+  color: #ee6a5b;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.dossier-action:hover {
+  text-decoration: underline;
+}
+
+.dossier-note {
+  margin: 12px 0 0;
+  font-size: 10px;
+  opacity: 0.55;
+}
+
+.layer-stack {
+  display: grid;
+  gap: 12px;
+  /* min-height:0 habilita el scroll de reserva que activa el media query de ventanas bajas.
+     El overflow NO va aquí (en alturas normales sería visible y recortaría 1px del hover de las
+     filas); se activa solo cuando hace falta, abajo. */
+  min-height: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ui-muted) transparent;
+}
+
+.layer-group {
+  display: grid;
+  gap: 6px;
+}
+
+.layer-group h3 {
+  margin: 0 0 2px;
+  color: var(--ui-muted);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.layer-row {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 10px;
+  width: 100%;
+  border: 1px solid var(--ui-line);
+  border-radius: 12px;
+  background: var(--ui-elevated);
+  color: var(--ui-soft);
+  cursor: pointer;
+  padding: 9px 10px;
+  text-align: left;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease, opacity 160ms ease;
+}
+
+.layer-row:hover {
+  border-color: color-mix(in srgb, var(--ui-ink) 18%, transparent);
+  background: var(--ui-elevated-hover);
+  transform: translateY(-1px);
+}
+
+.layer-row:not(.is-active) {
+  opacity: 0.58;
+}
+
+.layer-row.is-active {
+  border-color: color-mix(in srgb, var(--layer-color) 54%, rgba(255, 255, 255, 0.12));
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--layer-color) 14%, transparent), transparent 58%),
+    var(--ui-elevated);
+}
+
+.layer-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--ui-line);
+  border-radius: 999px;
+  background: var(--ui-toggle-bg);
+}
+
+.layer-toggle span {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--layer-color);
+  box-shadow: 0 0 0 0 color-mix(in srgb, var(--layer-color) 44%, transparent);
+  transition: box-shadow 180ms ease, transform 180ms ease;
+}
+
+.layer-row.is-active .layer-toggle span {
+  transform: scale(1.08);
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--layer-color) 18%, transparent);
+}
+
+.layer-copy {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.layer-row-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.layer-row-top strong {
+  color: var(--ui-ink);
+  font-size: 13px;
+  font-weight: 850;
+}
+
+.layer-row-top em {
+  min-width: 24px;
+  border: 1px solid var(--ui-line);
+  border-radius: 999px;
+  color: var(--ui-soft);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 850;
+  padding: 2px 7px;
+  text-align: center;
+}
+
+.data-warning {
+  margin: 0;
+  border: 1px solid color-mix(in srgb, var(--accent) 42%, var(--ui-line));
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--accent) 12%, var(--ui-panel));
+  color: var(--ui-soft);
+  box-shadow: var(--shadow);
+  padding: 10px 12px;
+  font-size: 11px;
+  font-weight: 760;
+  line-height: 1.35;
+  backdrop-filter: blur(18px);
+}
+
+.data-note {
+  margin: 0;
+  border: 1px solid var(--ui-line);
+  border-radius: 14px;
+  background: var(--ui-panel);
+  color: var(--ui-soft);
+  box-shadow: var(--shadow);
+  padding: 10px 12px;
+  font-size: 11px;
+  font-weight: 650;
+  line-height: 1.4;
+  backdrop-filter: blur(18px);
+}
+
+.map-conditions {
+  display: grid;
+  gap: 7px;
+  border: 1px solid var(--ui-line);
+  border-radius: 16px;
+  background: var(--ui-panel);
+  box-shadow: var(--shadow);
+  padding: 11px 12px;
+  backdrop-filter: blur(18px);
+}
+
+.cond-title {
+  color: var(--ui-muted);
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.cond-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.cond-pill {
+  border: 1px solid var(--ui-line);
+  border-radius: 999px;
+  background: var(--ui-elevated);
+  padding: 4px 9px;
+  font-size: 11px;
+  color: var(--ui-soft);
+}
+
+.cond-pill b {
+  color: var(--ui-ink);
+  font-weight: 850;
+}
+
+.cond-src {
+  color: var(--ui-muted);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.data-coverage {
+  margin: 0;
+  padding: 0 2px;
+  color: var(--ui-muted);
+  font-size: 10.5px;
+  line-height: 1.45;
+}
+
+.data-coverage b {
+  color: var(--ui-soft);
+  font-weight: 800;
+}
+
+.map-popup {
+  max-width: 268px;
+  color: #20242a;
+  font: 13px/1.5 var(--sans);
+}
+
+.popup-layer {
+  display: inline-block;
+  margin-bottom: 6px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+}
+
+.map-popup strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #1f2328;
+}
+
+.popup-desc {
+  color: #565b63;
+}
+
+.popup-hint {
+  margin-top: 9px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(238, 106, 91, 0.09);
+  color: #565b63;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.popup-hint span {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+}
+
+.popup-meta {
+  margin: 10px 0 0;
+  display: grid;
+  gap: 5px;
+}
+
+.popup-meta div {
+  display: flex;
+  gap: 8px;
+}
+
+.popup-meta dt {
+  flex-shrink: 0;
+  min-width: 64px;
+  padding-top: 1px;
+  color: #9a9c98;
+  font-weight: 700;
+  font-size: 9.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.popup-meta dd {
+  margin: 0;
+  color: #3a3f47;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.popup-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent-deep);
+}
+
+.maplibregl-ctrl-group {
+  overflow: hidden;
+  border: 1px solid var(--ui-line) !important;
+  border-radius: 14px !important;
+  background: var(--ui-panel) !important;
+  box-shadow: var(--shadow) !important;
+  backdrop-filter: blur(16px);
+}
+
+.maplibregl-ctrl button {
+  filter: invert(1) saturate(0.4);
+}
+
+.maplibregl-ctrl-attrib {
+  background: var(--ui-panel) !important;
+  color: var(--ui-muted) !important;
+}
+
+/* Ventanas bajas (móvil en horizontal con ancho > 860px, o ventanas de escritorio muy cortas):
+   por debajo de ~560px el riel ya es más corto que el propio panel de Capas (~414px). Dejamos que
+   el panel se encoja y que su lista haga scroll interno, manteniendo la cabecera
+   (título + Todas/Ninguna) y todas las filas siempre alcanzables. */
+@media (max-height: 560px) {
+  .hero-panels > .layer-panel {
+    flex: 0 1 auto;
+  }
+
+  .layer-stack {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+@media (max-width: 860px) {
+  .map-stage::after {
+    background:
+      linear-gradient(180deg, var(--ui-map-veil-bottom) 0%, var(--ui-map-veil-top) 34%, var(--ui-map-veil-bottom) 100%);
+  }
+
+  .hero-copy {
+    margin-left: 14px;
+    padding-top: 14px;
+  }
+
+  .hero-title {
+    max-width: 10ch;
+  }
+
+  .map-toolbar {
+    top: auto;
+    left: 14px;
+    right: auto;
+    bottom: 18px;
+    z-index: 9;
+  }
+
+  .hero-panels {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    /* En flujo normal la página gestiona el desbordamiento: sin tope de altura ni scrolls internos.
+       Reemplaza el frágil `margin: 44vh`: clamp acotado en ambos extremos y en svh (estable frente a
+       la barra de URL), así no colapsa en móviles bajos ni deja un hueco muerto en los altos. */
+    max-height: none;
+    width: min(560px, calc(100% - 32px));
+    margin: clamp(220px, 46vh, 520px) auto 28px;
+    margin: clamp(220px, 46svh, 520px) auto 28px;
+  }
+
+  /* En flujo normal las lecturas no reservan hueco de scroll, así que Capas y la cabecera tampoco:
+     todo a ancho completo y alineado. */
+  .hero-panels > .layer-panel,
+  .panel-rail-head {
+    margin-inline-end: 0;
+  }
+
+  /* El lanzador colapsado pasa a flujo normal, centrado y en el mismo punto que el riel, para que
+     alternar colapsar/expandir intercambie en el sitio (sin sheets ni saltos). */
+  .panel-launcher {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    display: flex;
+    width: fit-content;
+    max-width: min(100%, 560px);
+    margin: clamp(220px, 46vh, 520px) auto 28px;
+    margin: clamp(220px, 46svh, 520px) auto 28px;
+  }
+
+  .hero-readouts {
+    overflow: visible;
+    scrollbar-gutter: auto;
+  }
+
+  .layer-stack {
+    overflow: visible;
+    min-height: auto;
+  }
+}

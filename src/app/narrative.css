@@ -1,0 +1,987 @@
+/* Narrativa editorial — zona clara / cálida (identidad híbrida por zona). */
+.eco {
+  position: relative;
+  z-index: 1;
+  background: var(--paper);
+  color: var(--ink-soft);
+}
+
+.eco-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 56px);
+}
+
+.eco-section {
+  padding: clamp(64px, 9vw, 120px) 0;
+  border-top: 1px solid var(--line-soft);
+}
+
+.eco-band {
+  background: var(--paper-2);
+}
+
+.eco-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.6, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+.eco-reveal.is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+.eco-eyebrow {
+  margin: 0 0 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.eco-eyebrow.eco-accent {
+  color: var(--accent-deep);
+}
+
+.eco-headline {
+  margin: 0 0 22px;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+}
+
+.eco-lead {
+  margin: 0 0 34px;
+  max-width: 880px;
+  font-weight: 500;
+  font-size: clamp(23px, 3.2vw, 40px);
+  line-height: 1.16;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+
+.eco-text {
+  margin: 0 0 14px;
+  max-width: 620px;
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+.eco-text b {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.eco-statement {
+  margin: 48px 0 0;
+  max-width: 760px;
+  font-family: var(--serif);
+  font-size: clamp(21px, 2.6vw, 30px);
+  line-height: 1.34;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.eco-statement em {
+  font-style: italic;
+  color: var(--accent-deep);
+}
+
+.eco-hint {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.eco-body-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(258px, 1fr));
+  gap: 14px;
+  margin: 40px 0 0;
+}
+
+.eco-body-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel);
+  padding: 24px 22px;
+}
+
+.eco-body-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--bc, var(--accent));
+}
+
+.eco-body-label::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--bc, var(--accent));
+}
+
+.eco-body-eq {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 16px;
+  color: var(--ink);
+}
+
+.eco-body-desc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.eco-ladder {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 40px 0 0;
+}
+
+.eco-rung {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel);
+}
+
+.eco-rung-rail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid var(--line);
+  background: color-mix(in srgb, var(--rc) 14%, var(--panel));
+}
+
+.eco-rung-n {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--rc);
+}
+
+.eco-rung-body {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 20px 22px;
+}
+
+.eco-rung-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.eco-rung-name {
+  font-family: var(--display);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.eco-rung-badge {
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--rc) 13%, transparent);
+  padding: 4px 9px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--rc);
+}
+
+.eco-rung-simple {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.eco-rung-method {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.eco-rung-simple b {
+  color: var(--rc);
+}
+
+.eco-rung-method b {
+  color: var(--ink);
+}
+
+.eco-explorer {
+  display: grid;
+  gap: 26px;
+  margin: 40px 0 24px;
+}
+
+.eco-layer-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+}
+
+.eco-ltab {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--panel);
+  padding: 12px 13px;
+  cursor: pointer;
+  color: var(--ink-soft);
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+  transition: border-color 0.25s, color 0.25s, box-shadow 0.25s;
+}
+
+.eco-ltab:hover {
+  color: var(--ink);
+  border-color: var(--ink-soft);
+}
+
+.eco-ltab.is-active {
+  color: var(--ink);
+  border-color: var(--ld);
+  box-shadow: 0 6px 16px -10px var(--ld);
+}
+
+.eco-ltab-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--ld);
+  flex-shrink: 0;
+}
+
+.eco-layer-detail {
+  border-top: 1px solid var(--line-soft);
+  padding-top: 26px;
+  animation: ecoSwap 0.4s ease;
+}
+
+@keyframes ecoSwap {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.eco-ld-name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  font-weight: 600;
+  font-size: clamp(22px, 2.4vw, 28px);
+  color: var(--ink);
+}
+
+.eco-ld-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+.eco-ld-desc {
+  margin-bottom: 22px;
+  max-width: 620px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--ink-soft);
+}
+
+.eco-ld-links-label {
+  margin-bottom: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.eco-ld-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.eco-ld-links li {
+  border-left: 2px solid var(--lc, var(--accent));
+  padding-left: 16px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.eco-dec-phrase {
+  margin: 36px 0 0;
+  text-align: center;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(16px, 1.9vw, 22px);
+  color: var(--ink);
+}
+
+.eco-quotes {
+  display: flex;
+  flex-direction: column;
+  margin: 40px 0 30px;
+}
+
+.eco-quote {
+  margin: 0;
+  border-bottom: 1px solid var(--line-soft);
+  padding: 16px 0;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(16px, 1.9vw, 22px);
+  color: var(--ink-soft);
+}
+
+.eco-cons {
+  display: flex;
+  flex-direction: column;
+  max-width: 640px;
+  margin: 24px 0 0;
+}
+
+.eco-con {
+  margin: 0;
+  border-left: 2px solid var(--cc);
+  border-bottom: 1px solid var(--line-soft);
+  padding: 13px 0 13px 20px;
+  font-weight: 500;
+  font-size: clamp(18px, 2.1vw, 25px);
+  color: var(--ink);
+}
+
+.eco-symptom-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin: 36px 0 0;
+}
+
+.eco-symptom {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+  padding: 26px 24px;
+  cursor: pointer;
+  color: inherit;
+  text-align: left;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+
+.eco-symptom:hover,
+.eco-symptom.is-open {
+  border-color: var(--sc);
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-2px);
+}
+
+.eco-symptom-eyebrow {
+  margin-bottom: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.eco-symptom-see {
+  font-weight: 600;
+  font-size: clamp(20px, 2.1vw, 25px);
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.eco-symptom-hint {
+  margin-top: 14px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--sc);
+}
+
+.eco-symptom-reveal {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+  border-top: 1px solid var(--line-soft);
+  padding-top: 16px;
+}
+
+.eco-symptom-cause {
+  font-size: 14px;
+  line-height: 1.62;
+  color: var(--ink-soft);
+}
+
+.eco-symptom-result {
+  margin-top: 12px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 17px;
+  color: var(--sc);
+}
+
+.eco-ejes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 14px;
+  margin: 40px 0 0;
+}
+
+.eco-eje-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--ec);
+  border-radius: 12px;
+  background: var(--panel);
+  padding: 24px 22px;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.eco-eje-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+.eco-eje-n {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--ec);
+}
+
+.eco-eje-name {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.eco-eje-desc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.eco-flujo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 40px 0 0;
+}
+
+.eco-flujo-step {
+  position: relative;
+  flex: 1 1 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+  padding: 24px 20px;
+}
+
+.eco-fs-num {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--fn);
+}
+
+.eco-fs-label {
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--ink);
+}
+
+.eco-fs-desc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.eco-fs-arrow {
+  position: absolute;
+  right: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.eco-pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 40px 0 30px;
+}
+
+.eco-pillar {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--oc);
+  border-radius: 14px;
+  background: var(--panel);
+  padding: 22px 18px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.eco-pillar:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-soft);
+}
+
+.eco-pillar-kicker {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--oc);
+}
+
+.eco-pillar-feat {
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.eco-pillar-desc {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.eco-kernel-quote {
+  margin: 0;
+  max-width: 760px;
+  border-left: 3px solid var(--accent);
+  padding-left: 22px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(19px, 2.4vw, 27px);
+  line-height: 1.34;
+  color: var(--ink);
+}
+
+.eco-kernel-quote em {
+  color: var(--accent-deep);
+}
+
+.eco-principles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+  margin: 40px 0 0;
+}
+
+.eco-principle {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+  padding: 22px 20px;
+}
+
+.eco-p-n {
+  min-width: 22px;
+  padding-top: 3px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+}
+
+.eco-principle p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.eco-powered {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 36px 0 0;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--panel);
+  padding: 24px 26px;
+  box-shadow: var(--shadow-soft);
+}
+
+.eco-powered-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.eco-powered-name {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.eco-powered-name b {
+  color: var(--accent-deep);
+}
+
+.eco-powered-desc {
+  max-width: 52ch;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.eco-live-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--verde);
+  margin-right: 6px;
+  vertical-align: middle;
+  animation: lemaPing 2.4s ease-out infinite;
+}
+
+.eco-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 28px 0 0;
+}
+
+.eco-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 13px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s, background 0.2s, border-color 0.2s;
+}
+
+.eco-btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.eco-btn-primary:hover {
+  background: var(--accent-deep);
+  transform: translateY(-1px);
+}
+
+.eco-btn-ghost {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--ink);
+}
+
+.eco-btn-ghost:hover {
+  border-color: var(--ink-soft);
+  transform: translateY(-1px);
+}
+
+/* Formulario de captura de señal ciudadana (Fase 1 EU↔OIS). */
+.eco-report {
+  margin: 28px 0 0;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--panel);
+  text-align: left;
+}
+
+.eco-report-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  color: var(--ink);
+}
+
+.eco-report-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.eco-report-title:focus,
+.eco-report-result:focus {
+  outline: none;
+}
+
+.eco-report-x {
+  border: none;
+  background: none;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--ink-soft);
+}
+
+.eco-report-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.eco-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+.eco-field-wide {
+  grid-column: 1 / -1;
+}
+
+.eco-field span {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.eco-field input,
+.eco-field select,
+.eco-field textarea {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+}
+
+.eco-field input:focus,
+.eco-field select:focus,
+.eco-field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.eco-field textarea {
+  resize: vertical;
+}
+
+.eco-report-hint {
+  margin: 12px 0 0;
+  font-size: 12px;
+  color: var(--ink-soft);
+  opacity: 0.8;
+}
+
+.eco-report-err {
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: var(--accent-deep);
+}
+
+.eco-report-ok {
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 10px;
+}
+
+.eco-report-reply {
+  margin: 0 0 10px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--accent);
+  background: var(--paper);
+  border-radius: 8px;
+  color: var(--ink-soft);
+}
+
+.eco-report-note {
+  font-size: 12px;
+  color: var(--ink-soft);
+  opacity: 0.8;
+  margin: 0 0 14px;
+}
+
+.eco-report-geo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--ink);
+}
+
+.eco-report-geo-clear {
+  border: none;
+  background: none;
+  padding: 0;
+  font: inherit;
+  font-size: 12px;
+  color: var(--accent-deep);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.eco-report-geo-btn {
+  align-self: flex-start;
+  padding: 8px 16px;
+  font-size: 12px;
+}
+
+.eco-field small {
+  margin-top: 4px;
+  opacity: 0.8;
+}
+
+@media (max-width: 640px) {
+  .eco-report-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.eco-cierre {
+  text-align: center;
+}
+
+.eco-chain {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  align-items: flex-start;
+  max-width: 640px;
+  margin: 0 auto 48px;
+  text-align: left;
+}
+
+.eco-chain-ln {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(15px, 1.9vw, 21px);
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.eco-manifesto {
+  margin: 0 0 22px;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(40px, 8vw, 84px);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+}
+
+.eco-manifesto em {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--accent-deep);
+}
+
+.eco-cierre-sub {
+  margin: 0 auto;
+  max-width: 520px;
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(17px, 2vw, 23px);
+  color: var(--ink-soft);
+}
+
+.eco-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-top: 60px;
+  border-top: 1px solid var(--line-soft);
+  padding-top: 28px;
+}
+
+.eco-footer-name {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.eco-footer-tag {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+@media (max-width: 760px) {
+  .eco-layer-tabs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .eco-fs-arrow {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eco-reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .eco-layer-detail {
+    animation: none;
+  }
+}

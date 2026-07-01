@@ -1,0 +1,34 @@
+{
+  "name": "ecosistema-urbano",
+  "version": "0.1.0",
+  "license": "AGPL-3.0-or-later",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "verify:api": "node scripts/verify-api.mjs",
+    "scrape:news": "node scraping/news/scrape-news.mjs",
+    "enrich:news-cp": "node scraping/news/enrich-postal-codes.mjs"
+  },
+  "engines": {
+    "node": ">=18.18"
+  },
+  "dependencies": {
+    "maplibre-gl": "^5.6.1",
+    "next": "^15.5.19",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.5",
+    "@types/geojson": "^7946.0.16",
+    "@types/node": "^22.15.32",
+    "@types/react": "^19.0.12",
+    "@types/react-dom": "^19.0.4",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^15.5.19",
+    "typescript": "^5.8.3"
+  }
+}
