@@ -9,14 +9,17 @@ export type Settlement = {
     municipalityCode: string;
     areaCode: string;
   };
-  boundary: GeoJSON.Feature<GeoJSON.Polygon | GeoJSON.MultiPolygon, {
-    id: string;
-    name: string;
-    source: string;
-    precision: "seed" | "official" | "official-derived" | "denue-derived" | "postgis";
-    method?: string;
-    complete?: boolean;
-  }>;
+  boundary: GeoJSON.Feature<
+    GeoJSON.Polygon | GeoJSON.MultiPolygon,
+    {
+      id: string;
+      name: string;
+      source: string;
+      precision: "seed" | "official" | "official-derived" | "denue-derived" | "postgis";
+      method?: string;
+      complete?: boolean;
+    }
+  >;
 };
 
 export const SETTLEMENTS: Record<string, Settlement> = {

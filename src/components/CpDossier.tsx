@@ -79,7 +79,11 @@ export function CpDossier({
       {byType.length ? (
         <div className="dossier-tags">
           {byType.map((b) => (
-            <span key={b.type} className="dossier-tag" style={{ ["--tag" as string]: LAYER_COLOR[b.layer] || "#8a8f98" }}>
+            <span
+              key={b.type}
+              className="dossier-tag"
+              style={{ ["--tag" as string]: LAYER_COLOR[b.layer] || "#8a8f98" }}
+            >
               {b.type} <b>{b.count}</b>
               <ConfidenceMeter confidence={b.confidence} compact />
             </span>
@@ -134,9 +138,8 @@ export function CpDossier({
       ) : null}
 
       <p className="dossier-note">
-        CP aproximado (semilla) · reportes de medios, no hechos verificados. La confianza mide la
-        recurrencia del reporte, no verificación; el nivel máximo exige medios independientes (aún no
-        disponibles).
+        CP aproximado (semilla) · reportes de medios, no hechos verificados. La confianza mide la recurrencia del
+        reporte, no verificación; el nivel máximo exige medios independientes (aún no disponibles).
       </p>
     </section>
   );

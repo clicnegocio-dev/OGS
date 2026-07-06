@@ -97,7 +97,13 @@ export function CommandPalette({ commands }: { commands: CommandLink[] }) {
       </button>
 
       {open ? (
-        <div className="cmdk-overlay" role="dialog" aria-modal="true" aria-label="Buscar y navegar" onClick={() => setOpen(false)}>
+        <div
+          className="cmdk-overlay"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Buscar y navegar"
+          onClick={() => setOpen(false)}
+        >
           <div className="cmdk" onClick={(e) => e.stopPropagation()} onKeyDown={onKeyDown}>
             <input
               ref={inputRef}

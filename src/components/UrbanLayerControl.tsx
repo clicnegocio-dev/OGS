@@ -19,7 +19,9 @@ export function UrbanLayerControl({ activeLayers, counts, onToggle, onSetAll }: 
       <div className="panel-head">
         <div>
           <p className="layer-title">Capas</p>
-          <span>{activeCount}/{URBAN_LAYERS.length} visibles</span>
+          <span>
+            {activeCount}/{URBAN_LAYERS.length} visibles
+          </span>
         </div>
         <div className="layer-actions" aria-label="Acciones de capas">
           <button type="button" onClick={() => onSetAll(true)}>
@@ -51,7 +53,17 @@ export function UrbanLayerControl({ activeLayers, counts, onToggle, onSetAll }: 
   );
 }
 
-function LayerRow({ layer, active, count, onToggle }: { layer: UrbanLayerConfig; active: boolean; count: number; onToggle: () => void }) {
+function LayerRow({
+  layer,
+  active,
+  count,
+  onToggle
+}: {
+  layer: UrbanLayerConfig;
+  active: boolean;
+  count: number;
+  onToggle: () => void;
+}) {
   return (
     <button
       type="button"

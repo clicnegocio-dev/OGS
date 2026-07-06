@@ -62,11 +62,31 @@ export type MunicipalProfile = {
 };
 
 const CONEVAL_DEPRIVATIONS: { measure: string; key: string; label: string; layer: UrbanLayerKey }[] = [
-  { measure: "Deprivation Basic Services Housing", key: "servicios-basicos", label: "Carencia de servicios básicos en vivienda (agua, drenaje, luz)", layer: "urbano" },
-  { measure: "Deprivation Health Services", key: "salud", label: "Carencia de acceso a servicios de salud", layer: "social" },
+  {
+    measure: "Deprivation Basic Services Housing",
+    key: "servicios-basicos",
+    label: "Carencia de servicios básicos en vivienda (agua, drenaje, luz)",
+    layer: "urbano"
+  },
+  {
+    measure: "Deprivation Health Services",
+    key: "salud",
+    label: "Carencia de acceso a servicios de salud",
+    layer: "social"
+  },
   { measure: "Educational Backwardness", key: "educacion", label: "Rezago educativo", layer: "social" },
-  { measure: "Deprivation Quality Housing Spaces", key: "calidad-vivienda", label: "Carencia de calidad y espacios de la vivienda", layer: "urbano" },
-  { measure: "Deprivation Social Security", key: "seguridad-social", label: "Carencia de acceso a la seguridad social", layer: "institucional" }
+  {
+    measure: "Deprivation Quality Housing Spaces",
+    key: "calidad-vivienda",
+    label: "Carencia de calidad y espacios de la vivienda",
+    layer: "urbano"
+  },
+  {
+    measure: "Deprivation Social Security",
+    key: "seguridad-social",
+    label: "Carencia de acceso a la seguridad social",
+    layer: "institucional"
+  }
 ];
 
 function pct(part: number | null, whole: number | null): number | null {
@@ -98,7 +118,12 @@ export async function getMunicipalProfile(settlementId?: string): Promise<Munici
   const [populationRows, povertyRows, digitalAccess, securityProxy] = await Promise.all([
     safeCube(
       "inegi_population",
-      fetchCube({ cube: "inegi_population", drilldowns: ["Year", "Municipality"], measures: ["Population"], cuts: { Municipality: inegiCode } }),
+      fetchCube({
+        cube: "inegi_population",
+        drilldowns: ["Year", "Municipality"],
+        measures: ["Population"],
+        cuts: { Municipality: inegiCode }
+      }),
       [] as CubeRecord[]
     ),
     safeCube(
@@ -198,7 +223,8 @@ export async function getMunicipalProfile(settlementId?: string): Promise<Munici
         povertyTrend
       },
       prescriptive: {
-        basis: "Señal de prioridad derivada de la carencia dominante. El índice de decisión completo se construye en OIS.",
+        basis:
+          "Señal de prioridad derivada de la carencia dominante. El índice de decisión completo se construye en OIS.",
         priority
       }
     }
@@ -218,7 +244,14 @@ async function getDigitalAccessMetric(inegiCode: string): Promise<ProfileMetric 
   const homes = num(latest, "Private Homes Inhabitants");
   const value = pct(num(latest, "Internet"), homes);
   if (!latest || value === null) return null;
-  return { key: "internet", label: "Hogares con acceso a internet", value, unit: "pct", year: Number(latest["Year"]), layer: "social" };
+  return {
+    key: "internet",
+    label: "Hogares con acceso a internet",
+    value,
+    unit: "pct",
+    year: Number(latest["Year"]),
+    layer: "social"
+  };
 }
 
 // Proxy oficial de inseguridad percibida (ENVIPE): % de hogares que gastaron en protección
@@ -226,7 +259,12 @@ async function getDigitalAccessMetric(inegiCode: string): Promise<ProfileMetric 
 // Sirve al eje "ciudad con miedo". Se excluye el tramo "Undefined" (id 99) para no inflar.
 async function getSecurityProxyMetric(inegiCode: string): Promise<ProfileMetric | null> {
   const [totalRows, breakdownRows] = await Promise.all([
-    fetchCube({ cube: "inegi_envipe", drilldowns: ["Year", "Municipality"], measures: ["Homes"], cuts: { Municipality: inegiCode } }),
+    fetchCube({
+      cube: "inegi_envipe",
+      drilldowns: ["Year", "Municipality"],
+      measures: ["Homes"],
+      cuts: { Municipality: inegiCode }
+    }),
     fetchCube({
       cube: "inegi_envipe",
       drilldowns: ["Year", "Expenses in Protection Against Crime"],

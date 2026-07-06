@@ -1,7 +1,7 @@
 # Arquitectura analítica — las 4 dimensiones de Ecosistema Urbano
 
 > ♻️ **Reconciliado (2026-06-30).** Las capas analíticas siguen válidas como modelo, pero donde este
-> doc dice "OIS" en el sentido de *backend propio a construir* (PostGIS/worker), eso **ya existe en
+> doc dice "OIS" en el sentido de _backend propio a construir_ (PostGIS/worker), eso **ya existe en
 > la plataforma OIS** y NO se construye en EU. La frontera correcta (EU = piel cívica; OIS agnóstico;
 > el "señal→patrón" / T2 es capacidad genérica de OIS, no de EU) vive en **`spec-integracion-eu-ois_v1.md`**.
 
@@ -28,50 +28,50 @@ Prescriptivo → ¿Qué conviene hacer?    (índice de decisión explicable)
 
 ### Descriptivo — ¿Qué está pasando?
 
-| Señal | Fuente | Estado | Dónde |
-|---|---|---|---|
-| Clima, lluvia, calor, aire (AQI) | Open-Meteo | ✅ vivo | `/api/urban/weather` |
-| Establecimientos / servicios | INEGI DENUE | ✅ vivo | `/api/urban/denue` |
-| Sismo / eventos ambientales | USGS / EONET | ✅ vivo | `/api/urban/hazards` |
-| **Población, pobreza, perfil** | **DataMéxico (INEGI+CONEVAL)** | **✅ nuevo** | **`/api/urban/profile`** |
-| **Acceso a internet en el hogar** | **INEGI housing (DataMéxico)** | **✅ nuevo** | **`/api/urban/profile` → `descriptive.indicators`** |
-| **Inseguridad percibida (gasto defensivo)** | **INEGI ENVIPE (DataMéxico)** | **✅ nuevo (proxy)** | **`/api/urban/profile` → `descriptive.indicators`** |
-| Límite del municipio | DENUE convex hull | ⚠️ aproximado | `/api/urban/boundary` |
-| Inventario tabular municipal | CKAN Veracruz | ⚠️ endpoint sin UI | `/api/urban/ckan/veracruz` |
-| Precio/renta por colonia | *scraping inmobiliario* | ❌ pendiente | — |
+| Señal                                       | Fuente                         | Estado               | Dónde                                               |
+| ------------------------------------------- | ------------------------------ | -------------------- | --------------------------------------------------- |
+| Clima, lluvia, calor, aire (AQI)            | Open-Meteo                     | ✅ vivo              | `/api/urban/weather`                                |
+| Establecimientos / servicios                | INEGI DENUE                    | ✅ vivo              | `/api/urban/denue`                                  |
+| Sismo / eventos ambientales                 | USGS / EONET                   | ✅ vivo              | `/api/urban/hazards`                                |
+| **Población, pobreza, perfil**              | **DataMéxico (INEGI+CONEVAL)** | **✅ nuevo**         | **`/api/urban/profile`**                            |
+| **Acceso a internet en el hogar**           | **INEGI housing (DataMéxico)** | **✅ nuevo**         | **`/api/urban/profile` → `descriptive.indicators`** |
+| **Inseguridad percibida (gasto defensivo)** | **INEGI ENVIPE (DataMéxico)**  | **✅ nuevo (proxy)** | **`/api/urban/profile` → `descriptive.indicators`** |
+| Límite del municipio                        | DENUE convex hull              | ⚠️ aproximado        | `/api/urban/boundary`                               |
+| Inventario tabular municipal                | CKAN Veracruz                  | ⚠️ endpoint sin UI   | `/api/urban/ckan/veracruz`                          |
+| Precio/renta por colonia                    | _scraping inmobiliario_        | ❌ pendiente         | —                                                   |
 
 ### Diagnóstico — ¿Por qué pasa?
 
-| Cruce | Fuentes a combinar | Estado |
-|---|---|---|
-| **Carencias que explican la zona** | **CONEVAL (servicios básicos, salud, educación, vivienda)** | **✅ nuevo (`/api/urban/profile` → `diagnostic`)** |
-| Por qué se inunda | CENAPRED/CONAGUA × elevación (DEM) × suelo × drenaje (Censo) × eventos | ❌ OIS |
-| Por qué baja la vitalidad | densidad DENUE × nivel socioeconómico × flujo | ⚠️ parcial (DENUE + perfil) |
-| Por qué hay inseguridad percibida | INEGI ENVIPE × espacio público × iluminación | ❌ (ENVIPE ya disponible en DataMéxico) |
+| Cruce                              | Fuentes a combinar                                                     | Estado                                             |
+| ---------------------------------- | ---------------------------------------------------------------------- | -------------------------------------------------- |
+| **Carencias que explican la zona** | **CONEVAL (servicios básicos, salud, educación, vivienda)**            | **✅ nuevo (`/api/urban/profile` → `diagnostic`)** |
+| Por qué se inunda                  | CENAPRED/CONAGUA × elevación (DEM) × suelo × drenaje (Censo) × eventos | ❌ OIS                                             |
+| Por qué baja la vitalidad          | densidad DENUE × nivel socioeconómico × flujo                          | ⚠️ parcial (DENUE + perfil)                        |
+| Por qué hay inseguridad percibida  | INEGI ENVIPE × espacio público × iluminación                           | ❌ (ENVIPE ya disponible en DataMéxico)            |
 
 El perfil socioeconómico es el **primer cruce de capas real del sistema**: convierte la tesis
 "nada está aislado" en dato. La carencia dominante de CONEVAL ya señala qué capa observar primero.
 
 ### Predictivo — ¿Qué va a pasar?
 
-| Señal | Fuente | Estado |
-|---|---|---|
-| Riesgo hídrico próximas 24 h | Open-Meteo forecast | ✅ vivo (passthrough) |
-| **Tendencia de pobreza 2010→2020** | **CONEVAL serie temporal** | **✅ nuevo (`predictive.povertyTrend`)** |
-| Apertura/cierre de comercio | DENUE cortes sucesivos | ❌ OIS (requiere histórico) |
-| Tendencia delictiva | SESNSP mensual | ❌ OIS |
-| Modelo de inundación | forecast × susceptibilidad × historial colonia | ❌ OIS |
+| Señal                              | Fuente                                         | Estado                                   |
+| ---------------------------------- | ---------------------------------------------- | ---------------------------------------- |
+| Riesgo hídrico próximas 24 h       | Open-Meteo forecast                            | ✅ vivo (passthrough)                    |
+| **Tendencia de pobreza 2010→2020** | **CONEVAL serie temporal**                     | **✅ nuevo (`predictive.povertyTrend`)** |
+| Apertura/cierre de comercio        | DENUE cortes sucesivos                         | ❌ OIS (requiere histórico)              |
+| Tendencia delictiva                | SESNSP mensual                                 | ❌ OIS                                   |
+| Modelo de inundación               | forecast × susceptibilidad × historial colonia | ❌ OIS                                   |
 
 > Honestidad: hoy "predictivo" = **tendencia observada**, marcada como tal (`basis`). La proyección
 > modelada llega con OIS y su histórico. No se presenta una tendencia como pronóstico.
 
 ### Prescriptivo — ¿Qué conviene hacer?
 
-| Salida | Insumo | Estado |
-|---|---|---|
-| **Señal de prioridad (carencia dominante)** | CONEVAL | **✅ nuevo (`prescriptive.priority`), explicable y acotado** |
-| Índice de decisión urbana (8 dimensiones) | `urban_ageb_metrics` | ❌ OIS-2 |
-| Escenarios ("si mejora X, baja Y") | índice + modelo | ❌ OIS-3 |
+| Salida                                      | Insumo               | Estado                                                       |
+| ------------------------------------------- | -------------------- | ------------------------------------------------------------ |
+| **Señal de prioridad (carencia dominante)** | CONEVAL              | **✅ nuevo (`prescriptive.priority`), explicable y acotado** |
+| Índice de decisión urbana (8 dimensiones)   | `urban_ageb_metrics` | ❌ OIS-2                                                     |
+| Escenarios ("si mejora X, baja Y")          | índice + modelo      | ❌ OIS-3                                                     |
 
 ## 2. DataMéxico como atajo oficial del MVP
 
@@ -104,12 +104,12 @@ y `confidence: "official"`. Degrada honestamente: si un cubo falla, esa parte qu
 
 Revisión 2026-06-29 de portales líderes (respetando robots.txt y ToS):
 
-| Fuente | Veredicto |
-|---|---|
-| Inmuebles24 / Vivanuncios | robots.txt permite listados y publican sitemaps, pero el WAF responde **403 a todo agente no-navegador**. Saltarlo (huella de navegador falsa + proxies) es **evasión de control de acceso** → no se hace. |
-| Mercado Libre (scraping) | robots.txt **bloquea explícitamente ClaudeBot/GPTBot/PerplexityBot** (`Disallow: /`). No se scrapea. |
-| Lamudi / propiedades.com / casasyterrenos | Bloquean agentes no-navegador (403/405/timeout). |
-| Facebook Marketplace | Sin API pública de listados, auth-gated; scraping viola ToS. Descartado. |
+| Fuente                                    | Veredicto                                                                                                                                                                                                  |
+| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Inmuebles24 / Vivanuncios                 | robots.txt permite listados y publican sitemaps, pero el WAF responde **403 a todo agente no-navegador**. Saltarlo (huella de navegador falsa + proxies) es **evasión de control de acceso** → no se hace. |
+| Mercado Libre (scraping)                  | robots.txt **bloquea explícitamente ClaudeBot/GPTBot/PerplexityBot** (`Disallow: /`). No se scrapea.                                                                                                       |
+| Lamudi / propiedades.com / casasyterrenos | Bloquean agentes no-navegador (403/405/timeout).                                                                                                                                                           |
+| Facebook Marketplace                      | Sin API pública de listados, auth-gated; scraping viola ToS. Descartado.                                                                                                                                   |
 
 **Vía elegida: API oficial de Mercado Libre** (única compatible con PRECIO por municipio/CP).
 

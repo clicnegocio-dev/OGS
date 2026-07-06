@@ -123,7 +123,8 @@ export function UrbanHero({ settlementSlug }: { settlementSlug?: string }) {
       fetchJson(`/api/urban/news?settlement=${settlementId}`)
     ]).then((results) => {
       if (controller.signal.aborted) return;
-      const [signalsResult, hazardsResult, denueResult, boundaryResult, weatherResult, profileResult, newsResult] = results;
+      const [signalsResult, hazardsResult, denueResult, boundaryResult, weatherResult, profileResult, newsResult] =
+        results;
 
       const seedSignals = signalsResult.status === "fulfilled" ? signalsResult.value.signals || [] : [];
       const denueSignals = denueResult.status === "fulfilled" ? denueResult.value.signals || [] : [];
@@ -133,7 +134,11 @@ export function UrbanHero({ settlementSlug }: { settlementSlug?: string }) {
       if (weatherResult.status === "fulfilled" && !weatherResult.value.error) setWeather(weatherResult.value);
       if (profileResult.status === "fulfilled" && !profileResult.value.error) setProfile(profileResult.value);
       if (newsResult.status === "fulfilled" && !newsResult.value.error) {
-        setNewsSummary({ total: newsResult.value.total, mapped: newsResult.value.mapped, vintage: newsResult.value.vintage });
+        setNewsSummary({
+          total: newsResult.value.total,
+          mapped: newsResult.value.mapped,
+          vintage: newsResult.value.vintage
+        });
       }
       if (boundaryResult.status === "fulfilled") {
         setBoundary(boundaryResult.value.boundary || null);
@@ -301,22 +306,31 @@ export function UrbanHero({ settlementSlug }: { settlementSlug?: string }) {
           <a
             className="cond-board-link"
             href={`/${configuredSettlement.id}/noticias${focusCp ? `?cp=${focusCp}` : ""}`}
-            style={{ display: "inline-block", marginTop: "10px", fontSize: "12px", fontWeight: 700, color: "var(--accent)", textDecoration: "none" }}
+            style={{
+              display: "inline-block",
+              marginTop: "10px",
+              fontSize: "12px",
+              fontWeight: 700,
+              color: "var(--accent)",
+              textDecoration: "none"
+            }}
           >
             {focusCp ? `Ver CP ${focusCp} en lista →` : "Ver todas en lista →"}
           </a>
         </div>
       ) : null}
       <p className="data-coverage">
-        <b>Medido en vivo:</b> clima, aire, sismo, servicios.{" "}
-        <b>Oficial por corte:</b> perfil socioeconómico (DataMéxico).{" "}
-        <b>Señales de medios:</b> XEU (reporte). <b>En integración (OIS):</b> Censo por AGEB,
-        banquetas, inundación histórica.{" "}
-        <b>Mapa de calor:</b> densidad de señales (incluye demo y prensa sin verificar), no incidencia verificada.{" "}
+        <b>Medido en vivo:</b> clima, aire, sismo, servicios. <b>Oficial por corte:</b> perfil socioeconómico
+        (DataMéxico). <b>Señales de medios:</b> XEU (reporte). <b>En integración (OIS):</b> Censo por AGEB, banquetas,
+        inundación histórica. <b>Mapa de calor:</b> densidad de señales (incluye demo y prensa sin verificar), no
+        incidencia verificada.{" "}
         <Link href="/fuentes" style={{ color: "var(--accent)", fontWeight: 700, textDecoration: "none" }}>
           Fuentes →
         </Link>{" "}
-        <a href={`/${configuredSettlement.id}/analisis`} style={{ color: "var(--accent)", fontWeight: 700, textDecoration: "none" }}>
+        <a
+          href={`/${configuredSettlement.id}/analisis`}
+          style={{ color: "var(--accent)", fontWeight: 700, textDecoration: "none" }}
+        >
           Análisis →
         </a>
       </p>
@@ -452,7 +466,12 @@ export function UrbanHero({ settlementSlug }: { settlementSlug?: string }) {
             />
           ) : null}
 
-          <UrbanLayerControl activeLayers={activeLayers} counts={layerCounts} onToggle={toggleLayer} onSetAll={setAllLayers} />
+          <UrbanLayerControl
+            activeLayers={activeLayers}
+            counts={layerCounts}
+            onToggle={toggleLayer}
+            onSetAll={setAllLayers}
+          />
 
           <RadiusControl radiusKm={radiusKm} onChange={setRadiusKm} count={visibleEntityCount} />
 
@@ -501,7 +520,11 @@ function ProfilePanel({ profile }: { profile: MunicipalProfile }) {
         <Metric
           label="Población"
           value={descriptive.population.value}
-          note={descriptive.povertyRate ? `${descriptive.povertyRate.value}% en pobreza. ${trendNote ?? ""}`.trim() : undefined}
+          note={
+            descriptive.povertyRate
+              ? `${descriptive.povertyRate.value}% en pobreza. ${trendNote ?? ""}`.trim()
+              : undefined
+          }
         />
       ) : null}
       {descriptive.indicators.length ? (

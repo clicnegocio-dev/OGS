@@ -58,9 +58,7 @@ export async function GET(request: Request) {
         heat: Number.isFinite(temperatureC)
           ? { temperatureC: round(temperatureC), apparentC: round(apparentC), level: deriveHeatLevel(apparentC) }
           : null,
-        air: Number.isFinite(usAqi)
-          ? { usAqi: Math.round(usAqi), pm25: round(pm25), ...deriveAirLevel(usAqi) }
-          : null,
+        air: Number.isFinite(usAqi) ? { usAqi: Math.round(usAqi), pm25: round(pm25), ...deriveAirLevel(usAqi) } : null,
         confidence: "official",
         source: "Open-Meteo · en vivo (clima + calidad del aire)",
         sourceUrl: "https://open-meteo.com/",
@@ -93,7 +91,11 @@ async function okJson(result: PromiseSettledResult<Response>) {
 
 function deriveHydricRisk(currentMm: number, next24Mm: number): HydricRisk {
   if (next24Mm >= 30 || currentMm >= 5) {
-    return { level: "high", label: "Alta", reason: `Lluvia significativa pronosticada: ${round(next24Mm)} mm en 24 h.` };
+    return {
+      level: "high",
+      label: "Alta",
+      reason: `Lluvia significativa pronosticada: ${round(next24Mm)} mm en 24 h.`
+    };
   }
   if (next24Mm >= 8 || currentMm >= 1) {
     return { level: "medium", label: "Media", reason: `Lluvia moderada pronosticada: ${round(next24Mm)} mm en 24 h.` };

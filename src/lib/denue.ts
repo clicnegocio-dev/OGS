@@ -111,10 +111,7 @@ export function normalizeDenueRecord(raw: DenueRaw): DenueBusiness | null {
 // Quita acentos/diacríticos: DENUE devuelve texto acentuado ("educación"),
 // así que comparar contra "educacion" sin normalizar fallaba siempre.
 function normalizeText(value: string) {
-  return value
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .toLowerCase();
+  return value.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 }
 
 export type DenueCategory = "salud" | "educacion" | "abasto" | "gobierno" | "comercio";
@@ -123,10 +120,24 @@ export function classifyDenueCategory(business: DenueBusiness): DenueCategory {
   // Reutiliza la categoría precomputada en normalizeDenueRecord (evita re-correr NFD+regex).
   if (business.category) return business.category;
   const text = normalizeText(`${business.activity} ${business.name}`);
-  if (/(hospital|clinica|consultorio|farmacia|medic|salud|sanatorio|dentista|laboratorio clinico|centro de salud)/.test(text)) return "salud";
-  if (/(escuela|educacion|colegio|universidad|preescolar|primaria|secundaria|kinder|jardin de ninos|bachillerato|instituto)/.test(text)) return "educacion";
-  if (/(mercado|supermercado|abarrotes|tianguis|central de abasto|fruteria|verduleria|carniceria|tortilleria)/.test(text)) return "abasto";
-  if (/(gobierno|municipal|administracion publica|ayuntamiento|dependencia oficial|oficina de gobierno)/.test(text)) return "gobierno";
+  if (
+    /(hospital|clinica|consultorio|farmacia|medic|salud|sanatorio|dentista|laboratorio clinico|centro de salud)/.test(
+      text
+    )
+  )
+    return "salud";
+  if (
+    /(escuela|educacion|colegio|universidad|preescolar|primaria|secundaria|kinder|jardin de ninos|bachillerato|instituto)/.test(
+      text
+    )
+  )
+    return "educacion";
+  if (
+    /(mercado|supermercado|abarrotes|tianguis|central de abasto|fruteria|verduleria|carniceria|tortilleria)/.test(text)
+  )
+    return "abasto";
+  if (/(gobierno|municipal|administracion publica|ayuntamiento|dependencia oficial|oficina de gobierno)/.test(text))
+    return "gobierno";
   return "comercio";
 }
 
@@ -161,7 +172,19 @@ export const DENUE_CATEGORY_LABEL: Record<DenueCategory, string> = {
 // SEGURIDAD: la API de INEGI exige el token como ÚLTIMO SEGMENTO del path (no hay forma de
 // pasarlo por header). Por eso estas URLs NUNCA deben loguearse ni incluirse en mensajes de error
 // que viajen al cliente — quedarían en logs / Next Data Cache key. Trátalas como secreto.
-export function buildDenueUrl({ condition, lat, lng, distanceMeters, token }: { condition: string; lat: number; lng: number; distanceMeters: number; token: string }) {
+export function buildDenueUrl({
+  condition,
+  lat,
+  lng,
+  distanceMeters,
+  token
+}: {
+  condition: string;
+  lat: number;
+  lng: number;
+  distanceMeters: number;
+  token: string;
+}) {
   const safeCondition = encodeURIComponent(condition || "todos");
   return `https://www.inegi.org.mx/app/api/denue/v1/consulta/Buscar/${safeCondition}/${lat},${lng}/${distanceMeters}/${token}`;
 }

@@ -25,7 +25,10 @@ export class MlNotConfiguredError extends Error {
 }
 
 export function isMercadoLibreConfigured(): boolean {
-  return Boolean(process.env.ML_ACCESS_TOKEN || (process.env.ML_CLIENT_ID && process.env.ML_CLIENT_SECRET && process.env.ML_REFRESH_TOKEN));
+  return Boolean(
+    process.env.ML_ACCESS_TOKEN ||
+    (process.env.ML_CLIENT_ID && process.env.ML_CLIENT_SECRET && process.env.ML_REFRESH_TOKEN)
+  );
 }
 
 async function getAccessToken(): Promise<string> {
@@ -74,10 +77,16 @@ async function mlGet(path: string): Promise<unknown> {
 // Resuelve los ids de classified_location de ML para un estado + ciudad (≈ municipio) por nombre.
 async function resolveLocationIds(stateName: string, cityName: string): Promise<{ stateId?: string; cityId?: string }> {
   const country = (await mlGet(`/classified_locations/countries/MX`)) as { states?: { id: string; name: string }[] };
-  const state = (country.states || []).find((s) => normalize(s.name).includes(normalize(stateName)) || normalize(stateName).includes(normalize(s.name)));
+  const state = (country.states || []).find(
+    (s) => normalize(s.name).includes(normalize(stateName)) || normalize(stateName).includes(normalize(s.name))
+  );
   if (!state) return {};
-  const stateData = (await mlGet(`/classified_locations/states/${state.id}`)) as { cities?: { id: string; name: string }[] };
-  const city = (stateData.cities || []).find((c) => normalize(c.name).includes(normalize(cityName)) || normalize(cityName).includes(normalize(c.name)));
+  const stateData = (await mlGet(`/classified_locations/states/${state.id}`)) as {
+    cities?: { id: string; name: string }[];
+  };
+  const city = (stateData.cities || []).find(
+    (c) => normalize(c.name).includes(normalize(cityName)) || normalize(cityName).includes(normalize(c.name))
+  );
   return { stateId: state.id, cityId: city?.id };
 }
 
@@ -190,9 +199,5 @@ function median(values: Array<number | null>): number | null {
 }
 
 function normalize(text: string): string {
-  return text
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .trim();
+  return text.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").trim();
 }

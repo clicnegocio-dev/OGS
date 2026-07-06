@@ -22,7 +22,7 @@ Regla de corte MVP ↔ OIS:
 
 1. **Honestidad de datos:** cada señal declara fuente, fecha, cobertura, confianza y privacidad. Una capa sin trazabilidad no entra al mapa operativo.
 2. **Distinguir** reporte ciudadano / dato oficial / inferencia / análisis — nunca mezclarlos sin marcarlo.
-3. **"Sin datos" ≠ "sin problema":** estado explícito de *no medido* vs *medido sin incidencias*.
+3. **"Sin datos" ≠ "sin problema":** estado explícito de _no medido_ vs _medido sin incidencias_.
 4. **Anti-estigma:** agregar o difuminar cuando el detalle pueda etiquetar hogares, personas o convertir una zona en estigma inmobiliario.
 5. **Supervisión humana:** OIS opera con orden, trazabilidad y criterio; la automatización no sustituye el juicio editorial ni a las autoridades.
 
@@ -32,20 +32,20 @@ Toda señal —reporte, dato oficial, inferencia, análisis— se normaliza al m
 
 ```ts
 type EvidenceSignal = {
-  id: string;                      // estable y deduplicable
+  id: string; // estable y deduplicable
   scope: { country: string; state: string; municipality: string; ageb?: string; block?: string };
-  geometry: GeoJSON.Geometry;      // punto, línea o polígono (no solo lat/lng)
+  geometry: GeoJSON.Geometry; // punto, línea o polígono (no solo lat/lng)
   layer: "ambiental" | "urbano" | "social" | "economico" | "institucional" | "tecnologia";
-  axis?: string;                   // uno de los 8 ejes (síntoma)
-  type: string;                    // taxonomía cívica fina (inundacion, banqueta, farmacia, ...)
+  axis?: string; // uno de los 8 ejes (síntoma)
+  type: string; // taxonomía cívica fina (inundacion, banqueta, farmacia, ...)
   title: string;
   description: string;
   severity: "low" | "medium" | "high";
   confidence: "reported" | "official" | "inferred" | "analysis";
   privacy: "public" | "aggregated";
   source: { name: string; url?: string; vintage: string }; // vintage = fecha real del corte
-  observedAt: string;              // antigüedad real del dato (no la del fetch)
-  updatedAt: string;               // cuándo lo refrescó el sistema
+  observedAt: string; // antigüedad real del dato (no la del fetch)
+  updatedAt: string; // cuándo lo refrescó el sistema
   coverage?: { unit: "ageb" | "block" | "municipality"; measured: boolean };
 };
 ```
@@ -161,19 +161,19 @@ create table urban_reports (
 
 ## 6. Fuentes oficiales — plan de integración
 
-| Fuente | Señal/decisión | Acceso | Unidad | Capa | Dónde corre | Prioridad |
-|---|---|---|---|---|---|---|
-| Open-Meteo (precip/temp) | Riesgo hídrico, calor | API keyless | punto | ambiental | **MVP (edge)** | ✅ hecho |
-| Open-Meteo Air Quality | Calidad del aire (PM2.5/AQI) | API keyless | punto | ambiental | **MVP (edge)** | ✅ en curso |
-| DENUE | Acceso a servicios, vitalidad | API + token | punto→AGEB | social/econ/inst | MVP live → **OIS agregado** | ✅ MVP / OIS |
-| Censo 2020 (ITER/AGEB) | Drenaje/agua/luz, socioeconómico, escolaridad | CSV keyless | AGEB | social/urbano | **OIS (worker)** | P0 |
-| Entorno Urbano 2020 | Banqueta, alumbrado, rampa, árbol, drenaje pluvial | CSV por manzana | manzana | urbano/social | **OIS (worker)** | P0 |
-| CENAPRED / CONAGUA | Susceptibilidad a inundación | Shapefile | polígono | ambiental/riesgo | **OIS (worker)** | P0 |
-| Marco Geoestadístico 2020 | Límite oficial AGEB/manzana | Shapefile | polígono | base | **OIS (worker)** | P1 |
-| SESNSP | Seguridad cotidiana agregada | CSV mensual | municipio | institucional | **OIS (worker)** | P1 |
-| INEGI Indicadores | Dossier municipal (series) | API + token | municipio | dossier | OIS o MVP edge | P1 |
-| CKAN Veracruz (379 ds) | Licencias, obras, servicios | CKAN API | recurso | varias | **OIS (worker)** | P2 |
-| USGS / EONET | Sismo/eventos (contexto secundario) | API keyless | punto | riesgo | **MVP (edge)** | ✅ hecho |
+| Fuente                    | Señal/decisión                                     | Acceso          | Unidad     | Capa             | Dónde corre                 | Prioridad    |
+| ------------------------- | -------------------------------------------------- | --------------- | ---------- | ---------------- | --------------------------- | ------------ |
+| Open-Meteo (precip/temp)  | Riesgo hídrico, calor                              | API keyless     | punto      | ambiental        | **MVP (edge)**              | ✅ hecho     |
+| Open-Meteo Air Quality    | Calidad del aire (PM2.5/AQI)                       | API keyless     | punto      | ambiental        | **MVP (edge)**              | ✅ en curso  |
+| DENUE                     | Acceso a servicios, vitalidad                      | API + token     | punto→AGEB | social/econ/inst | MVP live → **OIS agregado** | ✅ MVP / OIS |
+| Censo 2020 (ITER/AGEB)    | Drenaje/agua/luz, socioeconómico, escolaridad      | CSV keyless     | AGEB       | social/urbano    | **OIS (worker)**            | P0           |
+| Entorno Urbano 2020       | Banqueta, alumbrado, rampa, árbol, drenaje pluvial | CSV por manzana | manzana    | urbano/social    | **OIS (worker)**            | P0           |
+| CENAPRED / CONAGUA        | Susceptibilidad a inundación                       | Shapefile       | polígono   | ambiental/riesgo | **OIS (worker)**            | P0           |
+| Marco Geoestadístico 2020 | Límite oficial AGEB/manzana                        | Shapefile       | polígono   | base             | **OIS (worker)**            | P1           |
+| SESNSP                    | Seguridad cotidiana agregada                       | CSV mensual     | municipio  | institucional    | **OIS (worker)**            | P1           |
+| INEGI Indicadores         | Dossier municipal (series)                         | API + token     | municipio  | dossier          | OIS o MVP edge              | P1           |
+| CKAN Veracruz (379 ds)    | Licencias, obras, servicios                        | CKAN API        | recurso    | varias           | **OIS (worker)**            | P2           |
+| USGS / EONET              | Sismo/eventos (contexto secundario)                | API keyless     | punto      | riesgo           | **MVP (edge)**              | ✅ hecho     |
 
 ## 7. Capa de evidencia derivada e índice de decisión
 
@@ -195,16 +195,16 @@ Hoy el reporte vive en el HTML estático (localStorage + WhatsApp). OIS lo migra
 
 ## 9. Contratos de API objetivo
 
-| Ruta | Lee de | Notas |
-|---|---|---|
-| `GET /api/urban/geo` | ipapi | ciudad detectada (live) |
-| `GET /api/urban/weather` | Open-Meteo | hídrico + aire + calor (live, MVP) |
-| `GET /api/urban/hazards` | USGS/EONET | contexto regional (live) |
-| `GET /api/urban/signals?bbox=&layer=` | PostGIS | reportes + oficiales materializados |
-| `GET /api/urban/boundary?id=` | PostGIS | límite oficial (Marco Geoestadístico) |
-| `GET /api/urban/metrics?ageb=` | PostGIS | métricas + índice por AGEB |
-| `GET /api/urban/dossier?id=` | PostGIS/INEGI | dossier real (no Wikipedia) |
-| `POST /api/urban/reports` | PostGIS | alta de reporte (MVP3) |
+| Ruta                                  | Lee de        | Notas                                 |
+| ------------------------------------- | ------------- | ------------------------------------- |
+| `GET /api/urban/geo`                  | ipapi         | ciudad detectada (live)               |
+| `GET /api/urban/weather`              | Open-Meteo    | hídrico + aire + calor (live, MVP)    |
+| `GET /api/urban/hazards`              | USGS/EONET    | contexto regional (live)              |
+| `GET /api/urban/signals?bbox=&layer=` | PostGIS       | reportes + oficiales materializados   |
+| `GET /api/urban/boundary?id=`         | PostGIS       | límite oficial (Marco Geoestadístico) |
+| `GET /api/urban/metrics?ageb=`        | PostGIS       | métricas + índice por AGEB            |
+| `GET /api/urban/dossier?id=`          | PostGIS/INEGI | dossier real (no Wikipedia)           |
+| `POST /api/urban/reports`             | PostGIS       | alta de reporte (MVP3)                |
 
 Todas con cache-control y, para datos materializados, servicio por bbox/tiles para no volcar miles de puntos al cliente (clustering/heatmap).
 
@@ -218,9 +218,9 @@ Todas con cache-control y, para datos materializados, servicio por bbox/tiles pa
 
 ## 11. Roadmap de construcción
 
-1. **MVP (ahora):** fuentes live keyless en edge + narrativa + honestidad de cobertura. *Acercarse a la realidad sin infraestructura.*
+1. **MVP (ahora):** fuentes live keyless en edge + narrativa + honestidad de cobertura. _Acercarse a la realidad sin infraestructura._
 2. **OIS-1 (PostGIS + worker):** ingestión offline DENUE/Censo/Entorno Urbano + límites oficiales. Resuelve el blocker de timeout y sustituye semillas por dato real por AGEB.
 3. **OIS-2 (índice + dossier):** índice de decisión explicable + dossier municipal real.
 4. **OIS-3 (reportes + API pública):** backend de reportes con verificación, exportación anonimizada, Red Local.
 
-> El MVP debe poder decir con honestidad: *"Esto es lo que ya se mide en vivo; esto otro llega cuando OIS lo materialice."* Este SPEC es ese "esto otro".
+> El MVP debe poder decir con honestidad: _"Esto es lo que ya se mide en vivo; esto otro llega cuando OIS lo materialice."_ Este SPEC es ese "esto otro".

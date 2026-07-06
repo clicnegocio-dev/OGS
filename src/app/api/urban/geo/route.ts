@@ -44,35 +44,40 @@ export async function GET(request: NextRequest) {
 
   const ip = isPrivateOrReserved(rawIp) ? "" : rawIp;
 
-  const payload = await cached(`geo:${ip || "anon"}`, 60 * 60 * 1000, async () => {
-    try {
-      // La IP ya pasó validación de formato (IPV4/IPV6) y se codifica antes de interpolar.
-      const url = ip ? `https://ipapi.co/${encodeURIComponent(ip)}/json/` : "https://ipapi.co/json/";
-      const response = await fetch(url, {
-        signal: AbortSignal.timeout(5000),
-        headers: { "User-Agent": "EcosistemaUrbano/0.1 (+observatorio civico; comercializacion.gj@gmail.com)" }
-      });
+  const payload = await cached(
+    `geo:${ip || "anon"}`,
+    60 * 60 * 1000,
+    async () => {
+      try {
+        // La IP ya pasó validación de formato (IPV4/IPV6) y se codifica antes de interpolar.
+        const url = ip ? `https://ipapi.co/${encodeURIComponent(ip)}/json/` : "https://ipapi.co/json/";
+        const response = await fetch(url, {
+          signal: AbortSignal.timeout(5000),
+          headers: { "User-Agent": "EcosistemaUrbano/0.1 (+observatorio civico; comercializacion.gj@gmail.com)" }
+        });
 
-      if (response.ok) {
-        const data = await response.json();
-        // Number.isFinite acepta lat/lng = 0 (ecuador/Greenwich); el `&&` anterior los descartaba.
-        if (!data.error && Number.isFinite(Number(data.latitude)) && Number.isFinite(Number(data.longitude))) {
-          return {
-            status: "success" as const,
-            lat: Number(data.latitude),
-            lng: Number(data.longitude),
-            city: data.city,
-            region: data.region,
-            country: data.country_name,
-            source: "ipapi.co"
-          };
+        if (response.ok) {
+          const data = await response.json();
+          // Number.isFinite acepta lat/lng = 0 (ecuador/Greenwich); el `&&` anterior los descartaba.
+          if (!data.error && Number.isFinite(Number(data.latitude)) && Number.isFinite(Number(data.longitude))) {
+            return {
+              status: "success" as const,
+              lat: Number(data.latitude),
+              lng: Number(data.longitude),
+              city: data.city,
+              region: data.region,
+              country: data.country_name,
+              source: "ipapi.co"
+            };
+          }
         }
+      } catch {
+        // Cae al default cívico.
       }
-    } catch {
-      // Cae al default cívico.
-    }
-    return CIVIC_DEFAULT;
-  }, { shouldCache: (p) => p.status === "success" });
+      return CIVIC_DEFAULT;
+    },
+    { shouldCache: (p) => p.status === "success" }
+  );
 
   return NextResponse.json(payload, {
     // Geolocalización por IP = respuesta por-cliente: el navegador la cachea, el CDN no la comparte.

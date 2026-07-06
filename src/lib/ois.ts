@@ -82,7 +82,7 @@ export async function submitCivicReport(input: CivicReportInput): Promise<CivicR
     display_name: input.reporterName.trim().slice(0, 200),
     email: input.email?.trim() ? input.email.trim().slice(0, 320) : null,
     phone: input.phone?.trim() ? input.phone.trim().slice(0, 40) : null,
-    message: buildReportMessage(input),
+    message: buildReportMessage(input)
   };
 
   let response: Response;
@@ -91,7 +91,7 @@ export async function submitCivicReport(input: CivicReportInput): Promise<CivicR
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
-      signal: AbortSignal.timeout(12000),
+      signal: AbortSignal.timeout(12000)
     });
   } catch {
     // Red/DNS/timeout: NO propagar el mensaje crudo (puede contener el host interno de OIS).
@@ -115,6 +115,6 @@ export async function submitCivicReport(input: CivicReportInput): Promise<CivicR
     received: Boolean(data.received),
     message: data.message ?? "Recibido.",
     reply: data.reply ?? null,
-    handoff: Boolean(data.handoff),
+    handoff: Boolean(data.handoff)
   };
 }
