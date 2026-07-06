@@ -48,6 +48,17 @@
   color: var(--muted);
 }
 
+.board-stale {
+  margin: 10px 0 0;
+  padding: 8px 12px;
+  border: 1px solid #e6c200;
+  background: rgba(230, 194, 0, 0.1);
+  border-radius: 8px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
 .board-layout {
   display: grid;
   grid-template-columns: 250px 1fr;
@@ -225,11 +236,29 @@
   white-space: nowrap;
 }
 
+.row-headline {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
 .row-title {
   font-size: 15px;
   line-height: 1.45;
   color: var(--ink);
   text-decoration: none;
+}
+
+/* Asunto citable (og:description del medio): resumen breve bajo el titular. */
+.row-subject {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 a.row-title:hover {
@@ -277,7 +306,7 @@ a.row-title:hover {
     justify-self: end;
   }
 
-  .row-title {
+  .row-headline {
     order: 3;
     grid-column: 1 / -1;
   }

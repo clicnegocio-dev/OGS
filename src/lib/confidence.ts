@@ -2,12 +2,12 @@
 // tan seguros estamos?". No la respondemos afirmando; la DERIVAMOS (es una inferencia, no un dato) de
 // cuánto se repite un fenómeno y —sobre todo— de cuántos MEDIOS INDEPENDIENTES coinciden.
 //
-// Realidad de hoy: todas las señales provienen de UN solo medio (XEU). Por eso lo honesto NO es
-// "corroboración independiente" sino RECURRENCIA (un medio insiste). El tope (4/4) queda RESERVADO a
-// corroboración real (≥2 medios): hoy inalcanzable, lo que señala con verdad que aún no la tenemos.
-// Cuando EU sume otra fuente (u OIS devuelva reportes ciudadanos), esos grupos suben a "corroborada"
-// SIN cambiar este código — el primitivo ya cuenta fuentes distintas. Nada aquí es "verificado":
-// incluso corroborado sigue siendo reporte de medios, no hecho confirmado (doctrina anti-estigma).
+// Realidad de hoy: hay VARIOS medios (XEU, Plumas Libres, El Dictamen), así que "corroborada" (4/4) ya
+// es alcanzable. PERO corroborar de verdad es ≥2 medios sobre el MISMO evento, no dos medios que por
+// separado tocaron ese CP+tipo a lo largo de meses. Esa distinción NO vive aquí (este primitivo solo
+// recibe números): la impone `confidenceOf` en lib/news.ts agrupando por EVENTO (ventana temporal) y
+// deduplicando republicaciones antes de contar fuentes/menciones. Aquí solo mapeamos esos números al
+// medidor. Nada es "verificado": incluso corroborado sigue siendo reporte de medios (doctrina anti-estigma).
 
 export type ConfidenceLevel = "aislada" | "emergente" | "recurrente" | "corroborada";
 
