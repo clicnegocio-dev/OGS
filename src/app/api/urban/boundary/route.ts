@@ -33,9 +33,16 @@ export async function GET(request: Request) {
         try {
           denueResult = await buildBoundaryFromDenue(settlement.id);
         } catch (error) {
-          console.error(`[boundary] DENUE no disponible para ${settlement.id}:`, error instanceof Error ? error.message : error);
+          console.error(
+            `[boundary] DENUE no disponible para ${settlement.id}:`,
+            error instanceof Error ? error.message : error
+          );
           degraded = true;
         }
+        // #C4 (auditoría): DENUE NO lanza en fallo de red/HTTP — devuelve 0 puntos y buildBoundary…
+        // → null, cayendo a la semilla. Sin esto, esa semilla por blip upstream se fijaba 24h + CDN
+        // una semana (justo lo que shouldCache pretendía evitar). Un null aquí = degradado.
+        if (!denueResult) degraded = true;
       }
 
       const boundary = denueResult?.boundary || settlement.boundary;
@@ -69,9 +76,7 @@ export async function GET(request: Request) {
 
   return NextResponse.json(payload, {
     headers: {
-      "Cache-Control": payload.degraded
-        ? "no-store"
-        : "public, s-maxage=86400, stale-while-revalidate=604800"
+      "Cache-Control": payload.degraded ? "no-store" : "public, s-maxage=86400, stale-while-revalidate=604800"
     }
   });
 }

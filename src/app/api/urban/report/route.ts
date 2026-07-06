@@ -1,8 +1,27 @@
 import { NextResponse } from "next/server";
 import { isOisConfigured, submitCivicReport, OIS_SOURCE, type CivicReportInput } from "@/lib/ois";
 import { upstreamError } from "@/lib/http";
+import { checkRateLimit } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
+
+// #A1 (auditoría): este es el único endpoint de ESCRITURA y reenvía a la puerta pública de OIS.
+// Límites de abuso: tope de cuerpo (evita materializar MB en memoria antes de recortar) y rate-limit
+// best-effort por IP. La severidad se valida contra la unión conocida (basura no viaja a OIS).
+const MAX_BODY_BYTES = 10_000;
+const RATE_LIMIT = 5; // envíos…
+const RATE_WINDOW_MS = 10 * 60 * 1000; // …por 10 min por IP (best-effort; ver lib/rate-limit)
+const VALID_SEVERITY = new Set(["low", "medium", "high"]);
+
+// IP del cliente para el rate-limit (best-effort; detrás de CDN estos headers son de confianza).
+function clientIp(request: Request): string {
+  return (
+    request.headers.get("cf-connecting-ip") ||
+    request.headers.get("x-real-ip") ||
+    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+    "anon"
+  );
+}
 
 // Redondeo a ~100 m (3 decimales): ubica la señal sin señalar el hogar (anti-estigma/PII, doctrina).
 function roundCoord(value: unknown): number | undefined {
@@ -20,10 +39,28 @@ export async function POST(request: Request) {
       {
         configured: false,
         note: "Configura OIS_BASE_URL (y opcional OIS_TENANT_SLUG) para enviar señales a OIS. Mientras tanto, usa WhatsApp.",
-        source: OIS_SOURCE,
+        source: OIS_SOURCE
       },
       { headers: { "Cache-Control": "no-store" } }
     );
+  }
+
+  // Rate-limit ANTES de leer/parsear el cuerpo (frena el spam sin gastar trabajo).
+  const rate = checkRateLimit(`report:${clientIp(request)}`, RATE_LIMIT, RATE_WINDOW_MS);
+  if (!rate.allowed) {
+    return NextResponse.json(
+      { error: "Demasiados envíos; intenta de nuevo en un rato." },
+      {
+        status: 429,
+        headers: { "Cache-Control": "no-store", "Retry-After": String(Math.ceil(rate.retryAfterMs / 1000)) }
+      }
+    );
+  }
+
+  // Tope de tamaño: rechaza cuerpos gigantes por Content-Length antes de materializarlos en memoria.
+  const declaredLength = Number(request.headers.get("content-length") ?? "0");
+  if (Number.isFinite(declaredLength) && declaredLength > MAX_BODY_BYTES) {
+    return upstreamError("El reporte es demasiado grande", { status: 413, clientSafe: true });
   }
 
   let payload: Partial<CivicReportInput>;
@@ -40,6 +77,9 @@ export async function POST(request: Request) {
   const lat = roundCoord(payload.lat);
   const lng = roundCoord(payload.lng);
   const hasGeo = lat != null && lng != null && Math.abs(lat) <= 90 && Math.abs(lng) <= 180;
+  // Severidad: solo la unión conocida viaja a OIS; cualquier otra cosa se descarta (no se rechaza el
+  // reporte por ello, pero no dejamos que texto arbitrario llegue al Operator).
+  const severity = VALID_SEVERITY.has(payload.severity ?? "") ? payload.severity : undefined;
 
   // Validación de borde: la puerta de OIS exige nombre + AL MENOS un canal; EU exige una descripción.
   if (!reporterName) {
@@ -60,13 +100,13 @@ export async function POST(request: Request) {
       layer: payload.layer,
       eje: payload.eje,
       type: payload.type,
-      severity: payload.severity,
+      severity,
       title: payload.title,
       description,
       settlement: payload.settlement,
       zone: payload.zone,
       lat: hasGeo ? lat : undefined,
-      lng: hasGeo ? lng : undefined,
+      lng: hasGeo ? lng : undefined
     });
     return NextResponse.json(
       { configured: true, ...result, source: OIS_SOURCE },
@@ -77,7 +117,7 @@ export async function POST(request: Request) {
     return upstreamError("No se pudo enviar la señal a OIS", {
       detail: error,
       source: OIS_SOURCE,
-      clientSafe: true,
+      clientSafe: true
     });
   }
 }

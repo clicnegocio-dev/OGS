@@ -11,7 +11,9 @@ export const maxDuration = 30;
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const settlementId = searchParams.get("settlement") || "boca-del-rio";
-  const condition = searchParams.get("condition") || "todos";
+  // #A1: `condition` es término de búsqueda del cliente; se vuelve clave de cache y va a la URL de
+  // INEGI. Se acota (longitud + espacios) para no inflar la cache ni quemar cuota con basura larga.
+  const condition = (searchParams.get("condition") || "todos").trim().replace(/\s+/g, " ").slice(0, 60);
   const mode = searchParams.get("mode") === "radius" ? "radius" : "area";
   const detail = searchParams.get("detail") === "full" ? "full" : "map";
 

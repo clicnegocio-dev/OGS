@@ -57,7 +57,15 @@ export async function getDenueDataset({
   const cacheKey =
     mode === "area"
       ? ["denue-dataset", "area", settlement.id, normalizedCondition].join(":")
-      : ["denue-dataset", "radius", settlement.id, normalizedCondition, lat ?? "na", lng ?? "na", distanceMeters ?? "na"].join(":");
+      : [
+          "denue-dataset",
+          "radius",
+          settlement.id,
+          normalizedCondition,
+          lat ?? "na",
+          lng ?? "na",
+          distanceMeters ?? "na"
+        ].join(":");
 
   return cached<DenueDataset>(
     cacheKey,
@@ -119,7 +127,9 @@ export function denueToMapSignals(dataset: DenueDataset): UrbanMapSignal[] {
 
   // Solo categorías que informan una decisión de habitabilidad (salud, educación, abasto,
   // gobierno). El comercio genérico se agrega como métrica, no como miles de puntos idénticos.
-  return dataset.businesses.filter(isDecisionRelevant).map((business) => businessToSignal(business, dataset, fetchedAt));
+  return dataset.businesses
+    .filter(isDecisionRelevant)
+    .map((business) => businessToSignal(business, dataset, fetchedAt));
 }
 
 export function denueToFullSignals(dataset: DenueDataset): UrbanSignalWithMetadata<DenueBusiness>[] {
@@ -144,11 +154,24 @@ export function summarizeDenue(dataset: DenueDataset) {
   return { total: dataset.businesses.length, essentialServices, byCategory };
 }
 
-async function fetchAreaDataset({ settlement, token, condition }: { settlement: Settlement; token: string; condition: string }) {
+async function fetchAreaDataset({
+  settlement,
+  token,
+  condition
+}: {
+  settlement: Settlement;
+  token: string;
+  condition: string;
+}) {
   if (!settlement.inegi) {
     return {
       businesses: [],
-      completeness: buildCompleteness({ complete: false, fetchedPages: 0, failedPages: 0, warning: "Settlement has no INEGI area configured." })
+      completeness: buildCompleteness({
+        complete: false,
+        fetchedPages: 0,
+        failedPages: 0,
+        warning: "Settlement has no INEGI area configured."
+      })
     };
   }
 
@@ -182,7 +205,9 @@ async function fetchAreaDataset({ settlement, token, condition }: { settlement: 
     try {
       response = await fetch(url, {
         signal: AbortSignal.timeout(Math.min(PAGE_TIMEOUT_MS, remaining)),
-        next: { revalidate: 86400 }
+        // #A2 (auditoría): NO usar la Next Data Cache — la URL lleva el DENUE_TOKEN en el path y
+        // quedaría como clave del fetch-cache en disco. La cache propia (cached()) ya cubre el TTL.
+        cache: "no-store"
       });
     } catch {
       // Timeout/red en una página: cortamos y devolvemos lo que haya con warning (no lanzamos).
@@ -241,7 +266,8 @@ async function fetchRadiusDataset({
   try {
     response = await fetch(url, {
       signal: AbortSignal.timeout(12000),
-      next: { revalidate: 86400 }
+      // #A2: la URL lleva el token → no la escribas en la Next Data Cache (ya hay cache propia).
+      cache: "no-store"
     });
   } catch {
     // Timeout/red: degrada honestamente (no lanza). El mensaje NO incluye la URL (lleva el token).
