@@ -274,6 +274,11 @@ export function EcosistemaNarrative({
             Una observación ciudadana no es solo un reclamo. Es el primer paso de un proceso que convierte experiencias
             individuales en información compartida.
           </p>
+          <p className="eco-hint eco-reveal">
+            Hoy están vivas la <b>captura</b> (paso 01, va a OIS) y la <b>recurrencia por zona</b> (el dossier por
+            código postal). El Observatorio y la evidencia citable (pasos 03–04) llegan con la capa analítica en
+            integración — no los presentamos como si ya operaran.
+          </p>
           <div className="eco-flujo eco-reveal">
             {FLUJO.map((step, i) => (
               <div className="eco-flujo-step" key={step.n} style={{ ["--fn" as string]: step.color }}>
@@ -340,8 +345,8 @@ export function EcosistemaNarrative({
               ClicNegocio · operado por <b>OIS</b>
             </span>
             <span className="eco-powered-desc">
-              El sistema de inteligencia operativa que mantiene este observatorio ordenado, trazable y vivo — con
-              supervisión humana.
+              EU se opera <b>sobre</b> OIS: hoy la captura ciudadana viaja a su puerta pública; la memoria y los
+              patrones por zona están en integración. Con supervisión humana.
             </span>
           </div>
         </div>

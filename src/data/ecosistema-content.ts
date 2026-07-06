@@ -304,7 +304,7 @@ export const KERNEL_PILLARS: KernelPillar[] = [
   {
     pillar: "Comunicación",
     feat: "Red Local",
-    desc: "La malla ciudadana mantiene viva la conversación aun sin internet, salto a salto entre vecinos.",
+    desc: "Aspira a que la conversación cívica no dependa de una sola infraestructura. En diseño; hoy la plataforma opera sobre internet.",
     color: "#ee6a5b"
   },
   {

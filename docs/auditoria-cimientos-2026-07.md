@@ -45,7 +45,13 @@
 - **A4** ✅ el deep-link `?cp` usa `useSearchParams` (con `<Suspense>` en las rutas SSG) → elegir una
   colonia en ⌘K estando ya en la página ahora sí enfoca el mapa (antes solo se leía al montar).
 
-**PENDIENTE** (siguientes fases, por prioridad): A9 (narrativa en tiempo honesto), A7 (toggle de tema
+**RESUELTO (parcial) — A9 (narrativa en tiempo honesto):** corregidos los excesos factuales claros —
+caveat en el FLUJO (hoy vive la captura + recurrencia; Observatorio/evidencia en integración), la
+"Red Local" mesh pasa de presente a aspiración ("en diseño; hoy opera sobre internet"), y "operado
+por OIS" se matiza ("EU se opera sobre OIS; memoria y patrones en integración"). La calibración
+editorial más fina de la voz de producto queda a criterio del autor.
+
+**PENDIENTE** (siguientes fases, por prioridad): A7 (toggle de tema
 antes de `load`), A3 (refresh ML), M1 (sobre común de metadatos + weather/EONET), M2/M3/M18 (vintage
 DENUE, maxRecords, bySource en más endpoints), M6/M8/M9 (ids/selección/revalidación del scraper), M10
 (UrbanHero componente-dios), M11 (perfil SSG), M13 (a11y: contraste `--muted`, roving tabindex), M14
