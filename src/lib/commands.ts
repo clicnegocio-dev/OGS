@@ -19,7 +19,13 @@ export function buildCommandIndex(): CommandLink[] {
   ];
 
   for (const s of Object.values(SETTLEMENTS)) {
-    cmds.push({ id: `mapa-${s.id}`, label: `Mapa · ${s.name}`, sub: s.stateName, href: `/${s.id}`, group: "Asentamientos" });
+    cmds.push({
+      id: `mapa-${s.id}`,
+      label: `Mapa · ${s.name}`,
+      sub: s.stateName,
+      href: `/${s.id}`,
+      group: "Asentamientos"
+    });
     cmds.push({
       id: `tablero-${s.id}`,
       label: `Tablero de señales · ${s.name}`,

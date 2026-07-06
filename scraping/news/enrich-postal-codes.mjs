@@ -36,7 +36,10 @@ async function main() {
     delete s.geoPrecision;
   }
 
-  payload.byPostalCode = countBy(signals.filter((s) => s.postalCode), "postalCode");
+  payload.byPostalCode = countBy(
+    signals.filter((s) => s.postalCode),
+    "postalCode"
+  );
   payload.byGeoScope = countBy(signals, "geoScope");
   if (!payload.note || !payload.note.includes("CP")) {
     payload.note = `${payload.note || ""} CP aproximado (semilla); validación fina = SEPOMEX/OIS.`.trim();

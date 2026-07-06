@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { UrbanHero } from "@/components/UrbanHero";
 import { EcosistemaNarrative } from "@/components/EcosistemaNarrative";
@@ -17,7 +18,10 @@ export default async function SettlementPage({ params }: SettlementPageProps) {
   if (!config) notFound();
   return (
     <>
-      <UrbanHero settlementSlug={settlement} />
+      {/* Suspense: UrbanHero usa useSearchParams (?cp) — Next lo exige en una ruta estática (#A4). */}
+      <Suspense fallback={null}>
+        <UrbanHero settlementSlug={settlement} />
+      </Suspense>
       <EcosistemaNarrative cityName={config.name} settlementSlug={settlement} />
     </>
   );

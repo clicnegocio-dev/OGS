@@ -38,7 +38,11 @@ export async function GET(request: Request) {
     // El fetch + json() iban FUERA de try/catch → un timeout/DNS/body-no-JSON daba 500 opaco.
     const response = await fetch(url, { signal: AbortSignal.timeout(12000), next: { revalidate: 3600 } });
     if (!response.ok) {
-      return upstreamError("La consulta a CKAN falló", { detail: `HTTP ${response.status}`, source: "CKAN Municipio de Veracruz", clientSafe: true });
+      return upstreamError("La consulta a CKAN falló", {
+        detail: `HTTP ${response.status}`,
+        source: "CKAN Municipio de Veracruz",
+        clientSafe: true
+      });
     }
     json = await response.json();
   } catch (error) {

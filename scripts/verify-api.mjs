@@ -24,9 +24,12 @@ async function assertPage(settlement) {
 }
 
 async function assertDenue(settlement) {
-  const response = await fetch(`${baseUrl}/api/urban/denue?settlement=${settlement}&mode=area&condition=todos&detail=map`, {
-    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS)
-  });
+  const response = await fetch(
+    `${baseUrl}/api/urban/denue?settlement=${settlement}&mode=area&condition=todos&detail=map`,
+    {
+      signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS)
+    }
+  );
   assert(response.ok, `${settlement} DENUE returned ${response.status}`);
   const payload = await response.json();
   assert(payload.settlement?.id === settlement, `${settlement} DENUE settlement mismatch`);
@@ -34,7 +37,10 @@ async function assertDenue(settlement) {
   assert(payload.total >= 0, `${settlement} DENUE total must be >= 0`);
   assert(Array.isArray(payload.signals), `${settlement} DENUE signals missing`);
   assert(payload.summary, `${settlement} DENUE summary missing`);
-  assert(!payload.signals.some((signal) => "metadata" in signal), `${settlement} map payload should not include metadata`);
+  assert(
+    !payload.signals.some((signal) => "metadata" in signal),
+    `${settlement} map payload should not include metadata`
+  );
 }
 
 async function assertBoundary(settlement) {

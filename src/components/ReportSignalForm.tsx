@@ -18,14 +18,14 @@ type SubmitState =
 const SEVERITIES = [
   { value: "low", label: "Baja" },
   { value: "medium", label: "Media" },
-  { value: "high", label: "Alta" },
+  { value: "high", label: "Alta" }
 ];
 
 export function ReportSignalForm({
   settlementSlug,
   cityName,
   whatsappHref,
-  onClose,
+  onClose
 }: {
   settlementSlug: string;
   cityName: string;
@@ -98,8 +98,8 @@ export function ReportSignalForm({
           settlement: settlementSlug,
           zone,
           lat: geo?.lat,
-          lng: geo?.lng,
-        }),
+          lng: geo?.lng
+        })
       });
       const data = await res.json().catch(() => ({}));
       if (res.ok && data.configured === false) {
@@ -114,7 +114,7 @@ export function ReportSignalForm({
         status: "ok",
         message: data.message ?? "Señal recibida.",
         reply: data.reply ?? null,
-        handoff: Boolean(data.handoff),
+        handoff: Boolean(data.handoff)
       });
     } catch {
       setState({ status: "error", message: "No se pudo enviar. Revisa tu conexión." });
@@ -128,8 +128,7 @@ export function ReportSignalForm({
         {state.reply ? <p className="eco-report-reply">{state.reply}</p> : null}
         {state.handoff ? <p className="eco-report-note">Una persona del equipo dará seguimiento.</p> : null}
         <p className="eco-report-note">
-          Por ahora mostramos señales individuales; los patrones por zona llegan cuando la capa
-          analítica esté lista.
+          Por ahora mostramos señales individuales; los patrones por zona llegan cuando la capa analítica esté lista.
         </p>
         <button type="button" className="eco-btn eco-btn-ghost" onClick={onClose}>
           Cerrar
@@ -185,7 +184,12 @@ export function ReportSignalForm({
         </label>
         <label className="eco-field">
           <span>Tipo</span>
-          <input value={type} onChange={(e) => setType(e.target.value)} placeholder="inundación, bache, foco…" maxLength={80} />
+          <input
+            value={type}
+            onChange={(e) => setType(e.target.value)}
+            placeholder="inundación, bache, foco…"
+            maxLength={80}
+          />
         </label>
         <label className="eco-field">
           <span>Severidad</span>
@@ -207,7 +211,13 @@ export function ReportSignalForm({
         </label>
         <label className="eco-field eco-field-wide">
           <span>¿Qué observas? *</span>
-          <textarea value={description} onChange={(e) => setDescription(e.target.value)} required rows={3} maxLength={1500} />
+          <textarea
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            required
+            rows={3}
+            maxLength={1500}
+          />
         </label>
       </div>
 
@@ -237,8 +247,8 @@ export function ReportSignalForm({
       </div>
 
       <p className="eco-report-hint">
-        Pedimos un canal de contacto (correo o teléfono) para dar seguimiento. La ubicación es opcional y
-        se guarda aproximada (~100 m), no exacta.
+        Pedimos un canal de contacto (correo o teléfono) para dar seguimiento. La ubicación es opcional y se guarda
+        aproximada (~100 m), no exacta.
       </p>
 
       <div role="alert" aria-live="assertive">

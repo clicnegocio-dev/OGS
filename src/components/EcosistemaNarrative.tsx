@@ -101,8 +101,8 @@ export function EcosistemaNarrative({
           <p className="eco-eyebrow eco-reveal">El método · de lo básico a lo avanzado</p>
           <h2 className="eco-headline eco-reveal">Comprender un asentamiento, paso a paso.</h2>
           <p className="eco-text eco-reveal">
-            No necesitas estudios para empezar: basta con <b>mirar tu entorno</b>. Cada nivel se lee de dos formas
-            —en simple, para cualquier persona, y en método, para quien investiga— porque entender la ciudad es de todos.
+            No necesitas estudios para empezar: basta con <b>mirar tu entorno</b>. Cada nivel se lee de dos formas —en
+            simple, para cualquier persona, y en método, para quien investiga— porque entender la ciudad es de todos.
           </p>
           <div className="eco-ladder eco-reveal">
             {METHOD_LADDER.map((rung) => (
@@ -135,7 +135,8 @@ export function EcosistemaNarrative({
           <h2 className="eco-headline eco-reveal">Seis capas que lo conectan todo.</h2>
           <p className="eco-text eco-reveal">
             Una ciudad no es solo calles y edificios. Es una red viva de seis capas que se influyen mutuamente: la
-            <b> anatomía del sistema</b>. Cuando una falla, las demás lo sienten. Selecciona una capa para ver sus conexiones.
+            <b> anatomía del sistema</b>. Cuando una falla, las demás lo sienten. Selecciona una capa para ver sus
+            conexiones.
           </p>
           <div className="eco-explorer eco-reveal">
             <div className="eco-layer-tabs" role="tablist" aria-label="Capas del ecosistema urbano">
@@ -194,7 +195,9 @@ export function EcosistemaNarrative({
               </p>
             ))}
           </div>
-          <p className="eco-text eco-reveal">Pero cuando miles de pequeñas excepciones se repiten, dejan de ser pequeñas.</p>
+          <p className="eco-text eco-reveal">
+            Pero cuando miles de pequeñas excepciones se repiten, dejan de ser pequeñas.
+          </p>
           <div className="eco-cons eco-reveal">
             {SMALL_CONSEQUENCES.map((c) => (
               <p className="eco-con" key={c.text} style={{ ["--cc" as string]: c.color }}>
@@ -271,13 +274,22 @@ export function EcosistemaNarrative({
             Una observación ciudadana no es solo un reclamo. Es el primer paso de un proceso que convierte experiencias
             individuales en información compartida.
           </p>
+          <p className="eco-hint eco-reveal">
+            Hoy están vivas la <b>captura</b> (paso 01, va a OIS) y la <b>recurrencia por zona</b> (el dossier por
+            código postal). El Observatorio y la evidencia citable (pasos 03–04) llegan con la capa analítica en
+            integración — no los presentamos como si ya operaran.
+          </p>
           <div className="eco-flujo eco-reveal">
             {FLUJO.map((step, i) => (
               <div className="eco-flujo-step" key={step.n} style={{ ["--fn" as string]: step.color }}>
                 <div className="eco-fs-num">{step.n}</div>
                 <div className="eco-fs-label">{step.label}</div>
                 <div className="eco-fs-desc">{step.desc}</div>
-                {i < FLUJO.length - 1 ? <span className="eco-fs-arrow" aria-hidden="true">→</span> : null}
+                {i < FLUJO.length - 1 ? (
+                  <span className="eco-fs-arrow" aria-hidden="true">
+                    →
+                  </span>
+                ) : null}
               </div>
             ))}
           </div>
@@ -290,9 +302,9 @@ export function EcosistemaNarrative({
           <p className="eco-eyebrow eco-accent eco-reveal">El kernel · OIS</p>
           <h2 className="eco-headline eco-reveal">Un sistema vivo necesita un sistema que lo opere.</h2>
           <p className="eco-text eco-reveal">
-            Leer la ciudad como un ecosistema solo sirve si algo mantiene esa lectura <b>ordenada, continua y accionable</b>.
-            Esa capa es <b>OIS — Sistema de Inteligencia Operativa</b>: el kernel que convierte señales sueltas en un
-            sistema con memoria, trazabilidad y criterio.
+            Leer la ciudad como un ecosistema solo sirve si algo mantiene esa lectura{" "}
+            <b>ordenada, continua y accionable</b>. Esa capa es <b>OIS — Sistema de Inteligencia Operativa</b>: el
+            kernel que convierte señales sueltas en un sistema con memoria, trazabilidad y criterio.
           </p>
           <div className="eco-pillars eco-reveal">
             {KERNEL_PILLARS.map((p) => (
@@ -304,7 +316,8 @@ export function EcosistemaNarrative({
             ))}
           </div>
           <blockquote className="eco-kernel-quote eco-reveal">
-            “El humano no debe apagar incendios todo el día; debe diseñar, supervisar y corregir un sistema que opere con
+            “El humano no debe apagar incendios todo el día; debe diseñar, supervisar y corregir un sistema que opere
+            con
             <em> orden, trazabilidad y criterio</em>.”
           </blockquote>
         </div>
@@ -332,8 +345,8 @@ export function EcosistemaNarrative({
               ClicNegocio · operado por <b>OIS</b>
             </span>
             <span className="eco-powered-desc">
-              El sistema de inteligencia operativa que mantiene este observatorio ordenado, trazable y vivo — con
-              supervisión humana.
+              EU se opera <b>sobre</b> OIS: hoy la captura ciudadana viaja a su puerta pública; la memoria y los
+              patrones por zona están en integración. Con supervisión humana.
             </span>
           </div>
         </div>
@@ -342,14 +355,13 @@ export function EcosistemaNarrative({
       {/* Participa */}
       <section className="eco-section" id="participa">
         <div className="eco-container">
-          <p className="eco-eyebrow eco-accent eco-reveal">
-            Participa · {cityName}
-          </p>
+          <p className="eco-eyebrow eco-accent eco-reveal">Participa · {cityName}</p>
           <h2 className="eco-headline eco-reveal">La ciudad la leen quienes la habitan.</h2>
           <p className="eco-text eco-reveal">
             Ningún observatorio ve el sistema completo desde un escritorio. Lo ve quien cruza la calle inundada, quien
             camina la banqueta rota, quien atiende el local sin clientes. Cada señal que reportas no es una queja: es
-            información que, sumada a otras de la misma zona, podrá volverse un patrón útil cuando la capa analítica esté lista.
+            información que, sumada a otras de la misma zona, podrá volverse un patrón útil cuando la capa analítica
+            esté lista.
           </p>
           {reportOpen ? (
             <ReportSignalForm

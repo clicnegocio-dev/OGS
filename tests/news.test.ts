@@ -78,7 +78,15 @@ describe("toBoardRows", () => {
 
 describe("buildCpDossier", () => {
   const items: CpDossierItem[] = [
-    { id: "1", type: "Inundación", layer: "riesgo", title: "A", observedAt: "2026-01-01", colonia: "Centro", postalCode: "94290" },
+    {
+      id: "1",
+      type: "Inundación",
+      layer: "riesgo",
+      title: "A",
+      observedAt: "2026-01-01",
+      colonia: "Centro",
+      postalCode: "94290"
+    },
     { id: "2", type: "Inundación", layer: "riesgo", title: "B", observedAt: "2026-03-01", postalCode: "94290" },
     { id: "3", type: "Bache", layer: "movilidad", title: "C", observedAt: "2026-02-01", postalCode: "94290" },
     { id: "4", type: "Bache", layer: "movilidad", title: "D", observedAt: "2026-05-01", postalCode: "94290" },
@@ -107,16 +115,93 @@ describe("buildCpDossier", () => {
     expect(d.byType.find((b) => b.type === "Inundación")!.confidence.level).toBe("emergente"); // 2 notas
   });
 
-  it("cablea source ⇒ medios distintos ⇒ corroborada (4/4)", () => {
+  it("≥2 medios sobre el MISMO evento (misma ventana) ⇒ corroborada (4/4)", () => {
     const corr: CpDossierItem[] = [
-      { id: "a", type: "Fuga", layer: "agua", title: "1", source: "Medio A", postalCode: "94777" },
-      { id: "b", type: "Fuga", layer: "agua", title: "2", source: "Medio A", postalCode: "94777" },
-      { id: "c", type: "Fuga", layer: "agua", title: "3", source: "Medio B", postalCode: "94777" }
+      {
+        id: "a",
+        type: "Fuga",
+        layer: "agua",
+        title: "1",
+        source: "Medio A",
+        observedAt: "2026-05-01",
+        postalCode: "94777"
+      },
+      {
+        id: "b",
+        type: "Fuga",
+        layer: "agua",
+        title: "2",
+        source: "Medio A",
+        observedAt: "2026-05-02",
+        postalCode: "94777"
+      },
+      {
+        id: "c",
+        type: "Fuga",
+        layer: "agua",
+        title: "3",
+        source: "Medio B",
+        observedAt: "2026-05-03",
+        postalCode: "94777"
+      }
     ];
     const d = buildCpDossier(corr, "94777")!;
     expect(d.confidence.level).toBe("corroborada");
     expect(d.confidence.corroborated).toBe(true);
     expect(d.confidence.dots).toBe(4);
+  });
+
+  it("C1: dos medios en el CP+tipo pero en EVENTOS separados (meses) NO corroboran", () => {
+    const spread: CpDossierItem[] = [
+      {
+        id: "a",
+        type: "Fuga",
+        layer: "agua",
+        title: "1",
+        source: "Medio A",
+        observedAt: "2026-01-10",
+        postalCode: "94777"
+      },
+      {
+        id: "b",
+        type: "Fuga",
+        layer: "agua",
+        title: "2",
+        source: "Medio B",
+        observedAt: "2026-06-20",
+        postalCode: "94777"
+      }
+    ];
+    const d = buildCpDossier(spread, "94777")!;
+    expect(d.confidence.corroborated).toBe(false); // coexistencia en el CP ≠ corroboración
+    expect(d.confidence.dots).toBeLessThan(4);
+  });
+
+  it("C1: republicaciones del mismo medio (título casi idéntico) cuentan como una", () => {
+    const republished: CpDossierItem[] = [
+      {
+        id: "a",
+        type: "Bache",
+        layer: "movilidad",
+        title: "Reportan mega bache en el bulevar",
+        source: "Medio A",
+        observedAt: "2026-05-01",
+        postalCode: "94777"
+      },
+      {
+        id: "b",
+        type: "Bache",
+        layer: "movilidad",
+        title: "REPORTAN MEGA BACHE EN EL BULEVAR",
+        source: "Medio A",
+        observedAt: "2026-05-01",
+        postalCode: "94777"
+      }
+    ];
+    const d = buildCpDossier(republished, "94777")!;
+    // Dos URLs, misma nota → una mención → "aislada", no "emergente" por repetición.
+    expect(d.byType[0].confidence.level).toBe("aislada");
+    expect(d.byType[0].confidence.corroborated).toBe(false);
   });
 
   it("recent trae máximo 4, más recientes primero", () => {

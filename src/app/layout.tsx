@@ -1,8 +1,31 @@
 import type { Metadata } from "next";
+import { Inter, Inter_Tight, Spectral } from "next/font/google";
 import "./globals.css";
 import "./narrative.css";
 import { CommandPalette } from "@/components/CommandPalette";
 import { buildCommandIndex } from "@/lib/commands";
+
+// Fuentes self-hosted por next/font (antes: <link> a Google Fonts, render-blocking y con fuga de IP
+// del visitante a Google — contra el principio de privacidad del proyecto). Exponen variables CSS que
+// globals.css consume vía --sans/--display/--serif.
+const inter = Inter({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--font-inter",
+  display: "swap"
+});
+const interTight = Inter_Tight({
+  subsets: ["latin"],
+  variable: "--font-inter-tight",
+  display: "swap"
+});
+const spectral = Spectral({
+  subsets: ["latin"],
+  weight: ["300", "400"],
+  style: ["normal", "italic"],
+  variable: "--font-spectral",
+  display: "swap"
+});
 
 export const metadata: Metadata = {
   title: "Ecosistema Urbano — Nada está aislado",
@@ -12,15 +35,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es" data-theme="light">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Inter+Tight:wght@600;700;800&family=Spectral:ital,wght@0,300;0,400;1,300;1,400&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="es" data-theme="light" className={`${inter.variable} ${interTight.variable} ${spectral.variable}`}>
       <body>
         {children}
         <CommandPalette commands={buildCommandIndex()} />

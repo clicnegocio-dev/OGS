@@ -21,7 +21,6 @@ type ProfileResp = {
   source?: { vintage?: string; name?: string };
 };
 
-
 const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v));
 
 export function AnalysisView({
@@ -56,9 +55,9 @@ export function AnalysisView({
         </div>
         <h1 className="an-title">Análisis · {settlementName}</h1>
         <p className="an-sub">
-          El pilar cuantitativo: <b>¿qué se relaciona con qué?</b> y <b>¿hacia dónde va?</b> — la tesis
-          &ldquo;nada está aislado&rdquo; hecha número. Es <b>exploratorio</b>: el análisis robusto por
-          manzana (AGEB) llega con la plataforma OIS.
+          El pilar cuantitativo: <b>¿qué se relaciona con qué?</b> y <b>¿hacia dónde va?</b> — la tesis &ldquo;nada está
+          aislado&rdquo; hecha número. Es <b>exploratorio</b>: el análisis robusto por manzana (AGEB) llega con la
+          plataforma OIS.
         </p>
         <div
           className="an-tabs"
@@ -104,17 +103,21 @@ export function AnalysisView({
         tabIndex={0}
         aria-labelledby={mode === "relacion" ? "an-tab-relacion" : "an-tab-tendencia"}
       >
-        {mode === "relacion" ? <RelacionPanel cpData={cpData} types={types} /> : <TendenciaPanel settlementId={settlementId} />}
+        {mode === "relacion" ? (
+          <RelacionPanel cpData={cpData} types={types} />
+        ) : (
+          <TendenciaPanel settlementId={settlementId} />
+        )}
       </div>
 
       <section className="an-ois" aria-label="Análisis robusto (OIS)">
         <p className="an-ois-kicker">Lo que llega con OIS</p>
         <p>
-          <b>Regresión robusta por AGEB.</b> Con el dato oficial por manzana (Censo, Entorno Urbano,
-          CENAPRED) —cientos de observaciones y varias capas emparejadas— OIS podrá correr regresión
-          multi-capa real (p. ej. inundación en función de elevación, drenaje, lluvia e historial),
-          explicable y con incertidumbre declarada. Lo de arriba es <b>exploratorio</b> con los datos
-          que EU ya tiene; esto es el modelo. Ver <code>docs/spec-perfiles-eu-ogs_v1.md</code>.
+          <b>Regresión robusta por AGEB.</b> Con el dato oficial por manzana (Censo, Entorno Urbano, CENAPRED) —cientos
+          de observaciones y varias capas emparejadas— OIS podrá correr regresión multi-capa real (p. ej. inundación en
+          función de elevación, drenaje, lluvia e historial), explicable y con incertidumbre declarada. Lo de arriba es{" "}
+          <b>exploratorio</b> con los datos que EU ya tiene; esto es el modelo. Ver{" "}
+          <code>docs/spec-perfiles-eu-ogs_v1.md</code>.
         </p>
         <p className="an-ois-src">{stateName} · Fase 2 (OIS)</p>
       </section>
@@ -201,8 +204,8 @@ function RelacionPanel({ cpData, types }: { cpData: CpDatum[]; types: string[] }
 
       <p className="an-caveat">
         Cada punto es un código postal. <b>N pequeño</b>, <b>fuente única</b> (prensa, no verificada) y{" "}
-        <b>correlación ≠ causalidad</b>: esto sugiere co-ocurrencia por zona, no una causa. El análisis
-        robusto por AGEB llega con OIS.
+        <b>correlación ≠ causalidad</b>: esto sugiere co-ocurrencia por zona, no una causa. El análisis robusto por AGEB
+        llega con OIS.
       </p>
     </section>
   );
@@ -244,7 +247,9 @@ function TendenciaPanel({ settlementId }: { settlementId: string }) {
 
   return (
     <section className="an-panel" aria-label="Tendencia de pobreza">
-      <p className="an-panel-title">Pobreza (CONEVAL) · {series[0].year}–{series[series.length - 1].year}</p>
+      <p className="an-panel-title">
+        Pobreza (CONEVAL) · {series[0].year}–{series[series.length - 1].year}
+      </p>
       <LineChart series={series} />
       <div className="an-stats">
         <Stat label="Puntos" value={String(series.length)} />
@@ -253,8 +258,8 @@ function TendenciaPanel({ settlementId }: { settlementId: string }) {
         {vintage ? <Stat label="Corte" value={vintage} /> : null}
       </div>
       <p className="an-caveat">
-        Es una <b>tendencia observada</b> sobre cortes oficiales, <b>no un pronóstico</b>. La proyección
-        modelada llega con OIS y su histórico.
+        Es una <b>tendencia observada</b> sobre cortes oficiales, <b>no un pronóstico</b>. La proyección modelada llega
+        con OIS y su histórico.
       </p>
     </section>
   );
@@ -292,7 +297,12 @@ function Scatter({
   const sy = (y: number) => H - pb - (y / maxY) * (H - pt - pb);
 
   return (
-    <svg viewBox={`0 0 ${W} ${H}`} className="an-svg" role="img" aria-label={`Dispersión de ${xLabel} contra ${yLabel} por código postal`}>
+    <svg
+      viewBox={`0 0 ${W} ${H}`}
+      className="an-svg"
+      role="img"
+      aria-label={`Dispersión de ${xLabel} contra ${yLabel} por código postal`}
+    >
       <defs>
         <clipPath id="an-clip">
           <rect x={pl} y={pt} width={W - pl - pr} height={H - pt - pb} />

@@ -5,7 +5,11 @@ import Link from "next/link";
 import { LAYER_COLOR } from "@/config/urban-layers";
 import { CpDossier } from "@/components/CpDossier";
 import { isSafeHttpUrl } from "@/lib/url";
-import { buildCpDossier, type BoardRow, type GeoScope, type NewsMeta } from "@/lib/news";
+import { buildCpDossier, daysSince, type BoardRow, type GeoScope, type NewsMeta } from "@/lib/news";
+
+// Umbral de rezago: si la señal más reciente supera estos días, avisamos (el cron semanal debería
+// mantenerlo bajo; si sube, algo dejó de correr). Ver docs/auditoria-cimientos-2026-07.md (C2).
+const STALE_DAYS = 30;
 
 // Tablero tipo "craigslist": lista densa de señales periodísticas, filtrable por categoría, nivel
 // geográfico y código postal, con búsqueda. Complementa el mapa: aquí se HOJEA todo (incluido lo de
@@ -44,6 +48,20 @@ export function NewsBoard({
   const [tipo, setTipo] = useState<string | null>(null);
   const [scope, setScope] = useState<GeoScope | null>(null);
   const [cp, setCp] = useState<string | null>(null);
+  // Date.now() solo tras montar (evita desajuste de hidratación SSR↔cliente). null = aún no evaluado.
+  const [nowMs, setNowMs] = useState<number | null>(null);
+  useEffect(() => setNowMs(Date.now()), []);
+
+  // Rezago del dato: días desde la señal más reciente (vintage) y frescura por fuente para el detalle.
+  const vintageDays = nowMs != null ? daysSince(meta.vintage, nowMs) : null;
+  const isStale = vintageDays != null && vintageDays > STALE_DAYS;
+  const staleSources =
+    nowMs != null
+      ? Object.entries(meta.bySource)
+          .filter(([, f]) => f.count > 0)
+          .map(([name, f]) => ({ name, days: daysSince(f.maxObservedAt, nowMs) }))
+          .filter((s) => s.days != null && s.days > STALE_DAYS)
+      : [];
 
   // Conversación con el mapa: lee ?cp / ?tipo / ?nivel de la URL para pre-aplicar filtros (deep-link).
   useEffect(() => {
@@ -72,7 +90,7 @@ export function NewsBoard({
       .filter((r) => (tipo ? r.type === tipo : true))
       .filter((r) => (scope ? r.geoScope === scope : true))
       .filter((r) => (cp ? r.postalCode === cp : true))
-      .filter((r) => (q ? `${r.title} ${r.colonia ?? ""}`.toLowerCase().includes(q) : true))
+      .filter((r) => (q ? `${r.title} ${r.subject ?? ""} ${r.colonia ?? ""}`.toLowerCase().includes(q) : true))
       .slice()
       .sort((a, b) => (b.observedAt || "").localeCompare(a.observedAt || ""));
   }, [rows, query, tipo, scope, cp]);
@@ -96,12 +114,20 @@ export function NewsBoard({
         </Link>
         <h1 className="board-title">Tablero de señales · {settlementName}</h1>
         <p className="board-sub">
-          {rows.length} señales periodísticas de {settlementName}, {stateName}. Cada nota enlaza a su
-          fuente: son <b>reportes de medios</b>, no hechos verificados.
+          {rows.length} señales periodísticas de {settlementName}, {stateName}. Cada nota enlaza a su fuente: son{" "}
+          <b>reportes de medios</b>, no hechos verificados.
         </p>
         <p className="board-meta">
           Fuente: {meta.source} · corte {meta.vintage} · código postal aproximado (semilla)
         </p>
+        {isStale ? (
+          <p className="board-stale" role="status">
+            ⚠️ Datos con posible rezago: la señal más reciente es de hace {vintageDays} días.
+            {staleSources.length > 0
+              ? ` Sin señales recientes de: ${staleSources.map((s) => `${s.name.replace(/ \(medio\)$/, "")} (${s.days} d)`).join(", ")}.`
+              : ""}
+          </p>
+        ) : null}
       </header>
 
       <div className="board-layout">
@@ -200,13 +226,16 @@ export function NewsBoard({
                   <span className="row-tag" style={{ ["--tag" as string]: typeColor[r.type] || "#8a8f98" }}>
                     {r.type}
                   </span>
-                  {r.sourceUrl && isSafeHttpUrl(r.sourceUrl) ? (
-                    <a className="row-title" href={r.sourceUrl} target="_blank" rel="noopener noreferrer">
-                      {r.title}
-                    </a>
-                  ) : (
-                    <span className="row-title">{r.title}</span>
-                  )}
+                  <span className="row-headline">
+                    {r.sourceUrl && isSafeHttpUrl(r.sourceUrl) ? (
+                      <a className="row-title" href={r.sourceUrl} target="_blank" rel="noopener noreferrer">
+                        {r.title}
+                      </a>
+                    ) : (
+                      <span className="row-title">{r.title}</span>
+                    )}
+                    {r.subject ? <span className="row-subject">{r.subject}</span> : null}
+                  </span>
                   <span className="row-place">{placeOf(r)}</span>
                 </li>
               ))}
@@ -247,7 +276,12 @@ function FilterOption({
   onClick: () => void;
 }) {
   return (
-    <button type="button" className={`filter-option ${active ? "is-active" : ""}`} aria-pressed={active} onClick={onClick}>
+    <button
+      type="button"
+      className={`filter-option ${active ? "is-active" : ""}`}
+      aria-pressed={active}
+      onClick={onClick}
+    >
       {color ? <span className="opt-dot" style={{ background: color }} aria-hidden="true" /> : null}
       <span className="opt-label">{label}</span>
       <span className="opt-count">{count}</span>

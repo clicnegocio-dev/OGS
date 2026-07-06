@@ -2,14 +2,17 @@
   "name": "ecosistema-urbano",
   "version": "0.1.0",
   "license": "AGPL-3.0-or-later",
+  "packageManager": "npm@10.9.2",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint .",
+    "lint": "eslint . --max-warnings=0",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "verify:api": "node scripts/verify-api.mjs",
     "scrape:news": "node scraping/news/scrape-news.mjs",
     "enrich:news-cp": "node scraping/news/enrich-postal-codes.mjs"
@@ -31,7 +34,11 @@
     "@types/react-dom": "^19.0.4",
     "eslint": "^9.39.4",
     "eslint-config-next": "^15.5.19",
+    "prettier": "^3.4.2",
     "typescript": "^5.8.3",
     "vitest": "^4.1.9"
+  },
+  "overrides": {
+    "postcss": "^8.5.10"
   }
 }

@@ -1,0 +1,53 @@
+name: Scrape news
+
+# Convierte el snapshot de señales de MANUAL a OPERADO. El worker es incremental (reutiliza lo ya
+# enriquecido, respeta robots.txt en tiempo real); solo commitea si el JSON cambió.
+# Ver scraping/README.md y docs/auditoria-cimientos-2026-07.md (C2/C3).
+
+on:
+  schedule:
+    - cron: "17 8 * * 1" # lunes 08:17 UTC (semanal)
+  workflow_dispatch:
+    inputs:
+      enrich_limit:
+        description: "Tope de notas a enriquecer por corrida (SCRAPE_ENRICH_LIMIT; 0 = solo sitemap)"
+        default: "150"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scrape-news
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Regenerar snapshot
+        run: npm run scrape:news
+        env:
+          SCRAPE_ENRICH_LIMIT: ${{ github.event.inputs.enrich_limit || '150' }}
+
+      - name: Commitear snapshot si cambió
+        run: |
+          SNAPSHOT="scraping/news/output/news-signals.generated.json"
+          if git diff --quiet -- "$SNAPSHOT"; then
+            echo "Sin cambios en el snapshot; nada que commitear."
+            exit 0
+          fi
+          git config user.name "eu-scraper-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add "$SNAPSHOT"
+          git commit -m "chore(scrape): refresca snapshot de señales ($(date -u +%Y-%m-%d))"
+          git push

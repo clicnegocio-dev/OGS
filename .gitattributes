@@ -1,0 +1,10 @@
+# Normaliza fines de línea a LF en el repo (evita la guerra CRLF↔LF entre Windows y CI/Linux).
+# Coherente con .editorconfig (end_of_line = lf) y con prettier (default lf).
+* text=auto eol=lf
+
+# Binarios y artefactos que no deben normalizarse.
+*.png binary
+*.jpg binary
+*.webp binary
+*.ico binary
+package-lock.json -text

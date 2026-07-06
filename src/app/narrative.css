@@ -24,7 +24,9 @@
 .eco-reveal {
   opacity: 0;
   transform: translateY(22px);
-  transition: opacity 0.8s cubic-bezier(0.2, 0.6, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.6, 0.2, 1);
+  transition:
+    opacity 0.8s cubic-bezier(0.2, 0.6, 0.2, 1),
+    transform 0.8s cubic-bezier(0.2, 0.6, 0.2, 1);
 }
 
 .eco-reveal.is-revealed {
@@ -256,7 +258,10 @@
   font-size: 12px;
   font-weight: 600;
   text-align: left;
-  transition: border-color 0.25s, color 0.25s, box-shadow 0.25s;
+  transition:
+    border-color 0.25s,
+    color 0.25s,
+    box-shadow 0.25s;
 }
 
 .eco-ltab:hover {
@@ -405,7 +410,10 @@
   cursor: pointer;
   color: inherit;
   text-align: left;
-  transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s,
+    transform 0.3s;
 }
 
 .eco-symptom:hover,
@@ -476,7 +484,9 @@
   border-radius: 12px;
   background: var(--panel);
   padding: 24px 22px;
-  transition: transform 0.25s, box-shadow 0.25s;
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s;
 }
 
 .eco-eje-card:hover {
@@ -569,7 +579,9 @@
   border-radius: 14px;
   background: var(--panel);
   padding: 22px 18px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
 }
 
 .eco-pillar:hover {
@@ -712,7 +724,10 @@
   font-size: 13px;
   font-weight: 600;
   text-decoration: none;
-  transition: transform 0.2s, background 0.2s, border-color 0.2s;
+  transition:
+    transform 0.2s,
+    background 0.2s,
+    border-color 0.2s;
 }
 
 .eco-btn-primary {

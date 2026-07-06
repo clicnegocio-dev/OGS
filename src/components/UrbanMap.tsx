@@ -43,7 +43,10 @@ const EMPTY_COLLECTION = {
   features: []
 };
 
-const LAYER_COLORS = Object.fromEntries(URBAN_LAYERS.map((layer) => [layer.key, layer.color])) as Record<UrbanLayerKey, string>;
+const LAYER_COLORS = Object.fromEntries(URBAN_LAYERS.map((layer) => [layer.key, layer.color])) as Record<
+  UrbanLayerKey,
+  string
+>;
 const LAYER_INFO = Object.fromEntries(
   URBAN_LAYERS.map((layer) => [layer.key, { label: layer.label, hint: layer.description }])
 ) as Record<UrbanLayerKey, { label: string; hint: string }>;
@@ -73,7 +76,16 @@ const PRIVACY_ES: Record<string, string> = {
   aggregated: "Agregado (ubicación aproximada)"
 };
 
-export default function UrbanMap({ center, signals, hazards, boundary, activeLayers, is3dEnabled, theme, focusEnabled = true }: UrbanMapProps) {
+export default function UrbanMap({
+  center,
+  signals,
+  hazards,
+  boundary,
+  activeLayers,
+  is3dEnabled,
+  theme,
+  focusEnabled = true
+}: UrbanMapProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const mapRef = useRef<maplibregl.Map | null>(null);
   const popupRef = useRef<maplibregl.Popup | null>(null);
@@ -168,12 +180,22 @@ export default function UrbanMap({ center, signals, hazards, boundary, activeLay
     const map = mapRef.current;
     if (!map) return;
     map.setStyle(MAP_STYLES[theme]);
-    map.once("styledata", () => {
+    // #A5 (auditoría): `styledata` se emite varias veces durante la carga; instalar capas con el
+    // estilo a medio cargar las perdía o mezclaba el tema. Esperamos a isStyleLoaded(), y la limpieza
+    // del efecto retira el handler si el tema cambia otra vez antes de que dispare (toggles rápidos no
+    // apilan handlers ni corren con el estilo equivocado).
+    const applyLayers = () => {
+      if (!map.isStyleLoaded()) return;
+      map.off("styledata", applyLayers);
       installUrbanLayers(map, activeLayersRef.current, is3dEnabledRef.current, theme);
       updateBoundary(map, boundaryRef.current);
       setSignalsData(map, signalsRef.current, activeLayersRef.current);
       updateSource(map, "urban-hazards", signalsToFeatures(hazardsRef.current, "riesgo"));
-    });
+    };
+    map.on("styledata", applyLayers);
+    return () => {
+      map.off("styledata", applyLayers);
+    };
   }, [theme]);
 
   useEffect(() => {
@@ -242,7 +264,13 @@ function installUrbanLayers(
   configureGlobe(map, is3dEnabled, theme);
   if (!map.getSource("urban-boundary")) map.addSource("urban-boundary", { type: "geojson", data: EMPTY_COLLECTION });
   if (!map.getSource("urban-signals"))
-    map.addSource("urban-signals", { type: "geojson", data: EMPTY_COLLECTION, cluster: true, clusterRadius: 55, clusterMaxZoom: 14 });
+    map.addSource("urban-signals", {
+      type: "geojson",
+      data: EMPTY_COLLECTION,
+      cluster: true,
+      clusterRadius: 55,
+      clusterMaxZoom: 14
+    });
   // Fuente sin clusterizar, gemela, para que el heatmap salga liso (no a partir de clusters).
   if (!map.getSource("urban-heat")) map.addSource("urban-heat", { type: "geojson", data: EMPTY_COLLECTION });
   if (!map.getSource("urban-hazards")) map.addSource("urban-hazards", { type: "geojson", data: EMPTY_COLLECTION });
@@ -289,12 +317,18 @@ function installUrbanLayers(
           "interpolate",
           ["linear"],
           ["heatmap-density"],
-          0, "rgba(74,144,196,0)",
-          0.2, "rgba(74,144,196,0.4)",
-          0.4, "rgba(107,174,110,0.6)",
-          0.6, "rgba(224,162,58,0.78)",
-          0.8, "rgba(238,106,91,0.9)",
-          1, "rgba(216,90,72,0.96)"
+          0,
+          "rgba(74,144,196,0)",
+          0.2,
+          "rgba(74,144,196,0.4)",
+          0.4,
+          "rgba(107,174,110,0.6)",
+          0.6,
+          "rgba(224,162,58,0.78)",
+          0.8,
+          "rgba(238,106,91,0.9)",
+          1,
+          "rgba(216,90,72,0.96)"
         ]
       }
     });
@@ -313,10 +347,14 @@ function installUrbanLayers(
           "interpolate",
           ["linear"],
           ["get", "point_count"],
-          2, "#4a90c4",
-          15, "#6bae6e",
-          40, "#e0a23a",
-          120, "#ee6a5b"
+          2,
+          "#4a90c4",
+          15,
+          "#6bae6e",
+          40,
+          "#e0a23a",
+          120,
+          "#ee6a5b"
         ],
         "circle-radius": ["interpolate", ["linear"], ["get", "point_count"], 2, 13, 15, 18, 40, 26, 120, 34],
         "circle-opacity": 0.84,
@@ -369,10 +407,14 @@ function installUrbanLayers(
         "circle-opacity": [
           "case",
           // Niveles sin punto exacto (municipio/estado) se pintan más tenues = "área aproximada".
-          ["==", ["get", "geoScope"], "municipio"], 0.32,
-          ["==", ["get", "geoScope"], "estado"], 0.22,
-          ["==", ["get", "confidence"], "official"], 0.96,
-          ["==", ["get", "confidence"], "inferred"], 0.5,
+          ["==", ["get", "geoScope"], "municipio"],
+          0.32,
+          ["==", ["get", "geoScope"], "estado"],
+          0.22,
+          ["==", ["get", "confidence"], "official"],
+          0.96,
+          ["==", ["get", "confidence"], "inferred"],
+          0.5,
           0.82
         ],
         "circle-stroke-width": ["case", ["==", ["get", "confidence"], "official"], 2, 1.2],
@@ -454,7 +496,11 @@ function attachInteractionHandlers(map: maplibregl.Map, popupRef: RefObject<mapl
       .getClusterExpansionZoom(clusterId)
       .then((zoom) => {
         const coords = (feature.geometry as GeoJSON.Point).coordinates as [number, number];
-        map.easeTo({ center: coords, zoom: (zoom ?? map.getZoom() + 2) + 0.2, duration: prefersReducedMotion() ? 0 : 700 });
+        map.easeTo({
+          center: coords,
+          zoom: (zoom ?? map.getZoom() + 2) + 0.2,
+          duration: prefersReducedMotion() ? 0 : 700
+        });
       })
       .catch(() => {});
   });
@@ -586,7 +632,10 @@ function updateSource(
   });
 }
 
-function signalsToFeatures(points: MapPoint[], forcedLayer?: string): GeoJSON.Feature<GeoJSON.Point, Record<string, unknown>>[] {
+function signalsToFeatures(
+  points: MapPoint[],
+  forcedLayer?: string
+): GeoJSON.Feature<GeoJSON.Point, Record<string, unknown>>[] {
   return points.map((point) => {
     const layer = forcedLayer || point.layer;
     return {
@@ -655,11 +704,7 @@ function renderPopup(properties: Record<string, unknown>) {
   const colonia = properties.colonia ? escapeHtml(String(properties.colonia)) : "";
   const postalCode = properties.postalCode ? escapeHtml(String(properties.postalCode)) : "";
   const place =
-    geoScope === "municipio"
-      ? "Nivel municipio (sin colonia)"
-      : geoScope === "estado"
-        ? "Nivel estado"
-        : colonia;
+    geoScope === "municipio" ? "Nivel municipio (sin colonia)" : geoScope === "estado" ? "Nivel estado" : colonia;
   const placeText = [place, postalCode ? `CP ${postalCode}` : ""].filter(Boolean).join(" · ");
 
   const meta = [

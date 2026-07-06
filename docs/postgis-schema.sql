@@ -1,3 +1,10 @@
+-- ⚠️ SUPERADO (2026-07-06) — NO DESPLEGAR. Documento HISTÓRICO conservado como referencia.
+-- Ecosistema Urbano NO construye backend/DB propios: la persistencia (ingestión, boundaries oficiales,
+-- reportes, memoria) es trabajo de OIS. Regla de oro y contrato vigente: docs/spec-integracion-eu-ois_v1.md
+-- (§0.2, §2 "lo que EU DEJA de construir"). En el código: `grep DATABASE_URL src/` → 0 usos; el mapa se
+-- sirve del snapshot de scraping y de las APIs oficiales en vivo, sin Postgres. Este esquema (y el de
+-- spec-arquitectura-ois.md §5) quedan como bocetos del motor que hoy vive en OIS.
+
 CREATE EXTENSION IF NOT EXISTS postgis;
 
 CREATE TABLE IF NOT EXISTS settlements (

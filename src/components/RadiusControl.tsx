@@ -44,8 +44,8 @@ export function RadiusControl({
         })}
       </div>
       <p className="radius-note">
-        “Todo” incluye señales a nivel municipio y estado (ubicación aproximada). Un radio acota a las
-        cercanas al centro.
+        “Todo” incluye señales a nivel municipio y estado (ubicación aproximada). Un radio acota a las cercanas al
+        centro.
       </p>
     </div>
   );

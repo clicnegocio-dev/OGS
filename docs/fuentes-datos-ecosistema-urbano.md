@@ -96,20 +96,23 @@ La regla para integrar fuentes es:
 
 ## Fase 2: fuentes por scraping controlado
 
-### Medios locales
+### Medios locales — IMPLEMENTADO (ver `scraping/news/`)
 
-Objetivo: detectar senales urbanas por asentamiento, colonia o zona. No sustituye datos oficiales; sirve como capa de alerta y narrativa territorial.
+Objetivo: detectar senales urbanas por asentamiento, colonia o zona. No sustituye datos oficiales; sirve como capa de alerta y narrativa territorial. Es plano de LECTURA efimero: worker offline que materializa un snapshot que la API solo lee (nada de scraping en request-time). La ingestion persistente es de OIS (Fase 2).
 
-Fuentes iniciales:
+Arquitectura de dos capas, ambas de metadatos DECLARADOS por el medio:
 
-- Imagen de Veracruz: https://imagendeveracruz.mx
-- XEU Noticias: https://xeu.mx/
+1. Descubrimiento por sitemap (loc/lastmod, o `<news:title>` si el sitemap lo trae), ordenado por fecha desc, filtrado a senales civicas geolocalizables por asentamiento (colonia/municipio).
+2. Cita: de las candidatas ya atribuidas se lee SOLO el `<head>` (og:title = titulo real, og:description = ASUNTO, article:published_time = fecha), abortando la descarga en `</head>`. Nunca se descarga el cuerpo del articulo. Se respeta `robots.txt` EN TIEMPO DE EJECUCION; si un medio bloquea, esa nota cae a modo solo-slug.
 
-Hallazgos iniciales:
+Inventario relevado (2026-07-06):
 
-- XEU tiene paginas por temas y noticias locales con titulos detectables desde HTML; se debe revisar si ofrece RSS/sitemap antes de scrapear listados.
-- Imagen de Veracruz publica notas con fecha, autor/seccion y URLs estables; se debe preferir sitemap/RSS si existen.
-- Ambos medios pueden aportar senales por asentamiento cuando mencionan colonias, fraccionamientos, municipios, obras, trafico, inundaciones, accidentes o servicios.
+- INTEGRADOS: XEU Noticias (xeu.mx), Plumas Libres (plumaslibres.com.mx), El Dictamen (eldictamen.mx, sitemap Google News con `<news:title>`).
+- FUERA por robots (`Disallow: /`): Imagen de Veracruz (imagendeveracruz.mx), Imagen del Golfo (imagendelgolfo.mx).
+- EVALUADOS y DIFERIDOS por ~0 atribucion a nivel asentamiento (estatales/nacionales): jornadaveracruz, versiones, palabrasclaras, e-veracruz (→ e-consulta), diariodexalapa (→ OEM/Xalapa).
+- NO USABLES ahora (sitemap roto / sin sitemap / inalcanzables): alcalorpolitico, avcnoticias, notiver, olivanews, veracruzanos, masnoticias, formato7. Revisar en el futuro.
+
+Precision de atribucion: las claves de colonia de nombre generico (Zaragoza, Las Vegas, El Dorado…) exigen un ancla de ciudad en el slug para no capturar la homonima de otro municipio (Xalapa/Cordoba). Preferimos sub-atribuir a mal-atribuir.
 
 Campos a extraer:
 

@@ -1,11 +1,6 @@
 import type { DataConfidence, DataPrivacy, Severity } from "@/types/urban";
 
-export type UrbanSignalLayer =
-  | "ambiental"
-  | "urbano"
-  | "social"
-  | "economico"
-  | "institucional";
+export type UrbanSignalLayer = "ambiental" | "urbano" | "social" | "economico" | "institucional";
 
 export type UrbanSignal = {
   id: string;
@@ -72,7 +67,8 @@ const SEED_SIGNALS: Omit<UrbanSignal, "seed">[] = [
     layer: "social",
     type: "accesibilidad",
     title: "Banqueta con accesibilidad limitada",
-    description: "Señal de espacio público que afecta la movilidad autónoma de adultos mayores, infancias y personas con discapacidad.",
+    description:
+      "Señal de espacio público que afecta la movilidad autónoma de adultos mayores, infancias y personas con discapacidad.",
     lat: 19.119,
     lng: -96.1115,
     severity: "medium",
@@ -89,7 +85,8 @@ const SEED_SIGNALS: Omit<UrbanSignal, "seed">[] = [
     layer: "economico",
     type: "comercio",
     title: "Zona con baja vitalidad comercial",
-    description: "Señal preliminar para observar el cierre de locales, el flujo peatonal y los cambios de actividad económica.",
+    description:
+      "Señal preliminar para observar el cierre de locales, el flujo peatonal y los cambios de actividad económica.",
     lat: 19.1124,
     lng: -96.1202,
     severity: "low",

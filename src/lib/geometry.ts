@@ -3,7 +3,9 @@ export type Point = {
   lat: number;
 };
 
-export function buildDataDrivenBoundary(points: Point[]): GeoJSON.Feature<GeoJSON.Polygon, { source: string; method: string; pointCount: number }> | null {
+export function buildDataDrivenBoundary(
+  points: Point[]
+): GeoJSON.Feature<GeoJSON.Polygon, { source: string; method: string; pointCount: number }> | null {
   const clean = points.filter((point) => Number.isFinite(point.lng) && Number.isFinite(point.lat));
   if (clean.length < 3) return null;
 
@@ -38,7 +40,9 @@ function filterOutliers(points: Point[]) {
   const maxLng = quantile(lngs, 0.99);
   const minLat = quantile(lats, 0.01);
   const maxLat = quantile(lats, 0.99);
-  return points.filter((point) => point.lng >= minLng && point.lng <= maxLng && point.lat >= minLat && point.lat <= maxLat);
+  return points.filter(
+    (point) => point.lng >= minLng && point.lng <= maxLng && point.lat >= minLat && point.lat <= maxLat
+  );
 }
 
 function convexHull(points: Point[]) {
