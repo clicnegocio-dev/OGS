@@ -36,12 +36,21 @@
   Content-Length (10 KB) + validación de severidad; (c) `denue/route.ts`: `condition` acotada
   (longitud + espacios). Tests nuevos (`tests/api-hardening.test.ts`).
 
-**PENDIENTE** (siguientes fases, por prioridad): A4/A5/A6 (deep-link `?cp` roto en SPA, carrera de
-tema del mapa, fallos parciales invisibles), A9 (narrativa en tiempo honesto), A3 (refresh ML), M1
-(sobre común de metadatos + weather/EONET), M2/M3/M18 (vintage DENUE, maxRecords, bySource en más
-endpoints), M6/M8/M9 (ids/selección/revalidación del scraper), M13 (a11y), M14 (más tests de rutas
-API), y los BAJOS (404 en settlement desconocido, retirar market/ckan huérfanos, etc.). El resto
-sigue listado abajo con su evidencia.
+**RESUELTO — Fase 3 (frontend):**
+
+- **A6** ✅ `UrbanHero`: banner GRANULAR de fuentes caídas (nombra las que no respondieron) en vez de
+  avisar solo si fallan las 7 — honra "Sin datos ≠ sin problema".
+- **A5** ✅ `UrbanMap`: el re-tematizado espera a `isStyleLoaded()` y la limpieza del efecto retira el
+  handler en toggles rápidos (no más capas perdidas ni tema mezclado).
+- **A4** ✅ el deep-link `?cp` usa `useSearchParams` (con `<Suspense>` en las rutas SSG) → elegir una
+  colonia en ⌘K estando ya en la página ahora sí enfoca el mapa (antes solo se leía al montar).
+
+**PENDIENTE** (siguientes fases, por prioridad): A9 (narrativa en tiempo honesto), A7 (toggle de tema
+antes de `load`), A3 (refresh ML), M1 (sobre común de metadatos + weather/EONET), M2/M3/M18 (vintage
+DENUE, maxRecords, bySource en más endpoints), M6/M8/M9 (ids/selección/revalidación del scraper), M10
+(UrbanHero componente-dios), M11 (perfil SSG), M13 (a11y: contraste `--muted`, roving tabindex), M14
+(más tests de rutas/componentes), y los BAJOS (404 en settlement desconocido, retirar market/ckan
+huérfanos, etc.). El resto sigue listado abajo con su evidencia.
 
 ## Resumen ejecutivo
 
