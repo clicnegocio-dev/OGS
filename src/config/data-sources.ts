@@ -21,10 +21,26 @@ export type DataSource = {
 
 export const STATUS_META: Record<SourceStatus, { label: string; description: string; color: string }> = {
   vivo: { label: "En vivo", description: "Se consume en tiempo real y alimenta la interfaz.", color: "#6bae6e" },
-  snapshot: { label: "Instantánea cableada", description: "Dato real con fecha de corte, servido desde un snapshot (no en tiempo real).", color: "#4a90c4" },
-  semilla: { label: "Semilla / demo", description: "Datos fabricados para ilustrar; marcados como demo.", color: "#e0a23a" },
-  desconectado: { label: "Construido, sin cablear", description: "El conector existe pero aún no llega a la interfaz.", color: "#8a8f98" },
-  ois: { label: "En integración (OIS)", description: "Requiere ingestión pesada / persistencia: es trabajo de OIS (Fase 2).", color: "#4c6fae" }
+  snapshot: {
+    label: "Instantánea cableada",
+    description: "Dato real con fecha de corte, servido desde un snapshot (no en tiempo real).",
+    color: "#4a90c4"
+  },
+  semilla: {
+    label: "Semilla / demo",
+    description: "Datos fabricados para ilustrar; marcados como demo.",
+    color: "#e0a23a"
+  },
+  desconectado: {
+    label: "Construido, sin cablear",
+    description: "El conector existe pero aún no llega a la interfaz.",
+    color: "#8a8f98"
+  },
+  ois: {
+    label: "En integración (OIS)",
+    description: "Requiere ingestión pesada / persistencia: es trabajo de OIS (Fase 2).",
+    color: "#4c6fae"
+  }
 };
 
 export const CONFIDENCE_META: Record<SourceConfidence, string> = {
@@ -90,17 +106,18 @@ export const DATA_SOURCES: DataSource[] = [
     note: "Granularidad municipio; el detalle por AGEB/colonia llega con OIS."
   },
   {
-    id: "xeu-news",
-    name: "XEU Noticias",
-    provider: "XEU (medio local)",
+    id: "medios-locales",
+    name: "Medios locales (prensa)",
+    provider: "XEU · Plumas Libres · El Dictamen",
     gives: "Señales periodísticas por asentamiento y código postal.",
     layers: "Varias",
-    access: "Sitemap declarado (respeta robots.txt; no descarga cuerpos)",
-    freshness: "Snapshot (corte 2025-08-02); se regenera con el scraper",
+    access: "Sitemap declarado + título/asunto del <head> citable (respeta robots.txt; no descarga cuerpos)",
+    // El corte real se deriva del snapshot en vivo (ver DERIVED_FRESHNESS en fuentes/page.tsx); no se
+    // hardcodea una fecha aquí para que la página de transparencia no vuelva a quedar desactualizada.
+    freshness: "Snapshot regenerable (semanal)",
     confidence: "reported",
     status: "snapshot",
-    url: "https://xeu.mx",
-    note: "Reportes de medios, no hechos verificados. CP aproximado (semilla). Plano de lectura, efímero."
+    note: "Reportes de medios, no hechos verificados. Descubrimiento por sitemap + título/asunto declarado. CP aproximado (semilla). La antigüedad varía por medio; el corte se muestra en el tablero."
   },
   {
     id: "seeds",
@@ -144,7 +161,8 @@ export const DATA_SOURCES: DataSource[] = [
     id: "inegi-territorio",
     name: "INEGI Censo · Entorno Urbano · Marco Geoestadístico · CENAPRED",
     provider: "INEGI / CENAPRED / CONAGUA",
-    gives: "Límites oficiales por AGEB, servicios básicos (drenaje/agua/luz), banquetas/alumbrado, inundación histórica.",
+    gives:
+      "Límites oficiales por AGEB, servicios básicos (drenaje/agua/luz), banquetas/alumbrado, inundación histórica.",
     layers: "Urbano · Social · Ambiental · Base",
     access: "Descargas / shapefiles / CSV (ingestión pesada)",
     freshness: "Cortes oficiales",

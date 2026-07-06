@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import {
-  DATA_SOURCES,
-  STATUS_META,
-  STATUS_ORDER,
-  CONFIDENCE_META,
-  type DataSource
-} from "@/config/data-sources";
+import { DATA_SOURCES, STATUS_META, STATUS_ORDER, CONFIDENCE_META, type DataSource } from "@/config/data-sources";
+import { NEWS_META } from "@/lib/news";
 import "./fuentes.css";
+
+// Frescura DERIVADA del snapshot en vivo (no hardcodeada) para que /fuentes no vuelva a quedar
+// desactualizada. La antigüedad por medio (algún sitemap rezagado) se ve en el tablero de señales.
+const DERIVED_FRESHNESS: Record<string, string> = {
+  "medios-locales": `Snapshot · corte ${NEWS_META.vintage} · generado ${NEWS_META.generatedAt.slice(0, 10)}`
+};
 
 export const metadata: Metadata = {
   title: "Fuentes de datos — Ecosistema Urbano",
@@ -26,10 +27,10 @@ export default function FuentesPage() {
         </Link>
         <h1 className="fuentes-title">Fuentes de datos</h1>
         <p className="fuentes-sub">
-          Cada dato de Ecosistema Urbano declara <b>origen, fecha y confianza</b>. Aquí está de dónde
-          viene todo — y qué tan fresco y confiable es. También decimos con claridad qué es{" "}
-          <b>demostración</b>, qué está <b>construido pero sin cablear</b>, y qué llega cuando la
-          plataforma OIS lo materialice. <em>Sin datos ≠ sin problema.</em>
+          Cada dato de Ecosistema Urbano declara <b>origen, fecha y confianza</b>. Aquí está de dónde viene todo — y qué
+          tan fresco y confiable es. También decimos con claridad qué es <b>demostración</b>, qué está{" "}
+          <b>construido pero sin cablear</b>, y qué llega cuando la plataforma OIS lo materialice.{" "}
+          <em>Sin datos ≠ sin problema.</em>
         </p>
       </header>
 
@@ -69,7 +70,10 @@ export default function FuentesPage() {
             </h2>
             <div className="fuentes-grid">
               {sources.map((source) => (
-                <SourceCard key={source.id} source={source} />
+                <SourceCard
+                  key={source.id}
+                  source={{ ...source, freshness: DERIVED_FRESHNESS[source.id] ?? source.freshness }}
+                />
               ))}
             </div>
           </section>
@@ -77,9 +81,9 @@ export default function FuentesPage() {
       })}
 
       <p className="fuentes-foot">
-        Ecosistema Urbano es una piel cívica de lectura. Los datos que se <b>consultan</b> viven de forma
-        efímera aquí; los reportes que la ciudadanía <b>escribe</b> van a la plataforma OIS. Ver el plan de
-        integración en el repositorio (<code>docs/spec-integracion-eu-ois_v1.md</code>).
+        Ecosistema Urbano es una piel cívica de lectura. Los datos que se <b>consultan</b> viven de forma efímera aquí;
+        los reportes que la ciudadanía <b>escribe</b> van a la plataforma OIS. Ver el plan de integración en el
+        repositorio (<code>docs/spec-integracion-eu-ois_v1.md</code>).
       </p>
     </main>
   );
