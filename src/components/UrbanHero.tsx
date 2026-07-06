@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { UrbanLayerControl } from "@/components/UrbanLayerControl";
 import { RadiusControl } from "@/components/RadiusControl";
@@ -75,6 +76,9 @@ export function UrbanHero({ settlementSlug }: { settlementSlug?: string }) {
   const [newsSummary, setNewsSummary] = useState<{ total: number; mapped: number; vintage: string } | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [loadError, setLoadError] = useState(false);
+  // #A6 (auditoría): qué fuentes NO respondieron (parcial). Antes solo se avisaba si fallaban TODAS,
+  // y una fuente caída se veía como "hay menos señales" — contra el lema "Sin datos ≠ sin problema".
+  const [failedSources, setFailedSources] = useState<string[]>([]);
   const [is3dEnabled, setIs3dEnabled] = useState(true);
   const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [activeLayers, setActiveLayers] = useState<Record<UrbanLayerKey, boolean>>(DEFAULT_ACTIVE_LAYERS);
@@ -87,6 +91,7 @@ export function UrbanHero({ settlementSlug }: { settlementSlug?: string }) {
   const launcherRef = useRef<HTMLButtonElement>(null);
   const collapseRef = useRef<HTMLButtonElement>(null);
   const panelsToggled = useRef(false);
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     // Un AbortController por ejecución: al desmontar o cambiar de asentamiento ABORTA de verdad las
@@ -94,6 +99,7 @@ export function UrbanHero({ settlementSlug }: { settlementSlug?: string }) {
     const controller = new AbortController();
     setIsLoading(true);
     setLoadError(false);
+    setFailedSources([]);
 
     const settlementId = configuredSettlement.id;
     const params = new URLSearchParams({
@@ -146,24 +152,32 @@ export function UrbanHero({ settlementSlug }: { settlementSlug?: string }) {
         setDataWarning(boundaryResult.value.completeness?.warning || denueWarning || null);
       }
 
-      // Si TODO falló, lo decimos (antes el fallo total era indistinguible de "no hay señales").
-      const failures = results.filter((r) => r.status === "rejected").length;
-      setLoadError(failures === results.length);
+      // Fallos por fuente: nombramos las caídas (parcial) para no presentar "menos datos" como
+      // "sin problema". Si fallaron TODAS, además marcamos loadError (mensaje de error total).
+      const LABELS = ["señales base", "riesgos", "comercios y servicios", "límite", "clima", "perfil", "noticias"];
+      const failed = results
+        .map((r, i) => (r.status === "rejected" ? LABELS[i] : null))
+        .filter((l): l is string => l !== null);
+      setFailedSources(failed);
+      setLoadError(failed.length === results.length);
       setIsLoading(false);
     });
 
     return () => controller.abort();
   }, [configuredSettlement, city]);
 
-  // Conversación con el tablero de lista: ?cp=... enfoca un código postal (recentra + acota a 2 km).
+  // Conversación con el tablero/⌘K: ?cp=... enfoca un código postal (recentra + acota a 2 km). #A4
+  // (auditoría): antes se leía SOLO al montar (window.location.search en un efecto []), así que elegir
+  // una colonia en ⌘K estando YA en la página no enfocaba nada (router.push no remonta). Con
+  // useSearchParams el efecto reacciona al cambio de URL en navegación cliente (y en back/forward).
+  const cpParam = searchParams.get("cp");
   useEffect(() => {
-    const cp = new URLSearchParams(window.location.search).get("cp");
-    if (cp) {
-      setFocusCp(cp);
+    if (cpParam) {
+      setFocusCp(cpParam);
       setRadiusKm(2);
       setPanelsExpanded(true); // que el dossier del CP sea visible al llegar por ?cp
     }
-  }, []);
+  }, [cpParam]);
 
   // Disclosure accesible: al expandir/colapsar, mueve el foco al control recién montado para no
   // perderlo en <body>. Salta el render inicial (el panel arranca colapsado en la carga) para no
@@ -259,6 +273,12 @@ export function UrbanHero({ settlementSlug }: { settlementSlug?: string }) {
       {isLoading ? <p className="data-warning">Cargando señales…</p> : null}
       {loadError ? (
         <p className="data-warning">No se pudieron cargar las señales en este momento. Reintenta en unos segundos.</p>
+      ) : null}
+      {!loadError && failedSources.length > 0 ? (
+        <p className="data-warning" role="status">
+          Faltan fuentes que no respondieron: {failedSources.join(", ")}. Lo visible está incompleto — no es &ldquo;sin
+          problema&rdquo;.
+        </p>
       ) : null}
       {weather ? (
         <Metric

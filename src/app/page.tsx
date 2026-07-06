@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { UrbanHero } from "@/components/UrbanHero";
 import { EcosistemaNarrative } from "@/components/EcosistemaNarrative";
 import { SETTLEMENTS } from "@/config/settlements";
@@ -7,7 +8,10 @@ import { SETTLEMENTS } from "@/config/settlements";
 export default function Home() {
   return (
     <>
-      <UrbanHero settlementSlug="boca-del-rio" />
+      {/* Suspense: UrbanHero usa useSearchParams (?cp) — Next lo exige en una ruta estática (#A4). */}
+      <Suspense fallback={null}>
+        <UrbanHero settlementSlug="boca-del-rio" />
+      </Suspense>
       <EcosistemaNarrative cityName={SETTLEMENTS["boca-del-rio"].name} settlementSlug="boca-del-rio" />
     </>
   );

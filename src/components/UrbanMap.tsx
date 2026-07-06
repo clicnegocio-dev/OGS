@@ -180,12 +180,22 @@ export default function UrbanMap({
     const map = mapRef.current;
     if (!map) return;
     map.setStyle(MAP_STYLES[theme]);
-    map.once("styledata", () => {
+    // #A5 (auditoría): `styledata` se emite varias veces durante la carga; instalar capas con el
+    // estilo a medio cargar las perdía o mezclaba el tema. Esperamos a isStyleLoaded(), y la limpieza
+    // del efecto retira el handler si el tema cambia otra vez antes de que dispare (toggles rápidos no
+    // apilan handlers ni corren con el estilo equivocado).
+    const applyLayers = () => {
+      if (!map.isStyleLoaded()) return;
+      map.off("styledata", applyLayers);
       installUrbanLayers(map, activeLayersRef.current, is3dEnabledRef.current, theme);
       updateBoundary(map, boundaryRef.current);
       setSignalsData(map, signalsRef.current, activeLayersRef.current);
       updateSource(map, "urban-hazards", signalsToFeatures(hazardsRef.current, "riesgo"));
-    });
+    };
+    map.on("styledata", applyLayers);
+    return () => {
+      map.off("styledata", applyLayers);
+    };
   }, [theme]);
 
   useEffect(() => {
