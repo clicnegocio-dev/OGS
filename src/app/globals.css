@@ -20,9 +20,9 @@
   --shadow: 0 24px 64px -34px rgba(0, 0, 0, 0.86);
   --shadow-soft: 0 18px 50px -22px rgba(35, 38, 43, 0.28), 0 4px 14px -8px rgba(35, 38, 43, 0.14);
   --shadow-card: 0 22px 44px -26px rgba(35, 38, 43, 0.4), 0 2px 8px -4px rgba(35, 38, 43, 0.1);
-  --sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --display: "Inter Tight", "Inter", system-ui, sans-serif;
-  --serif: "Spectral", Georgia, serif;
+  --sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --display: var(--font-inter-tight), var(--font-inter), system-ui, sans-serif;
+  --serif: var(--font-spectral), Georgia, serif;
 }
 
 * {
@@ -106,8 +106,7 @@ button {
   --ui-map-veil-bottom: rgba(7, 16, 22, 0.72);
   background:
     radial-gradient(circle at 14% 12%, rgba(238, 106, 91, 0.16), transparent 26%),
-    radial-gradient(circle at 82% 78%, rgba(74, 144, 196, 0.22), transparent 32%),
-    #071016;
+    radial-gradient(circle at 82% 78%, rgba(74, 144, 196, 0.22), transparent 32%), #071016;
 }
 
 .hero-shell[data-ui-theme="light"] {
@@ -139,7 +138,13 @@ button {
   pointer-events: none;
   background:
     radial-gradient(circle at 50% 52%, transparent 0%, transparent 50%, var(--ui-map-veil-edge) 100%),
-    linear-gradient(90deg, var(--ui-map-veil-left) 0%, var(--ui-map-veil-mid) 22%, transparent 48%, var(--ui-map-veil-mid) 100%),
+    linear-gradient(
+      90deg,
+      var(--ui-map-veil-left) 0%,
+      var(--ui-map-veil-mid) 22%,
+      transparent 48%,
+      var(--ui-map-veil-mid) 100%
+    ),
     linear-gradient(180deg, var(--ui-map-veil-top), transparent 35%, var(--ui-map-veil-bottom));
 }
 
@@ -320,7 +325,9 @@ button {
 
 .map-mode.is-active {
   border-color: rgba(238, 106, 91, 0.5);
-  box-shadow: 0 0 0 1px rgba(238, 106, 91, 0.18), 0 24px 58px -34px rgba(238, 106, 91, 0.8);
+  box-shadow:
+    0 0 0 1px rgba(238, 106, 91, 0.18),
+    0 24px 58px -34px rgba(238, 106, 91, 0.8);
 }
 
 .mode-kicker {
@@ -443,7 +450,9 @@ button {
   color: var(--ui-soft);
   cursor: pointer;
   text-align: left;
-  transition: border-color 180ms ease, transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    border-color 180ms ease,
+    transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
   animation: panelRise 460ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
   transform-origin: bottom right;
 }
@@ -551,7 +560,10 @@ button {
   font-weight: 850;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+  transition:
+    background 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease;
 }
 
 .rail-collapse:hover {
@@ -765,7 +777,10 @@ button {
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.04em;
-  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    color 0.15s;
 }
 
 .radius-pill:hover {
@@ -1186,7 +1201,11 @@ button {
   cursor: pointer;
   padding: 9px 10px;
   text-align: left;
-  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease, opacity 160ms ease;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease,
+    transform 160ms ease,
+    opacity 160ms ease;
 }
 
 .layer-row:hover {
@@ -1202,8 +1221,7 @@ button {
 .layer-row.is-active {
   border-color: color-mix(in srgb, var(--layer-color) 54%, rgba(255, 255, 255, 0.12));
   background:
-    linear-gradient(90deg, color-mix(in srgb, var(--layer-color) 14%, transparent), transparent 58%),
-    var(--ui-elevated);
+    linear-gradient(90deg, color-mix(in srgb, var(--layer-color) 14%, transparent), transparent 58%), var(--ui-elevated);
 }
 
 .layer-toggle {
@@ -1224,7 +1242,9 @@ button {
   border-radius: 999px;
   background: var(--layer-color);
   box-shadow: 0 0 0 0 color-mix(in srgb, var(--layer-color) 44%, transparent);
-  transition: box-shadow 180ms ease, transform 180ms ease;
+  transition:
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
 .layer-row.is-active .layer-toggle span {
@@ -1471,8 +1491,12 @@ button {
 
 @media (max-width: 860px) {
   .map-stage::after {
-    background:
-      linear-gradient(180deg, var(--ui-map-veil-bottom) 0%, var(--ui-map-veil-top) 34%, var(--ui-map-veil-bottom) 100%);
+    background: linear-gradient(
+      180deg,
+      var(--ui-map-veil-bottom) 0%,
+      var(--ui-map-veil-top) 34%,
+      var(--ui-map-veil-bottom) 100%
+    );
   }
 
   .hero-copy {
